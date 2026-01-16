@@ -248,19 +248,31 @@ p {
 .mega-menu-content {
   display: flex;
   justify-content: flex-start;
-  gap: 6rem;
+  gap: 8rem;
+  /* Increased gap for better separation */
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 0;
+  padding-left: 2rem;
 }
 
 .mega-column {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
+  /* Increased gap between title and list */
 }
 
 .mega-column.explore {
-  min-width: 300px;
+  min-width: unset;
+  /* Remove fixed width */
+  flex-shrink: 0;
+}
+
+.mega-logo {
+  height: 60px;
+  /* Increased visual size */
+  width: auto;
+  object-fit: contain;
 }
 
 .column-title {
@@ -315,6 +327,190 @@ p {
   margin-bottom: 1.5rem;
   color: var(--accent-blue);
 }
+
+/* Core Capabilities Redesign - Glassmorphic Steps */
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 3rem 0;
+  position: relative;
+}
+
+.capability-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.02),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.capability-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.06),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+  z-index: 10;
+}
+
+/* Step Label */
+.capability-step {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #A0A0A0;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.capability-card:hover .capability-step {
+  color: var(--accent-blue);
+}
+
+/* Visual Icon Container */
+.capability-visual {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.05), rgba(79, 70, 229, 0.02));
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: var(--accent-blue);
+  border: 1px solid rgba(79, 70, 229, 0.1);
+  transition: all 0.4s ease;
+}
+
+.capability-card:hover .capability-visual {
+  transform: scale(1.1) rotate(5deg);
+  background: var(--accent-blue);
+  color: #FFF;
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
+  border-color: var(--accent-blue);
+}
+
+.capability-visual i {
+  width: 28px;
+  height: 28px;
+  stroke-width: 2px;
+}
+
+/* Content */
+.capability-card h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.capability-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+/* Badge */
+.capability-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  background: #F1F5F9;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748B;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+
+.capability-card:hover .capability-badge {
+  background: #E0E7FF;
+  color: var(--accent-blue);
+}
+
+/* Connectors (Arrow Buttons) */
+.capability-card:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  top: 50%;
+  right: -0.75rem;
+  /* Centered on the gap */
+  width: 32px;
+  height: 32px;
+  background: #FFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94A3B8;
+  font-family: system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  transform: translateY(-50%);
+  z-index: 20;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+}
+
+.capability-card:not(:last-child):hover::after {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  color: #FFF;
+  transform: translateY(-50%) translateX(5px);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .capabilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .capability-card:not(:last-child)::after {
+    display: none;
+    /* Hide connectors on tablet/mobile */
+  }
+
+  /* Create vertical connectors for 2-column if needed, or just hide */
+  .capability-card:nth-child(odd):not(:last-child)::after {
+    /* Optional: Could add connector pointing right for 2-col layout */
+    display: flex;
+    right: -1rem;
+  }
+
+  .capability-card:nth-child(even)::after {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .capabilities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .capability-card::after {
+    display: none !important;
+  }
+}
+
 
 .mega-info h4 {
   font-size: 1.25rem;
@@ -1384,6 +1580,443 @@ footer {
 .location-info p {
   color: #A0A0A0;
   font-size: 0.85rem;
+}
+
+/* Bento Grid V2 (3-Column) */
+.bento-grid-v3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+@media (max-width: 1024px) {
+  .bento-grid-v3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .bento-grid-v3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* Zig-Zag Use Cases Layout */
+.use-case-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 4rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.use-case-item {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  transition: transform 0.3s ease;
+}
+
+.use-case-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.1);
+}
+
+.use-case-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.use-case-image-wrapper {
+  flex-shrink: 0;
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #C4C4FC;
+  /* Placeholder backdrop color from reference */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.use-case-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.use-case-item:hover .use-case-image {
+  transform: scale(1.05);
+}
+
+.use-case-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.use-case-content h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.use-case-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.use-case-content a {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: gap 0.3s ease;
+}
+
+.use-case-content a:hover {
+  gap: 0.8rem;
+  color: var(--accent-blue);
+}
+
+@media (max-width: 992px) {
+  .use-case-item {
+    flex-direction: column !important;
+    /* Stack vertically on mobile/tablet */
+    text-align: center;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .use-case-content {
+    align-items: center;
+    /* Center align text on mobile */
+  }
+
+  .use-case-image-wrapper {
+    width: 100%;
+    height: 250px;
+  }
+}
+
+/* Feature Cards Row (Section 2) */
+.feature-cards-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.feature-card {
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+  text-align: left;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card .icon-wrapper {
+  background: #C4C4FC;
+  /* Light Purple from reference */
+  color: var(--white);
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  /* subtle icon style inside */
+}
+
+.feature-card .icon-wrapper i {
+  width: 48px;
+  height: 48px;
+  opacity: 0.5;
+  /* Subtle icon to mimic the 'empty' look or just context */
+  stroke-width: 1.5;
+}
+
+.feature-card h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #000;
+  letter-spacing: -0.02em;
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+@media (max-width: 992px) {
+  .feature-cards-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .feature-cards-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Graphic Container Base */
+.bento-graphic-box {
+  width: 100%;
+  height: 160px;
+  background: #F8FAFC;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 1. Flow Graphic */
+.graphic-flow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.flow-node {
+  width: 48px;
+  height: 48px;
+  background: #FFF;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-blue);
+  position: relative;
+  z-index: 2;
+}
+
+.flow-line {
+  height: 2px;
+  width: 40px;
+  background: var(--accent-blue);
+  position: relative;
+}
+
+.flow-line::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: -3px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--accent-blue);
+  border-bottom: 2px solid var(--accent-blue);
+  transform: rotate(-45deg);
+}
+
+/* 2. Orbit Graphic */
+.graphic-orbit {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.orbit-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background: var(--accent-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  z-index: 2;
+}
+
+.orbit-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px dashed rgba(79, 70, 229, 0.2);
+  border-radius: 50%;
+  animation: spin 10s linear infinite;
+}
+
+.orbit-dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #FFF;
+  border: 2px solid var(--accent-blue);
+  border-radius: 50%;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 3. UI Mock Graphic */
+.graphic-ui-mock {
+  width: 80%;
+  height: 80%;
+  background: #FFF;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ui-line {
+  height: 6px;
+  background: #F1F5F9;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.ui-line.short {
+  width: 60%;
+}
+
+.ui-btn {
+  margin-top: auto;
+  height: 24px;
+  background: var(--accent-blue);
+  border-radius: 6px;
+  width: 80px;
+}
+
+/* 4. Fan Graphic */
+.graphic-fan {
+  position: relative;
+  width: 100px;
+  height: 80px;
+}
+
+.fan-card {
+  position: absolute;
+  width: 80px;
+  height: 60px;
+  background: #FFF;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+}
+
+.fan-card:nth-child(1) {
+  transform: rotate(-15deg) translate(-20px, 10px);
+  z-index: 1;
+}
+
+.fan-card:nth-child(2) {
+  transform: rotate(0deg) translate(0, 0);
+  z-index: 2;
+}
+
+.fan-card:nth-child(3) {
+  transform: rotate(15deg) translate(20px, 10px);
+  z-index: 1;
+}
+
+/* 5. Line Chart Graphic */
+.graphic-line-chart {
+  width: 80%;
+  height: 60%;
+  position: relative;
+  border-left: 2px solid #E2E8F0;
+  border-bottom: 2px solid #E2E8F0;
+}
+
+.chart-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  stroke: var(--accent-blue);
+  stroke-width: 2;
+  fill: none;
+}
+
+.chart-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--accent-blue);
+  border-radius: 50%;
+  border: 2px solid #FFF;
+}
+
+/* 6. Bar Chart Graphic */
+.graphic-bar-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  height: 60%;
+}
+
+.bar-col {
+  width: 24px;
+  background: var(--accent-blue);
+  border-radius: 6px 6px 0 0;
+  opacity: 0.2;
+}
+
+.bar-col.active {
+  opacity: 1;
+  height: 80% !important;
+  box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
 }
 
 /* Visual Animations */
