@@ -1742,28 +1742,15 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
 }
 
 .mega-column.explore .mega-logo {
   max-width: 200px;
   height: auto;
   display: block;
-  margin-bottom: 1.5rem;
-  filter: brightness(0.95);
-  transition: filter 0.3s ease;
-  order: -1;
 }
 
-.mega-column.explore:hover .mega-logo {
-  filter: brightness(1.05);
-}
-
-.mega-column.explore .large-link {
-  margin-bottom: 0;
-  display: inline-block;
-  font-size: 1.1rem;
-  font-weight: 600;
-}
 
 .mega-column .column-title {
   font-size: 0.75rem;
@@ -1792,16 +1779,17 @@ footer {
 .mega-360-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 1.75rem;
+  justify-content: center;
+  padding: 0.875rem 2rem;
   background: var(--accent-blue);
   color: white !important;
   border-radius: 8px;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   transition: all 0.3s ease;
   text-decoration: none;
   border: none;
+  min-width: 140px;
 }
 
 .mega-360-link:hover {
