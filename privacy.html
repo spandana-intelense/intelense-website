@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Intelense & KenVision Security</title>
+    <meta name="description"
+        content="Your data's safe zone starts here. Learn how Intelense protects your data with end-to-end encryption and metadata-only focus.">
+
+    <!-- DM Sans Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        /* Privacy Specific Layout */
+        .privacy-hero {
+            background: var(--dark-bg);
+            color: var(--white);
+            padding: 12rem 0 8rem;
+            text-align: center;
+        }
+
+        .privacy-section {
+            padding: 8rem 0;
+            background: var(--white);
+        }
+
+        .secure-card {
+            background: #F9F9FB;
+            border-radius: 20px;
+            padding: 4rem;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .secure-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-5px);
+        }
+
+        /* Identity vs Metadata Visual */
+        .privacy-visual-block {
+            background: #000;
+            color: #FFF;
+            padding: 4rem;
+            border-radius: 24px;
+            margin: 6rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .privacy-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .mask-block {
+            text-align: center;
+            padding: 2.5rem;
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+        }
+
+        .id-placeholder {
+            width: 120px;
+            height: 120px;
+            background: #222;
+            margin: 0 auto 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: #666;
+            position: relative;
+        }
+
+        .id-placeholder.meta {
+            background: rgba(0, 255, 148, 0.05);
+            border: 1px solid #00FF94;
+            color: #00FF94;
+        }
+
+        .id-placeholder.mask::after {
+            content: 'IDENTITY MASKED';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FF3B30;
+            font-weight: 800;
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">INTELENSE</a>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+
+                <!-- KenVision -->
+                <div class="nav-item-wrapper has-mega-menu">
+                    <a href="kenvision.html">KenVision</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-column explore">
+                                <span class="column-title">Explore KenVision</span>
+                                <ul>
+                                    <li><a href="kenvision.html" class="large-link">Explore All KenVision</a></li>
+                                    <li><a href="kenvision.html#platform">Visual Intelligence Platform</a></li>
+                                    <li><a href="kenvision.html#features">Core Features</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-column">
+                                <span class="column-title">Applications</span>
+                                <ul>
+                                    <li><a href="kenvision.html#retail">Retail Analytics</a></li>
+                                    <li><a href="kenvision.html#commercial">Commercial Buildings</a></li>
+                                    <li><a href="kenvision.html#smart-cities">Smart Cities & Public Spaces</a></li>
+                                    <li><a href="kenvision.html#surveillance">AI for Video Surveillance</a></li>
+                                    <li><a href="kenvision.html#emergency">Emergency Services</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-column">
+                                <span class="column-title">Resources</span>
+                                <ul>
+                                    <li><a href="contact.html">Contact Sales</a></li>
+                                    <li><a href="faq.html">KenVision Support</a></li>
+                                    <li><a href="ken360.html">Ken 360 Specs</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KenIoT -->
+                <div class="nav-item-wrapper has-mega-menu">
+                    <a href="keniot.html">KenIoT</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-column explore">
+                                <span class="column-title">Explore KenIoT</span>
+                                <ul>
+                                    <li><a href="keniot.html" class="large-link">Explore All KenIoT</a></li>
+                                    <li><a href="keniot.html#monitoring">Smart Sensor Networks</a></li>
+                                    <li><a href="keniot.html#predictive">Predictive Analytics</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-column">
+                                <span class="column-title">Applications</span>
+                                <ul>
+                                    <li><a href="keniot.html#automation">Industrial Automation</a></li>
+                                    <li><a href="keniot.html#maintenance">Predictive Maintenance</a></li>
+                                    <li><a href="keniot.html#infrastructure">Smart Infrastructure</a></li>
+                                    <li><a href="keniot.html#compliance">Safety & Compliance</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-column">
+                                <span class="column-title">Resources</span>
+                                <ul>
+                                    <li><a href="contact.html">Contact Sales</a></li>
+                                    <li><a href="faq.html">KenIoT Support</a></li>
+                                    <li><a href="ken360.html">Ken 360 Specs</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KenRobotics -->
+                <div class="nav-item-wrapper has-mega-menu">
+                    <a href="kenrobotics.html">KenRobotics</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-column explore">
+                                <span class="column-title">Explore KenRobotics</span>
+                                <ul>
+                                    <li><a href="kenrobotics.html" class="large-link">Explore All KenRobotics</a></li>
+                                    <li><a href="kenrobotics.html#automation">Robotic Process Automation</a></li>
+                                    <li><a href="kenrobotics.html#inspection">Critical Inspection</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-column">
+                                <span class="column-title">Applications</span>
+                                <ul>
+                                    <li><a href="kenrobotics.html#industrial">Industrial Robotics</a></li>
+                                    <li><a href="kenrobotics.html#logistics">Warehousing & Logistics</a></li>
+                                    <li><a href="kenrobotics.html#inspection">Infrastructure Inspection</a></li>
+                                    <li><a href="kenrobotics.html#surveillance">Safety & Surveillance</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-column">
+                                <span class="column-title">Resources</span>
+                                <ul>
+                                    <li><a href="contact.html">Contact Sales</a></li>
+                                    <li><a href="faq.html">KenRobotics Support</a></li>
+                                    <li><a href="ken360.html">Ken 360 Specs</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KenAgri -->
+                <div class="nav-item-wrapper has-mega-menu">
+                    <a href="kenagri.html">KenAgri</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-column explore">
+                                <span class="column-title">Explore KenAgri</span>
+                                <ul>
+                                    <li><a href="kenagri.html" class="large-link">Explore All KenAgri</a></li>
+                                    <li><a href="kenagri.html#precision">Precision Data Farming</a></li>
+                                    <li><a href="kenagri.html#monitoring">Crop Health Monitoring</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-column">
+                                <span class="column-title">Applications</span>
+                                <ul>
+                                    <li><a href="kenagri.html#farming">Precision Farming</a></li>
+                                    <li><a href="kenagri.html#management">Farm Management</a></li>
+                                    <li><a href="kenagri.html#optimization">Agri-Input Optimization</a></li>
+                                    <li><a href="kenagri.html#resilience">Climate-Resilient</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-column">
+                                <span class="column-title">Resources</span>
+                                <ul>
+                                    <li><a href="contact.html">Contact Sales</a></li>
+                                    <li><a href="faq.html">KenAgri Support</a></li>
+                                    <li><a href="ken360.html">Ken 360 Specs</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KenHome -->
+                <div class="nav-item-wrapper has-mega-menu">
+                    <a href="kenhome.html">KenHome</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-column explore">
+                                <span class="column-title">Explore KenHome</span>
+                                <ul>
+                                    <li><a href="kenhome.html" class="large-link">Explore All KenHome</a></li>
+                                    <li><a href="kenhome.html#protection">Home Protection AI</a></li>
+                                    <li><a href="kenhome.html#care">Family Care Systems</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-column">
+                                <span class="column-title">Applications</span>
+                                <ul>
+                                    <li><a href="kenhome.html#old-age">Old-Age Care</a></li>
+                                    <li><a href="kenhome.html#child">Child Safety</a></li>
+                                    <li><a href="kenhome.html#pet">Pet Care</a></li>
+                                    <li><a href="kenhome.html#theft">Vehicle Anti-Theft</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-column">
+                                <span class="column-title">Resources</span>
+                                <ul>
+                                    <li><a href="contact.html">Contact Sales</a></li>
+                                    <li><a href="faq.html">KenHome Support</a></li>
+                                    <li><a href="ken360.html">Ken 360 Specs</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KenSafety -->
+                <div class="nav-item-wrapper has-mega-menu">
+                    <a href="kensafety.html">KenSafety</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-column explore">
+                                <span class="column-title">Explore KenSafety</span>
+                                <ul>
+                                    <li><a href="kensafety.html" class="large-link">Explore All KenSafety</a></li>
+                                    <li><a href="kensafety.html#monitoring">Incident Prevention</a></li>
+                                    <li><a href="kensafety.html#ppe">PPE Compliance</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-column">
+                                <span class="column-title">Applications</span>
+                                <ul>
+                                    <li><a href="kensafety.html#construction">Construction Sites</a></li>
+                                    <li><a href="kensafety.html#industrial">Industrial Facilities</a></li>
+                                    <li><a href="kensafety.html#commercial">Commercial Buildings</a></li>
+                                    <li><a href="kensafety.html#logistics">Warehouses & Logistics</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-column">
+                                <span class="column-title">Resources</span>
+                                <ul>
+                                    <li><a href="contact.html">Contact Sales</a></li>
+                                    <li><a href="faq.html">KenSafety Support</a></li>
+                                    <li><a href="ken360.html">Ken 360 Specs</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="ken360.html">Ken 360</a>
+                <a href="about.html">About</a>
+                <a href="contact.html" class="btn-contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="privacy-hero">
+            <div class="container reveal">
+                <span class="tag" style="background: rgba(255,255,255,0.1); color: #FFF;">Your data’s safe zone</span>
+                <h1 style="font-size: 4rem; margin: 2rem 0; line-height: 1.1;">
+                    Your privacy <span class="text-gradient">starts here.</span> <br>
+                </h1>
+                <p style="max-width: 650px; margin: 0 auto 3rem; color: #A0A0A0; font-size: 1.2rem; line-height: 1.6;">
+                    No shortcuts. No compromises. Just privacy. We take every step necessary to protect your data from
+                    unauthorized access, misuse, or loss.
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <a href="contact.html" class="btn-contact"
+                        style="padding: 1rem 2rem; background: var(--accent-blue);">Contact us</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Foundation Section -->
+        <section class="privacy-section">
+            <div class="container">
+                <div class="reveal" style="text-align: center; margin-bottom: 6rem;">
+                    <span class="section-label">KenVision by Intelense</span>
+                    <h2 style="margin-bottom: 2rem;">How secure is secure?</h2>
+                    <p style="max-width: 800px; margin: 0 auto; font-size: 1.15rem; line-height: 1.8;">
+                        Privacy is fundamental to everything we do. It isn't just a feature – it's the foundation of our
+                        products. Whether it's Video Analytics or Retail Intelligence, we ensure your data is treated
+                        with the highest level of integrity.
+                    </p>
+                </div>
+
+                <div class="grid-2">
+                    <div class="reveal secure-card">
+                        <i data-lucide="shield-check"
+                            style="width: 48px; height: 48px; color: var(--accent-blue); margin-bottom: 2rem;"></i>
+                        <h3 style="margin-bottom: 1.5rem;">Your data stays yours</h3>
+                        <p style="color: var(--text-secondary); line-height: 1.8;">We don't sell your information. Ever.
+                            Your data is encrypted end-to-end, meaning even we can't access it. You choose what to
+                            share, when to share it, and who to share it with.</p>
+                    </div>
+                    <div class="reveal secure-card">
+                        <i data-lucide="code-2"
+                            style="width: 48px; height: 48px; color: var(--accent-blue); margin-bottom: 2rem;"></i>
+                        <h3 style="margin-bottom: 1.5rem;">Secure by design</h3>
+                        <p style="color: var(--text-secondary); line-height: 1.8;">Privacy isn't an afterthought – it's
+                            built into our DNA. Every product goes through rigorous privacy engineering. We employ
+                            industry-leading encryption and regular security audits.</p>
+                    </div>
+                    <div class="reveal secure-card">
+                        <i data-lucide="eye"
+                            style="width: 48px; height: 48px; color: var(--accent-blue); margin-bottom: 2rem;"></i>
+                        <h3 style="margin-bottom: 1.5rem;">Transparency you can trust</h3>
+                        <p style="color: var(--text-secondary); line-height: 1.8;">We believe you deserve to know
+                            exactly how your data is handled. Our practices are clear and straightforward, without
+                            complex legal jargon. We notify you of changes proactively.</p>
+                    </div>
+                    <div class="reveal secure-card">
+                        <i data-lucide="zap"
+                            style="width: 48px; height: 48px; color: var(--accent-blue); margin-bottom: 2rem;"></i>
+                        <h3 style="margin-bottom: 1.5rem;">Innovation with integrity</h3>
+                        <p style="color: var(--text-secondary); line-height: 1.8;">We uphold the highest global
+                            standards. At Intelense, security and responsibility are non-negotiable. When we say this,
+                            we mean it. No compromises on human dignity.</p>
+                    </div>
+                </div>
+
+                <!-- Identity vs Metadata Visual -->
+                <div class="reveal privacy-visual-block">
+                    <div style="text-align: center; margin-bottom: 4rem;">
+                        <span class="tag"
+                            style="background: rgba(0, 255, 148, 0.1); color: #00FF94; border: 1px solid rgba(0, 255, 148, 0.2);">PRIVACY
+                            ARCHITECTURE</span>
+                        <h2 style="margin-top: 1.5rem; color: #FFF;">Your data is yours. <br> Let's keep it that way.
+                        </h2>
+                        <p style="color: #A0A0A0; margin-top: 1rem;">Unparalleled peace of mind. We focus solely on
+                            metadata.</p>
+                    </div>
+
+                    <div class="privacy-grid">
+                        <div class="mask-block">
+                            <div class="id-placeholder mask">
+                                [ PERSONAL ID ]
+                            </div>
+                            <h4 style="font-size: 0.8rem; letter-spacing: 0.1em;">NO IDENTIFIABLE DATA STORED</h4>
+                        </div>
+
+                        <div
+                            style="display: flex; flex-direction: column; align-items: center; gap: 1rem; opacity: 0.2;">
+                            <i data-lucide="arrow-right"></i>
+                            <i data-lucide="arrow-right"></i>
+                            <i data-lucide="arrow-right"></i>
+                        </div>
+
+                        <div class="mask-block">
+                            <div class="id-placeholder meta">
+                                <i data-lucide="activity" style="width: 32px; height: 32px;"></i>
+                            </div>
+                            <h4 style="font-size: 0.8rem; letter-spacing: 0.1em; color: #00FF94;">METADATA ONLY</h4>
+                            <p style="font-size: 0.6rem; color: #666; margin-top: 0.5rem;">Only incident-specific
+                                triggers captured.</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 4rem; text-align: center;">
+                        <a href="contact.html" class="btn-contact"
+                            style="padding: 1rem 2rem; background: #FFF; color: #000;">Book a call</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="color: var(--white); margin-bottom: 1.5rem;">
+                        INTELENSE <span></span>
+                    </a>
+                    <p style="color: #A0A0A0; margin-bottom: 2rem;">Turn data into insights.</p>
+                    <div class="contact-info">
+                        <p
+                            style="display: flex; align-items: center; gap: 0.75rem; color: #A0A0A0; font-size: 0.9rem; margin-bottom: 1rem;">
+                            <i data-lucide="mail" style="width: 16px;"></i> enquiries@intelense.ca
+                        </p>
+                        <p
+                            style="display: flex; align-items: center; gap: 0.75rem; color: #A0A0A0; font-size: 0.9rem; margin-bottom: 0.5rem;">
+                            <i data-lucide="phone" style="width: 16px;"></i> +1 (289) 552-3165
+                        </p>
+                        <p style="display: flex; align-items: center; gap: 0.75rem; color: #A0A0A0; font-size: 0.9rem;">
+                            <i data-lucide="phone" style="width: 16px;"></i> +91 72043 15095
+                        </p>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="kenvision.html">KenVision</a></li>
+                        <li><a href="keniot.html">KenIoT</a></li>
+                        <li><a href="kenrobotics.html">KenRobotics</a></li>
+                        <li><a href="kenagri.html">KenAgri</a></li>
+                        <li><a href="kenhome.html">KenHome</a></li>
+                        <li><a href="kensafety.html">KenSafety</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="ken360.html">Ken 360</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blogs.html">Blogs</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#"
+                            style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--white);">
+                            <i data-lucide="twitter" style="width: 18px;"></i>
+                        </a>
+                        <a href="#"
+                            style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--white);">
+                            <i data-lucide="linkedin" style="width: 18px;"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Locations</h4>
+                    <div class="location-info">
+                        <h5>Canada</h5>
+                        <p>3600 Steeles Ave E, Markham, ON M1W 2Z2, Canada</p>
+
+                        <h5>India</h5>
+                        <p>No. 45, C2 Gubbalala Village (Deepika Layout), Uttarahalli Hobli, Bangalore South, Karnataka-
+                            560061</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

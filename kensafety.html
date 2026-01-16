@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KenSafety | AI-Powered Safety & Hazard Prevention</title>
+    <meta name="description"
+        content="KenSafety is an AI-powered safety platform that detects hazards, prevents incidents, and protects people across industrial and commercial environments.">
+
+    <!-- DM Sans Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;0,800;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        /* KenSafety Specific Visuals */
+        .safety-hero-visual {
+            position: relative;
+            width: 400px;
+            height: 350px;
+            background: #F9F9FB;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .safety-pin {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: #FF3B30;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(255, 59, 48, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .safety-pin::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #FF3B30;
+            border-radius: 50%;
+            animation: ping 1.5s infinite;
+        }
+
+        @keyframes ping {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(3);
+                opacity: 0;
+            }
+        }
+
+        .safety-tooltip {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #1A1A1A;
+            color: #FFF;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .safety-pin:hover .safety-tooltip {
+            opacity: 1;
+            visibility: visible;
+            bottom: 30px;
+        }
+
+        /* Monitor UI */
+        .safety-monitor {
+            background: #0F0F12;
+            border-radius: 16px;
+            padding: 2rem;
+            color: #FFF;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .monitor-stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .monitor-stat {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .incidents-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .incident-item {
+            padding: 1rem;
+            background: rgba(255, 59, 48, 0.05);
+            border-left: 3px solid #FF3B30;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">INTELENSE</a>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+
+                <!-- KenVision -->
+                <div class="nav-item-wrapper has-mega-menu">
+                    <a href="kenvision.html">KenVision</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-column explore">
+                                <span class="column-title">Explore KenVision</span>
+                                <ul>
+                                    <li><a href="kenvision.html" class="large-link">Explore All KenVision</a></li>
+                                    <li><a href="kenvision.html#platform">Visual Intelligence Platform</a></li>
+                                    <li><a href="kenvision.html#features">Core Features</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-column">
+                                <span class="column-title">Applications</span>
+                                <ul>
+                                    <li><a href="kenvision.html#retail">Retail Analytics</a></li>
+                                    <li><a href="kenvision.html#commercial">Commercial Buildings</a></li>
+                                    <li><a href="kenvision.html#smart-cities">Smart Cities & Public Spaces</a></li>
+                                    <li><a href="kenvision.html#surveillance">AI for Video Surveillance</a></li>
+                                    <li><a href="kenvision.html#emergency">Emergency Services</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-column">
+                                <span class="column-title">Resources</span>
+                                <ul>
+                                    <li><a href="contact.html">Contact Sales</a></li>
+                                    <li><a href="faq.html">KenVision Support</a></li>
+                                    <li><a href="ken360.html">Ken 360 Specs</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KenIoT -->
+                <div class="nav-item-wrapper has-mega-menu">
+                    <a href="keniot.html">KenIoT</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-column explore">
+                                <span class="column-title">Explore KenIoT</span>
+                                <ul>
+                                    <li><a href="keniot.html" class="large-link">Explore All KenIoT</a></li>
+                                    <li><a href="keniot.html#monitoring">Smart Sensor Networks</a></li>
+                                    <li><a href="keniot.html#predictive">Predictive Analytics</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-column">
+                                <span class="column-title">Applications</span>
+                                <ul>
+                                    <li><a href="keniot.html#automation">Industrial Automation</a></li>
+                                    <li><a href="keniot.html#maintenance">Predictive Maintenance</a></li>
+                                    <li><a href="keniot.html#infrastructure">Smart Infrastructure</a></li>
+                                    <li><a href="keniot.html#compliance">Safety & Compliance</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-column">
+                                <span class="column-title">Resources</span>
+                                <ul>
+                                    <li><a href="contact.html">Contact Sales</a></li>
+                                    <li><a href="faq.html">KenIoT Support</a></li>
+                                    <li><a href="ken360.html">Ken 360 Specs</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KenRobotics -->
+                <div class="nav-item-wrapper has-mega-menu">
+                    <a href="kenrobotics.html">KenRobotics</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-column explore">
+                                <span class="column-title">Explore KenRobotics</span>
+                                <ul>
+                                    <li><a href="kenrobotics.html" class="large-link">Explore All KenRobotics</a></li>
+                                    <li><a href="kenrobotics.html#automation">Robotic Process Automation</a></li>
+                                    <li><a href="kenrobotics.html#inspection">Critical Inspection</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-column">
+                                <span class="column-title">Applications</span>
+                                <ul>
+                                    <li><a href="kenrobotics.html#industrial">Industrial Robotics</a></li>
+                                    <li><a href="kenrobotics.html#logistics">Warehousing & Logistics</a></li>
+                                    <li><a href="kenrobotics.html#inspection">Infrastructure Inspection</a></li>
+                                    <li><a href="kenrobotics.html#surveillance">Safety & Surveillance</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-column">
+                                <span class="column-title">Resources</span>
+                                <ul>
+                                    <li><a href="contact.html">Contact Sales</a></li>
+                                    <li><a href="faq.html">KenRobotics Support</a></li>
+                                    <li><a href="ken360.html">Ken 360 Specs</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KenAgri -->
+                <div class="nav-item-wrapper has-mega-menu">
+                    <a href="kenagri.html">KenAgri</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-column explore">
+                                <span class="column-title">Explore KenAgri</span>
+                                <ul>
+                                    <li><a href="kenagri.html" class="large-link">Explore All KenAgri</a></li>
+                                    <li><a href="kenagri.html#precision">Precision Data Farming</a></li>
+                                    <li><a href="kenagri.html#monitoring">Crop Health Monitoring</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-column">
+                                <span class="column-title">Applications</span>
+                                <ul>
+                                    <li><a href="kenagri.html#farming">Precision Farming</a></li>
+                                    <li><a href="kenagri.html#management">Farm Management</a></li>
+                                    <li><a href="kenagri.html#optimization">Agri-Input Optimization</a></li>
+                                    <li><a href="kenagri.html#resilience">Climate-Resilient</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-column">
+                                <span class="column-title">Resources</span>
+                                <ul>
+                                    <li><a href="contact.html">Contact Sales</a></li>
+                                    <li><a href="faq.html">KenAgri Support</a></li>
+                                    <li><a href="ken360.html">Ken 360 Specs</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KenHome -->
+                <div class="nav-item-wrapper has-mega-menu">
+                    <a href="kenhome.html">KenHome</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-column explore">
+                                <span class="column-title">Explore KenHome</span>
+                                <ul>
+                                    <li><a href="kenhome.html" class="large-link">Explore All KenHome</a></li>
+                                    <li><a href="kenhome.html#protection">Home Protection AI</a></li>
+                                    <li><a href="kenhome.html#care">Family Care Systems</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-column">
+                                <span class="column-title">Applications</span>
+                                <ul>
+                                    <li><a href="kenhome.html#old-age">Old-Age Care</a></li>
+                                    <li><a href="kenhome.html#child">Child Safety</a></li>
+                                    <li><a href="kenhome.html#pet">Pet Care</a></li>
+                                    <li><a href="kenhome.html#theft">Vehicle Anti-Theft</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-column">
+                                <span class="column-title">Resources</span>
+                                <ul>
+                                    <li><a href="contact.html">Contact Sales</a></li>
+                                    <li><a href="faq.html">KenHome Support</a></li>
+                                    <li><a href="ken360.html">Ken 360 Specs</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KenSafety -->
+                <div class="nav-item-wrapper has-mega-menu">
+                    <a href="kensafety.html" class="active">KenSafety</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-column explore">
+                                <span class="column-title">Explore KenSafety</span>
+                                <ul>
+                                    <li><a href="kensafety.html" class="large-link">Explore All KenSafety</a></li>
+                                    <li><a href="kensafety.html#monitoring">Incident Prevention</a></li>
+                                    <li><a href="kensafety.html#ppe">PPE Compliance</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-column">
+                                <span class="column-title">Applications</span>
+                                <ul>
+                                    <li><a href="kensafety.html#construction">Construction Sites</a></li>
+                                    <li><a href="kensafety.html#industrial">Industrial Facilities</a></li>
+                                    <li><a href="kensafety.html#commercial">Commercial Buildings</a></li>
+                                    <li><a href="kensafety.html#logistics">Warehouses & Logistics</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-column">
+                                <span class="column-title">Resources</span>
+                                <ul>
+                                    <li><a href="contact.html">Contact Sales</a></li>
+                                    <li><a href="faq.html">KenSafety Support</a></li>
+                                    <li><a href="ken360.html">Ken 360 Specs</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="ken360.html">Ken 360</a>
+                <a href="about.html">About</a>
+                <a href="contact.html" class="btn-contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" style="padding: 12rem 0 8rem; background: var(--bg-color); overflow: hidden;">
+            <div class="container">
+                <div class="grid-2">
+                    <div class="reveal">
+                        <span class="tag">Proactive safety. Zero compromise.</span>
+                        <h1 style="margin-bottom: 2rem; font-size: 4rem;">
+                            Safety that <span class="text-gradient">sees risks.</span> <br>
+                            Before they happen.
+                        </h1>
+                        <p style="max-width: 500px; margin-bottom: 3rem; font-size: 1.1rem; line-height: 1.6;">
+                            KenSafety is an AI-powered intelligence platform that detects hazards, prevents incidents,
+                            and protects infrastructure across high-stakes environments.
+                        </p>
+                        <div style="display: flex; gap: 1rem;">
+                            <a href="#use-cases" class="btn-contact"
+                                style="padding: 1rem 2rem; font-size: 1rem; background: var(--accent-blue);">Explore
+                                Use-cases →</a>
+                        </div>
+                    </div>
+                    <div class="reveal" style="display: flex; justify-content: flex-end; align-items: center;">
+                        <div class="safety-hero-visual">
+                            <i data-lucide="factory"
+                                style="width: 200px; height: 200px; opacity: 0.05; position: absolute;"></i>
+                            <div class="safety-pin" style="top: 30%; left: 40%;">
+                                <div class="safety-tooltip">PPE VIOLATION DETECTED</div>
+                            </div>
+                            <div class="safety-pin" style="bottom: 40%; right: 30%;">
+                                <div class="safety-tooltip">ZONE BREACH ALERT</div>
+                            </div>
+                            <div class="safety-pin" style="top: 50%; left: 60%;">
+                                <div class="safety-tooltip">SPOKE DETECTED</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What KenSafety Does -->
+        <section style="padding: 8rem 0; background: var(--white); border-top: 1px solid var(--border-color);">
+            <div class="container">
+                <div class="reveal" style="text-align: center; max-width: 800px; margin: 0 auto 5rem;">
+                    <span class="section-label">What KenSafety Does</span>
+                    <h2 style="margin-bottom: 2rem;">Safety That sees Risks Before They Become Incidents</h2>
+                    <p style="font-size: 1.15rem; line-height: 1.8;">KenSafety combines computer vision, IoT signals,
+                        and AI-driven analytics to continuously monitor environments and trigger real-time responses.
+                    </p>
+                </div>
+
+                <div class="grid-3" style="gap: 3rem;">
+                    <div class="reveal" style="text-align: center;">
+                        <i data-lucide="eye"
+                            style="color: var(--accent-blue); width: 40px; height: 40px; margin-bottom: 1.5rem;"></i>
+                        <h4 style="margin-bottom: 1rem;">Monitors</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Continuously scans environments
+                            using computer vision and IoT sensors.</p>
+                    </div>
+                    <div class="reveal" style="text-align: center;">
+                        <i data-lucide="alert-triangle"
+                            style="color: var(--accent-blue); width: 40px; height: 40px; margin-bottom: 1.5rem;"></i>
+                        <h4 style="margin-bottom: 1rem;">Detects Risks</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Identifies hazards, compliance
+                            violations, and operational anomalies.</p>
+                    </div>
+                    <div class="reveal" style="text-align: center;">
+                        <i data-lucide="shield-alert"
+                            style="color: var(--accent-blue); width: 40px; height: 40px; margin-bottom: 1.5rem;"></i>
+                        <h4 style="margin-bottom: 1rem;">Alerts & Protects</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary);">Triggers real-time alerts and
+                            initiates automated incident responses.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Capabilities -->
+        <section style="padding: 8rem 0; background: var(--bg-color);">
+            <div class="container">
+                <div class="reveal" style="margin-bottom: 5rem; text-align: center;">
+                    <span class="section-label">Core Capabilities</span>
+                    <h2>Comprehensive protection for <br> high-stakes operations.</h2>
+                </div>
+
+                <div class="grid-2" style="gap: 2.5rem;">
+                    <div class="reveal card card-3d"
+                        style="background: var(--white); display: flex; align-items: flex-start; gap: 2rem;">
+                        <div
+                            style="width: 80px; height: 80px; background: rgba(79, 70, 229, 0.05); border-radius: 12px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="hard-hat" style="color: var(--accent-blue);"></i>
+                        </div>
+                        <div>
+                            <span class="tag">COMPLIANCE</span>
+                            <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">Construction Site Safety</h3>
+                            <p style="font-size: 0.9rem;">Detect PPE violations, fall hazards, and restricted-zone
+                                breaches in real time.</p>
+                        </div>
+                    </div>
+                    <div class="reveal card card-3d"
+                        style="background: var(--white); display: flex; align-items: flex-start; gap: 2rem;">
+                        <div
+                            style="width: 80px; height: 80px; background: rgba(79, 70, 229, 0.05); border-radius: 12px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="flame" style="color: #FF3B30;"></i>
+                        </div>
+                        <div>
+                            <span class="tag">PREVENTION</span>
+                            <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">Fire and Smoke Detection</h3>
+                            <p style="font-size: 0.9rem;">Identify early signs of fire, smoke, or heat anomalies to
+                                prevent escalation and damage.</p>
+                        </div>
+                    </div>
+                    <div class="reveal card card-3d"
+                        style="background: var(--white); display: flex; align-items: flex-start; gap: 2rem;">
+                        <div
+                            style="width: 80px; height: 80px; background: rgba(79, 70, 229, 0.05); border-radius: 12px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="fence" style="color: var(--accent-blue);"></i>
+                        </div>
+                        <div>
+                            <span class="tag">SECURITY</span>
+                            <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">Perimeter Intrusion Detection</h3>
+                            <p style="font-size: 0.9rem;">Monitor boundaries for unauthorized access, tailgating, and
+                                suspicious activity.</p>
+                        </div>
+                    </div>
+                    <div class="reveal card card-3d"
+                        style="background: var(--white); display: flex; align-items: flex-start; gap: 2rem;">
+                        <div
+                            style="width: 80px; height: 80px; background: rgba(79, 70, 229, 0.05); border-radius: 12px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="alert-octagon" style="color: var(--accent-blue);"></i>
+                        </div>
+                        <div>
+                            <span class="tag">ANOMALIES</span>
+                            <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">Hazard & Anomaly Detection</h3>
+                            <p style="font-size: 0.9rem;">Identify spills, obstructions, and equipment misuse
+                                automatically across facilities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Safety Monitor -->
+        <section style="padding: 8rem 0; background: var(--white);">
+            <div class="container">
+                <div class="grid-2">
+                    <div class="reveal">
+                        <span class="section-label">Interface</span>
+                        <h2 style="margin-bottom: 2rem;">Live Safety Monitor</h2>
+                        <p style="margin-bottom: 3rem; font-size: 1.15rem;">Centralized dashboard for real-time incident
+                            tracking and compliance management.</p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                            <div class="reveal">
+                                <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent-blue);">PPE
+                                    COMPLIANCE</h4>
+                                <p style="font-size: 0.8rem; color: var(--text-secondary);">Real-time tracking of safety
+                                    gear adherence across all zones.</p>
+                            </div>
+                            <div class="reveal">
+                                <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent-blue);">
+                                    INCIDENT LOGS</h4>
+                                <p style="font-size: 0.8rem; color: var(--text-secondary);">Automated reports with video
+                                    evidence and time stamps.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal">
+                        <div class="safety-monitor">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                                <h4 style="font-size: 0.8rem; text-transform: uppercase;">Site Safety: Sector 4</h4>
+                                <span class="status-pill" style="background: rgba(255, 59, 48, 0.1); color: #FF3B30;">2
+                                    WARNINGS</span>
+                            </div>
+
+                            <div class="monitor-stat-grid">
+                                <div class="monitor-stat">
+                                    <div style="font-size: 0.7rem; color: #A0A0A0; margin-bottom: 0.5rem;">PPE
+                                        Compliance</div>
+                                    <div style="font-size: 1.5rem; font-weight: 800; color: #00FF94;">98%</div>
+                                </div>
+                                <div class="monitor-stat">
+                                    <div style="font-size: 0.7rem; color: #A0A0A0; margin-bottom: 0.5rem;">Active
+                                        Workers</div>
+                                    <div style="font-size: 1.5rem; font-weight: 800;">142</div>
+                                </div>
+                            </div>
+
+                            <h5
+                                style="font-size: 0.75rem; color: #666; margin-bottom: 1rem; text-transform: uppercase;">
+                                Real-Time Feed</h5>
+                            <div class="incidents-list">
+                                <div class="incident-item"
+                                    style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span>Zone B - Unauthorized personnel detected</span>
+                                    <span style="font-size: 0.6rem; opacity: 0.6;">NOW</span>
+                                </div>
+                                <div class="incident-item"
+                                    style="border-left-color: #00FF94; background: rgba(0, 255, 148, 0.05);">
+                                    <span>System Check: All cameras operational</span>
+                                    <span style="float: right; font-size: 0.6rem; opacity: 0.6;">10M AGO</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits -->
+        <section style="padding: 8rem 0; background: var(--bg-color);">
+            <div class="container">
+                <div class="grid-2">
+                    <div class="reveal">
+                        <span class="section-label">Why KenSafety</span>
+                        <h2 style="margin-bottom: 2rem;">Prevent Accidents, <br> Protect Growth.</h2>
+                        <p style="font-size: 1.1rem; margin-bottom: 4rem;">Shift from reactive reporting to proactive
+                            risk prevention with continuous high-fidelity AI monitoring.</p>
+
+                        <div class="stacked-cards">
+                            <div class="card stacked-card" style="background: var(--white);">
+                                <h3 style="margin-bottom: 1rem;">Compliance-Ready</h3>
+                                <p style="font-size: 0.9rem;">Support safety audits and regulatory compliance with
+                                    automated logs and incident reports.</p>
+                            </div>
+                            <div class="card stacked-card" style="background: #FDFDFD;">
+                                <h3 style="margin-bottom: 1rem;">High-Risk Performance</h3>
+                                <p style="font-size: 0.9rem;">Designed to perform reliably in dynamic, noisy, and
+                                    complex industrial settings.</p>
+                            </div>
+                            <div class="card stacked-card" style="background: #FAFAFA;">
+                                <h3 style="margin-bottom: 1rem;">Seamless Integration</h3>
+                                <p style="font-size: 0.9rem;">Works with your current cameras, sensors, and existing
+                                    alarm infrastructure.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal" style="display: flex; justify-content: center; align-items: center;">
+                        <div class="card card-rotate-360"
+                            style="width: 300px; height: 300px; text-align: center; border-radius: 50%; background: var(--dark-bg); display: flex; flex-direction: column; justify-content: center; align-items: center; border: 1px solid rgba(255, 255, 255, 0.1);">
+                            <i data-lucide="shield-check"
+                                style="width: 64px; height: 64px; color: var(--accent-blue); margin-bottom: 1.5rem;"></i>
+                            <h4 style="font-size: 0.9rem; text-transform: uppercase; color: #FFF;">Zero Compromise</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases -->
+        <section id="use-cases" style="padding: 8rem 0; background: var(--white);">
+            <div class="container">
+                <div class="reveal" style="margin-bottom: 5rem;">
+                    <span class="section-label">Use Cases</span>
+                    <h2>Intelligence Protecting People</h2>
+                </div>
+
+                <div class="grid-2" style="gap: 2rem;">
+                    <div class="reveal card">
+                        <div
+                            style="height: 200px; background: #EEE; margin: -3rem -3rem 2rem; display: flex; align-items: center; justify-content: center;">
+                            CONSTRUCTION SITE IMAGE</div>
+                        <h3 style="margin-bottom: 1rem;">Construction Sites</h3>
+                        <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Ensure worker safety, monitor compliance,
+                            and reduce on-site accidents with AI vision.</p>
+                        <a href="contact.html"
+                            style="text-decoration: none; font-weight: 700; color: var(--accent-blue);">Learn More →</a>
+                    </div>
+                    <div class="reveal card">
+                        <div
+                            style="height: 200px; background: #DDD; margin: -3rem -3rem 2rem; display: flex; align-items: center; justify-content: center;">
+                            INDUSTRIAL FACILITY IMAGE</div>
+                        <h3 style="margin-bottom: 1rem;">Industrial Facilities</h3>
+                        <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Detect hazards, prevent machine-related
+                            incidents, and improve facility safety cycles.</p>
+                        <a href="contact.html"
+                            style="text-decoration: none; font-weight: 700; color: var(--accent-blue);">Learn More →</a>
+                    </div>
+                    <div class="reveal card">
+                        <div
+                            style="height: 200px; background: #EEE; margin: -3rem -3rem 2rem; display: flex; align-items: center; justify-content: center;">
+                            COMMERCIAL BUILDING IMAGE</div>
+                        <h3 style="margin-bottom: 1rem;">Commercial Buildings</h3>
+                        <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Monitor fire risks, restricted zones, and
+                            emergency situations in high-traffic buildings.</p>
+                        <a href="contact.html"
+                            style="text-decoration: none; font-weight: 700; color: var(--accent-blue);">Learn More →</a>
+                    </div>
+                    <div class="reveal card">
+                        <div
+                            style="height: 200px; background: #DDD; margin: -3rem -3rem 2rem; display: flex; align-items: center; justify-content: center;">
+                            WAREHOUSE LOGISTICS IMAGE</div>
+                        <h3 style="margin-bottom: 1rem;">Warehousing & Logistics</h3>
+                        <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Prevent collisions, monitor forklift safety
+                            protocol, and secure facility perimeters.</p>
+                        <a href="contact.html"
+                            style="text-decoration: none; font-weight: 700; color: var(--accent-blue);">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section style="padding: 10rem 0; background: var(--dark-bg); text-align: center; color: var(--white);">
+            <div class="container reveal">
+                <h2 style="font-size: 3rem; margin-bottom: 2rem;">Ready to deploy proactive safety?</h2>
+                <p style="max-width: 600px; margin: 0 auto 3rem; color: #A0A0A0;">Explore how KenSafety can protect your
+                    assets and workforce.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center;">
+                    <a href="contact.html" class="btn-contact"
+                        style="padding: 1rem 2rem; background: var(--accent-blue);">Request a Demo</a>
+                    <a href="#use-cases"
+                        style="display: inline-flex; align-items: center; padding: 1rem 2rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); text-decoration: none; color: var(--white); font-weight: 600;">
+                        Explore Use-cases
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="color: var(--white); margin-bottom: 1.5rem;">
+                        INTELENSE <span></span>
+                    </a>
+                    <p style="color: #A0A0A0; margin-bottom: 2rem;">Turn data into insights.</p>
+                    <div class="contact-info">
+                        <p
+                            style="display: flex; align-items: center; gap: 0.75rem; color: #A0A0A0; font-size: 0.9rem; margin-bottom: 1rem;">
+                            <i data-lucide="mail" style="width: 16px;"></i> enquiries@intelense.ca
+                        </p>
+                        <p
+                            style="display: flex; align-items: center; gap: 0.75rem; color: #A0A0A0; font-size: 0.9rem; margin-bottom: 0.5rem;">
+                            <i data-lucide="phone" style="width: 16px;"></i> +1 (289) 552-3165
+                        </p>
+                        <p style="display: flex; align-items: center; gap: 0.75rem; color: #A0A0A0; font-size: 0.9rem;">
+                            <i data-lucide="phone" style="width: 16px;"></i> +91 72043 15095
+                        </p>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="kenvision.html">KenVision</a></li>
+                        <li><a href="keniot.html">KenIoT</a></li>
+                        <li><a href="kenrobotics.html">KenRobotics</a></li>
+                        <li><a href="kenagri.html">KenAgri</a></li>
+                        <li><a href="kenhome.html">KenHome</a></li>
+                        <li><a href="kensafety.html">KenSafety</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="ken360.html">Ken 360</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blogs.html">Blogs</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="#"
+                            style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--white);">
+                            <i data-lucide="twitter" style="width: 18px;"></i>
+                        </a>
+                        <a href="#"
+                            style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--white);">
+                            <i data-lucide="linkedin" style="width: 18px;"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Locations</h4>
+                    <div class="location-info">
+                        <h5>Canada</h5>
+                        <p>3600 Steeles Ave E, Markham, ON M1W 2Z2, Canada</p>
+
+                        <h5>India</h5>
+                        <p>No. 45, C2 Gubbalala Village (Deepika Layout), Uttarahalli Hobli, Bangalore South, Karnataka-
+                            560061</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
