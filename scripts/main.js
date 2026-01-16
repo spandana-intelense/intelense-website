@@ -57,4 +57,30 @@ document.addEventListener('DOMContentLoaded', () => {
             parent.appendChild(card); // Move clicked card to end
         });
     });
+
+    // AI Platform Stacking logic
+    const aiStackCards = document.querySelectorAll('.stack-card');
+    if (aiStackCards.length > 0) {
+        window.addEventListener('scroll', () => {
+            aiStackCards.forEach((card, index) => {
+                if (index < aiStackCards.length - 1) {
+                    const nextCard = aiStackCards[index + 1];
+                    const nextRect = nextCard.getBoundingClientRect();
+                    const triggerPoint = window.innerHeight * 0.8;
+                    const finishPoint = window.innerHeight * 0.2;
+
+                    if (nextRect.top < triggerPoint) {
+                        const progress = Math.max(0, Math.min(1, (triggerPoint - nextRect.top) / (triggerPoint - finishPoint)));
+                        card.style.opacity = 1 - (progress * 0.7);
+                        card.style.transform = `scale(${1 - (progress * 0.05)}) translateY(${-progress * 30}px)`;
+                        card.style.filter = `blur(${progress * 4}px)`;
+                    } else {
+                        card.style.opacity = 1;
+                        card.style.transform = 'scale(1) translateY(0)';
+                        card.style.filter = 'blur(0px)';
+                    }
+                }
+            });
+        });
+    }
 });

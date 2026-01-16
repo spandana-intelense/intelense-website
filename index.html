@@ -19,6 +19,41 @@
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .hero {
+            position: relative;
+            z-index: 1;
+            background: #FAFAFB !important;
+            /* Light consistent background */
+        }
+
+        #home-hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 100%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
 </head>
 
 <body>
@@ -38,9 +73,8 @@
                                 <span class="column-title">Explore KenVision</span>
                                 <ul>
                                     <li><a href="kenvision.html" class="large-link">Explore All KenVision</a></li>
-                                    <li><a href="kenvision.html#platform">Visual Intelligence Platform</a></li>
-                                    <li><a href="kenvision.html#features">Core Features</a></li>
                                 </ul>
+                                <img src="assets/images/logos/kenvision.png" alt="KenVision Logo" class="mega-logo">
                             </div>
                             <div class="mega-column">
                                 <span class="column-title">Applications</span>
@@ -53,12 +87,14 @@
                                 </ul>
                             </div>
                             <div class="mega-column">
-                                <span class="column-title">Resources</span>
-                                <ul>
-                                    <li><a href="contact.html">Contact Sales</a></li>
-                                    <li><a href="faq.html">KenVision Support</a></li>
-                                    <li><a href="ken360.html">Ken 360 Specs</a></li>
-                                </ul>
+                                <a href="ken360.html" class="mega-360-link">
+                                    <span class="column-title" style="margin-bottom: 0.5rem;">Explore more in</span>
+                                    <img src="assets/images/logos/kenai.png" alt="Ken 360 Core AI"
+                                        style="width: 120px; height: auto; margin-bottom: 1rem;">
+                                    <span
+                                        style="font-size: 0.85rem; color: var(--accent-blue); font-weight: 700;">Discover
+                                        Ken 360 Core AI →</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -73,9 +109,8 @@
                                 <span class="column-title">Explore KenIoT</span>
                                 <ul>
                                     <li><a href="keniot.html" class="large-link">Explore All KenIoT</a></li>
-                                    <li><a href="keniot.html#monitoring">Smart Sensor Networks</a></li>
-                                    <li><a href="keniot.html#predictive">Predictive Analytics</a></li>
                                 </ul>
+                                <img src="assets/images/logos/keniot.png" alt="KenIoT Logo" class="mega-logo">
                             </div>
                             <div class="mega-column">
                                 <span class="column-title">Applications</span>
@@ -87,12 +122,14 @@
                                 </ul>
                             </div>
                             <div class="mega-column">
-                                <span class="column-title">Resources</span>
-                                <ul>
-                                    <li><a href="contact.html">Contact Sales</a></li>
-                                    <li><a href="faq.html">KenIoT Support</a></li>
-                                    <li><a href="ken360.html">Ken 360 Specs</a></li>
-                                </ul>
+                                <a href="ken360.html" class="mega-360-link">
+                                    <span class="column-title" style="margin-bottom: 0.5rem;">Explore more in</span>
+                                    <img src="assets/images/logos/kenai.png" alt="Ken 360 Core AI"
+                                        style="width: 120px; height: auto; margin-bottom: 1rem;">
+                                    <span
+                                        style="font-size: 0.85rem; color: var(--accent-blue); font-weight: 700;">Discover
+                                        Ken 360 Core AI →</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -107,9 +144,8 @@
                                 <span class="column-title">Explore KenRobotics</span>
                                 <ul>
                                     <li><a href="kenrobotics.html" class="large-link">Explore All KenRobotics</a></li>
-                                    <li><a href="kenrobotics.html#automation">Robotic Process Automation</a></li>
-                                    <li><a href="kenrobotics.html#inspection">Critical Inspection</a></li>
                                 </ul>
+                                <img src="assets/images/logos/kenrobotics.png" alt="KenRobotics Logo" class="mega-logo">
                             </div>
                             <div class="mega-column">
                                 <span class="column-title">Applications</span>
@@ -121,12 +157,14 @@
                                 </ul>
                             </div>
                             <div class="mega-column">
-                                <span class="column-title">Resources</span>
-                                <ul>
-                                    <li><a href="contact.html">Contact Sales</a></li>
-                                    <li><a href="faq.html">KenRobotics Support</a></li>
-                                    <li><a href="ken360.html">Ken 360 Specs</a></li>
-                                </ul>
+                                <a href="ken360.html" class="mega-360-link">
+                                    <span class="column-title" style="margin-bottom: 0.5rem;">Explore more in</span>
+                                    <img src="assets/images/logos/kenai.png" alt="Ken 360 Core AI"
+                                        style="width: 120px; height: auto; margin-bottom: 1rem;">
+                                    <span
+                                        style="font-size: 0.85rem; color: var(--accent-blue); font-weight: 700;">Discover
+                                        Ken 360 Core AI →</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -141,9 +179,8 @@
                                 <span class="column-title">Explore KenAgri</span>
                                 <ul>
                                     <li><a href="kenagri.html" class="large-link">Explore All KenAgri</a></li>
-                                    <li><a href="kenagri.html#precision">Precision Data Farming</a></li>
-                                    <li><a href="kenagri.html#monitoring">Crop Health Monitoring</a></li>
                                 </ul>
+                                <img src="assets/images/logos/kenai.png" alt="Ken Logo" class="mega-logo">
                             </div>
                             <div class="mega-column">
                                 <span class="column-title">Applications</span>
@@ -155,12 +192,14 @@
                                 </ul>
                             </div>
                             <div class="mega-column">
-                                <span class="column-title">Resources</span>
-                                <ul>
-                                    <li><a href="contact.html">Contact Sales</a></li>
-                                    <li><a href="faq.html">KenAgri Support</a></li>
-                                    <li><a href="ken360.html">Ken 360 Specs</a></li>
-                                </ul>
+                                <a href="ken360.html" class="mega-360-link">
+                                    <span class="column-title" style="margin-bottom: 0.5rem;">Explore more in</span>
+                                    <img src="assets/images/logos/kenai.png" alt="Ken 360 Core AI"
+                                        style="width: 120px; height: auto; margin-bottom: 1rem;">
+                                    <span
+                                        style="font-size: 0.85rem; color: var(--accent-blue); font-weight: 700;">Discover
+                                        Ken 360 Core AI →</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -175,9 +214,8 @@
                                 <span class="column-title">Explore KenHome</span>
                                 <ul>
                                     <li><a href="kenhome.html" class="large-link">Explore All KenHome</a></li>
-                                    <li><a href="kenhome.html#protection">Home Protection AI</a></li>
-                                    <li><a href="kenhome.html#care">Family Care Systems</a></li>
                                 </ul>
+                                <img src="assets/images/logos/kenai.png" alt="Ken Logo" class="mega-logo">
                             </div>
                             <div class="mega-column">
                                 <span class="column-title">Applications</span>
@@ -189,12 +227,14 @@
                                 </ul>
                             </div>
                             <div class="mega-column">
-                                <span class="column-title">Resources</span>
-                                <ul>
-                                    <li><a href="contact.html">Contact Sales</a></li>
-                                    <li><a href="faq.html">KenHome Support</a></li>
-                                    <li><a href="ken360.html">Ken 360 Specs</a></li>
-                                </ul>
+                                <a href="ken360.html" class="mega-360-link">
+                                    <span class="column-title" style="margin-bottom: 0.5rem;">Explore more in</span>
+                                    <img src="assets/images/logos/kenai.png" alt="Ken 360 Core AI"
+                                        style="width: 120px; height: auto; margin-bottom: 1rem;">
+                                    <span
+                                        style="font-size: 0.85rem; color: var(--accent-blue); font-weight: 700;">Discover
+                                        Ken 360 Core AI →</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -209,9 +249,8 @@
                                 <span class="column-title">Explore KenSafety</span>
                                 <ul>
                                     <li><a href="kensafety.html" class="large-link">Explore All KenSafety</a></li>
-                                    <li><a href="kensafety.html#monitoring">Incident Prevention</a></li>
-                                    <li><a href="kensafety.html#ppe">PPE Compliance</a></li>
                                 </ul>
+                                <img src="assets/images/logos/kenai.png" alt="Ken Logo" class="mega-logo">
                             </div>
                             <div class="mega-column">
                                 <span class="column-title">Applications</span>
@@ -223,16 +262,19 @@
                                 </ul>
                             </div>
                             <div class="mega-column">
-                                <span class="column-title">Resources</span>
-                                <ul>
-                                    <li><a href="contact.html">Contact Sales</a></li>
-                                    <li><a href="faq.html">KenSafety Support</a></li>
-                                    <li><a href="ken360.html">Ken 360 Specs</a></li>
-                                </ul>
+                                <a href="ken360.html" class="mega-360-link">
+                                    <span class="column-title" style="margin-bottom: 0.5rem;">Explore more in</span>
+                                    <img src="assets/images/logos/kenai.png" alt="Ken 360 Core AI"
+                                        style="width: 120px; height: auto; margin-bottom: 1rem;">
+                                    <span
+                                        style="font-size: 0.85rem; color: var(--accent-blue); font-weight: 700;">Discover
+                                        Ken 360 Core AI →</span>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
+
 
                 <a href="ken360.html">Ken 360</a>
                 <a href="about.html">About</a>
@@ -243,7 +285,8 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="hero" style="padding: 10rem 0 6rem; background: var(--bg-color);">
+        <section class="hero" style="padding: 10rem 0 6rem; overflow: hidden;">
+            <canvas id="home-hero-canvas"></canvas>
             <div class="container">
                 <div class="reveal-stagger">
                     <div
@@ -335,92 +378,91 @@
         </div>
 
         <!-- Global Intelligence Platform Section -->
-        <section class="ken-suite-section">
-            <div class="container ken-suite-container">
-                <div class="ken-suite-left reveal">
-                    <span class="section-label">Global Intelligence Platform</span>
-                    <h2 style="margin-bottom: 2rem;">AI That Sees, <br> Thinks, <br> <span class="text-gradient">and
-                            Acts</span></h2>
-                    <p style="margin-bottom: 2rem; font-size: 1.1rem;">Intelense is an AI intelligence platform designed
-                        to convert unstructured data into meaningful insights in real time.</p>
-                    <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
-                        <div class="feature-point">
-                            <i data-lucide="cpu" style="width: 20px; color: var(--accent-blue);"></i>
-                            <span style="font-weight: 800; font-size: 0.7rem; color: var(--text-primary);">EDGE
-                                COMPATIBLE</span>
-                        </div>
-                        <div class="feature-point">
-                            <i data-lucide="cloud" style="width: 20px; color: var(--accent-blue);"></i>
-                            <span style="font-weight: 800; font-size: 0.7rem; color: var(--text-primary);">CLOUD
-                                NATIVE</span>
+        <section id="ai-platform" style="padding: 10rem 0; background: var(--white); position: relative;">
+            <div class="container">
+                <div class="sticky-grid">
+                    <!-- Left Column: Sticky Text -->
+                    <div class="sticky-left reveal">
+                        <span class="section-label">Global Intelligence Platform</span>
+                        <h2 style="margin-bottom: 2rem; font-size: 3.5rem;">AI That Sees, <br> Thinks, <br> <span
+                                class="text-gradient">and Acts</span></h2>
+                        <p
+                            style="margin-bottom: 2.5rem; font-size: 1.15rem; color: var(--text-secondary); max-width: 450px;">
+                            Intelense is an AI intelligence platform designed to convert unstructured data into
+                            meaningful insights in real time.
+                        </p>
+                        <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                            <div class="feature-point">
+                                <i data-lucide="cpu" style="width: 20px; color: var(--accent-blue);"></i>
+                                <span style="font-weight: 800; font-size: 0.7rem; color: var(--text-primary);">EDGE
+                                    COMPATIBLE</span>
+                            </div>
+                            <div class="feature-point">
+                                <i data-lucide="cloud" style="width: 20px; color: var(--accent-blue);"></i>
+                                <span style="font-weight: 800; font-size: 0.7rem; color: var(--text-primary);">CLOUD
+                                    NATIVE</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="ken-suite-right reveal">
-                    <div class="product-accordion">
-                        <!-- Observe -->
-                        <div class="accordion-item active color-blue">
-                            <div class="accordion-visual">
-                                <img src="https://images.unsplash.com/photo-1551288049-bbb65216f785?auto=format&fit=crop&q=80&w=800"
-                                    alt="Observe">
-                                <div class="accordion-icon"><i data-lucide="eye"></i></div>
-                            </div>
-                            <div class="accordion-header">
-                                <span class="accordion-number">01</span>
-                                <h3>Observe</h3>
-                            </div>
-                            <div class="accordion-content">
-                                <p>We surface insights that teams can act on immediately, reducing response time and
-                                    operational risk. Go beyond basic surveillance with active detection.</p>
-                                <ul class="accordion-features">
+                    <!-- Right Column: Stacking Cards -->
+                    <div class="stacking-right">
+                        <!-- Card 1 -->
+                        <div class="stack-card reveal">
+                            <div class="card-visual visual-mockup" data-type="heatmap"></div>
+                            <div class="card-body">
+                                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                                    <span
+                                        style="font-size: 0.85rem; font-weight: 800; color: var(--accent-blue);">01</span>
+                                    <h3 style="margin:0; font-size: 1.25rem;">Actionable Insights, Not Dashboards</h3>
+                                </div>
+                                <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem;">We
+                                    don’t just visualize data - we surface insights that teams can act on immediately,
+                                    reducing response time and operational risk.</p>
+                                <ul class="accordion-features" style="margin-top: auto;">
                                     <li>Actionable Insights</li>
-                                    <li>Real-time Monitoring</li>
-                                    <li>Anomaly Detection</li>
+                                    <li>Reduced Response Time</li>
+                                    <li>Operational Risk Mitigation</li>
                                 </ul>
                             </div>
                         </div>
 
-                        <!-- Orient -->
-                        <div class="accordion-item color-purple">
-                            <div class="accordion-visual">
-                                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800"
-                                    alt="Orient">
-                                <div class="accordion-icon"><i data-lucide="brain"></i></div>
-                            </div>
-                            <div class="accordion-header">
-                                <span class="accordion-number">02</span>
-                                <h3>Orient</h3>
-                            </div>
-                            <div class="accordion-content">
-                                <p>Understand behavior patterns and respond instantly using advanced AI analytics. Ken
-                                    360 processes signals to provide context.</p>
-                                <ul class="accordion-features">
+                        <!-- Card 2 -->
+                        <div class="stack-card reveal">
+                            <div class="card-visual visual-scanner"></div>
+                            <div class="card-body">
+                                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                                    <span
+                                        style="font-size: 0.85rem; font-weight: 800; color: var(--accent-purple);">02</span>
+                                    <h3 style="margin:0; font-size: 1.25rem;">Real-Time Video Intelligence</h3>
+                                </div>
+                                <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Go
+                                    beyond surveillance. Detect anomalies, understand behavior patterns, and respond
+                                    instantly using advanced AI video analytics.</p>
+                                <ul class="accordion-features" style="margin-top: auto;">
                                     <li>Behavioral Analytics</li>
-                                    <li>Pattern Recognition</li>
-                                    <li>Contextual Awareness</li>
+                                    <li>Anomaly Detection</li>
+                                    <li>Instant Response</li>
                                 </ul>
                             </div>
                         </div>
 
-                        <!-- Orbit -->
-                        <div class="accordion-item color-orange">
-                            <div class="accordion-visual">
-                                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800"
-                                    alt="Orbit">
-                                <div class="accordion-icon"><i data-lucide="globe"></i></div>
-                            </div>
-                            <div class="accordion-header">
-                                <span class="accordion-number">03</span>
-                                <h3>Orbit</h3>
-                            </div>
-                            <div class="accordion-content">
-                                <p>Built to scale across cities, enterprises, and IoT ecosystems without expensive
-                                    hardware overhauls. Global intelligence at your fingertips.</p>
-                                <ul class="accordion-features">
-                                    <li>Scalable Design</li>
-                                    <li>Distributed Ecosystem</li>
-                                    <li>Enterprise Ready</li>
+                        <!-- Card 3 -->
+                        <div class="stack-card reveal">
+                            <div class="card-visual visual-mockup" data-type="network"></div>
+                            <div class="card-body">
+                                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                                    <span
+                                        style="font-size: 0.85rem; font-weight: 800; color: var(--accent-orange);">03</span>
+                                    <h3 style="margin:0; font-size: 1.25rem;">Scalable by Design</h3>
+                                </div>
+                                <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Built
+                                    to scale across cities, enterprises, retail chains, and IoT ecosystems, without
+                                    expensive hardware overhauls. Privacy and security first architecture.</p>
+                                <ul class="accordion-features" style="margin-top: auto;">
+                                    <li>Global Scalability</li>
+                                    <li>Privacy-First Architecture</li>
+                                    <li>Hardware Agnostic</li>
                                 </ul>
                             </div>
                         </div>
@@ -428,6 +470,7 @@
                 </div>
             </div>
         </section>
+
 
         <!-- Ken 360 Section -->
         <section style="padding: 10rem 0; background: var(--white); overflow: hidden;">
@@ -549,232 +592,110 @@
 
                 <div class="grid-3" style="gap: 2.5rem;">
                     <!-- KenVision -->
-                    <div class="reveal card color-blue-static">
-                        <div class="card-visual" style="height: 200px; margin: -3rem -3rem 2rem; background: #F8FAFC;">
-                            <img src="assets/products/kenvision.png" alt="KenVision"
-                                style="width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply;">
+                    <div class="reveal card">
+                        <div class="visual-mockup" data-type="heatmap"
+                            style="height: 160px; margin: -2rem -2rem 1.5rem; background: #050505;">
                         </div>
-                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                             <div
-                                style="width: 40px; height: 40px; border-radius: 10px; background: rgba(79, 70, 229, 0.1); display: flex; align-items: center; justify-content: center; color: #4F46E5;">
-                                <i data-lucide="eye" style="width: 20px;"></i>
+                                style="width: 32px; height: 32px; border-radius: 8px; background: rgba(79, 70, 229, 0.1); display: flex; align-items: center; justify-content: center; color: #4F46E5;">
+                                <i data-lucide="eye" style="width: 16px;"></i>
                             </div>
-                            <h3 style="margin: 0; font-size: 1.5rem;">KenVision</h3>
+                            <h3 style="margin: 0; font-size: 1.25rem;">KenVision</h3>
                         </div>
-                        <p
-                            style="font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 2rem;">
-                            AI vision that turns cameras into real-time intelligence systems across physical spaces.</p>
-                        <ul class="static-features" style="list-style: none; margin-bottom: 2.5rem; padding: 0;">
-                            <li
-                                style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                                <div style="width: 6px; height: 6px; border-radius: 50%; background: #4F46E5;"></div>
-                                Retail analytics
-                            </li>
-                            <li
-                                style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                                <div style="width: 6px; height: 6px; border-radius: 50%; background: #4F46E5;"></div>
-                                Smart security
-                            </li>
-                            <li
-                                style="font-size: 0.85rem; color: var(--text-secondary); display: flex; align-items: center; gap: 0.5rem;">
-                                <div style="width: 6px; height: 6px; border-radius: 50%; background: #4F46E5;"></div>
-                                Anomaly detection
-                            </li>
-                        </ul>
-                        <a href="kenvision.html"
-                            style="text-decoration: none; font-weight: 700; color: var(--text-primary); font-size: 0.9rem;">View
-                            Details →</a>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 2rem;">
+                            Advanced computer vision for retail analytics, building management, and urban safety.
+                        </p>
+                        <a href="kenvision.html" class="link-arrow">Explore KenVision →</a>
                     </div>
 
                     <!-- KenIoT -->
-                    <div class="reveal card color-purple-static">
-                        <div class="card-visual" style="height: 200px; margin: -3rem -3rem 2rem; background: #F8FAFC;">
-                            <img src="assets/products/keniot.png" alt="KenIoT"
-                                style="width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply;">
+                    <div class="reveal card">
+                        <div class="visual-mockup" data-type="alert"
+                            style="height: 160px; margin: -2rem -2rem 1.5rem; background: #050505;">
                         </div>
-                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                             <div
-                                style="width: 40px; height: 40px; border-radius: 10px; background: rgba(124, 58, 237, 0.1); display: flex; align-items: center; justify-content: center; color: #7C3AED;">
-                                <i data-lucide="wifi" style="width: 20px;"></i>
+                                style="width: 32px; height: 32px; border-radius: 8px; background: rgba(79, 70, 229, 0.1); display: flex; align-items: center; justify-content: center; color: #4F46E5;">
+                                <i data-lucide="wifi" style="width: 16px;"></i>
                             </div>
-                            <h3 style="margin: 0; font-size: 1.5rem;">KenIoT</h3>
+                            <h3 style="margin: 0; font-size: 1.25rem;">KenIoT</h3>
                         </div>
-                        <p
-                            style="font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 2rem;">
-                            Connected intelligence bringing sensor data into a unified, intelligent control layer.</p>
-                        <ul class="static-features" style="list-style: none; margin-bottom: 2.5rem; padding: 0;">
-                            <li
-                                style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                                <div style="width: 6px; height: 6px; border-radius: 50%; background: #7C3AED;"></div>
-                                Asset monitoring
-                            </li>
-                            <li
-                                style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                                <div style="width: 6px; height: 6px; border-radius: 50%; background: #7C3AED;"></div>
-                                Smart buildings
-                            </li>
-                            <li
-                                style="font-size: 0.85rem; color: var(--text-secondary); display: flex; align-items: center; gap: 0.5rem;">
-                                <div style="width: 6px; height: 6px; border-radius: 50%; background: #7C3AED;"></div>
-                                Predictive maintenance
-                            </li>
-                        </ul>
-                        <a href="keniot.html"
-                            style="text-decoration: none; font-weight: 700; color: var(--text-primary); font-size: 0.9rem;">View
-                            Details →</a>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 2rem;">
+                            Seamless connectivity for industrial automation and remote diagnostics at the edge.
+                        </p>
+                        <a href="keniot.html" class="link-arrow">Explore KenIoT →</a>
                     </div>
 
-                    <!-- KenRobotics -->
-                    <div class="reveal card color-orange-static">
-                        <div class="card-visual" style="height: 200px; margin: -3rem -3rem 2rem; background: #F8FAFC;">
-                            <img src="assets/products/kenrobotics.png" alt="KenRobotics"
-                                style="width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply;">
+                    <div class="reveal card">
+                        <div class="visual-mockup" data-type="scanner"
+                            style="height: 160px; margin: -2rem -2rem 1.5rem; background: #050505;">
                         </div>
-                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                             <div
-                                style="width: 40px; height: 40px; border-radius: 10px; background: rgba(249, 115, 22, 0.1); display: flex; align-items: center; justify-content: center; color: #F97316;">
-                                <i data-lucide="cpu" style="width: 20px;"></i>
+                                style="width: 32px; height: 32px; border-radius: 8px; background: rgba(249, 115, 22, 0.1); display: flex; align-items: center; justify-content: center; color: #F97316;">
+                                <i data-lucide="cpu" style="width: 16px;"></i>
                             </div>
-                            <h3 style="margin: 0; font-size: 1.5rem;">KenRobotics</h3>
+                            <h3 style="margin: 0; font-size: 1.25rem;">KenRobotics</h3>
                         </div>
-                        <p
-                            style="font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 2rem;">
-                            Autonomous systems that integrate AI, vision, and control for safe automation.</p>
-                        <ul class="static-features" style="list-style: none; margin-bottom: 2.5rem; padding: 0;">
-                            <li
-                                style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                                <div style="width: 6px; height: 6px; border-radius: 50%; background: #F97316;"></div>
-                                Automated inspections
-                            </li>
-                            <li
-                                style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                                <div style="width: 6px; height: 6px; border-radius: 50%; background: #F97316;"></div>
-                                Warehouse automation
-                            </li>
-                            <li
-                                style="font-size: 0.85rem; color: var(--text-secondary); display: flex; align-items: center; gap: 0.5rem;">
-                                <div style="width: 6px; height: 6px; border-radius: 50%; background: #F97316;"></div>
-                                Precision control
-                            </li>
-                        </ul>
-                        <a href="kenrobotics.html"
-                            style="text-decoration: none; font-weight: 700; color: var(--text-primary); font-size: 0.9rem;">View
-                            Details →</a>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 2rem;">
+                            Robotics that sense, decide, and act autonomously for maximum efficiency.
+                        </p>
+                        <a href="kenrobotics.html" class="link-arrow">Explore KenRobotics →</a>
                     </div>
 
                     <!-- KenAgri -->
-                    <div class="reveal card color-green-static">
-                        <div class="card-visual" style="height: 200px; margin: -3rem -3rem 2rem; background: #F8FAFC;">
-                            <img src="assets/products/kenagri.png" alt="KenAgri"
-                                style="width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply;">
+                    <div class="reveal card">
+                        <div class="visual-mockup" data-type="heatmap"
+                            style="height: 160px; margin: -2rem -2rem 1.5rem; background: #050505;">
                         </div>
-                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                             <div
-                                style="width: 40px; height: 40px; border-radius: 10px; background: rgba(16, 185, 129, 0.1); display: flex; align-items: center; justify-content: center; color: #10B981;">
-                                <i data-lucide="globe" style="width: 20px;"></i>
+                                style="width: 32px; height: 32px; border-radius: 8px; background: rgba(16, 185, 129, 0.1); display: flex; align-items: center; justify-content: center; color: #10B981;">
+                                <i data-lucide="globe" style="width: 16px;"></i>
                             </div>
-                            <h3 style="margin: 0; font-size: 1.5rem;">KenAgri</h3>
+                            <h3 style="margin: 0; font-size: 1.25rem;">KenAgri</h3>
                         </div>
-                        <p
-                            style="font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 2rem;">
-                            Precision intelligence helping farmers make data-driven decisions for crop lifecycles.</p>
-                        <ul class="static-features" style="list-style: none; margin-bottom: 2.5rem; padding: 0;">
-                            <li
-                                style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                                <div style="width: 6px; height: 6px; border-radius: 50%; background: #10B981;"></div>
-                                Crop health monitoring
-                            </li>
-                            <li
-                                style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                                <div style="width: 6px; height: 6px; border-radius: 50%; background: #10B981;"></div>
-                                Yield prediction
-                            </li>
-                            <li
-                                style="font-size: 0.85rem; color: var(--text-secondary); display: flex; align-items: center; gap: 0.5rem;">
-                                <div style="width: 6px; height: 6px; border-radius: 50%; background: #10B981;"></div>
-                                Input optimization
-                            </li>
-                        </ul>
-                        <a href="kenagri.html"
-                            style="text-decoration: none; font-weight: 700; color: var(--text-primary); font-size: 0.9rem;">View
-                            Details →</a>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 2rem;">
+                            Precision intelligence helping farmers make data-driven decisions for crop lifecycles.
+                        </p>
+                        <a href="kenagri.html" class="link-arrow">Explore KenAgri →</a>
                     </div>
 
                     <!-- KenHome -->
-                    <div class="reveal card color-yellow-static">
-                        <div class="card-visual" style="height: 200px; margin: -3rem -3rem 2rem; background: #F8FAFC;">
-                            <img src="assets/products/kenhome.png" alt="KenHome"
-                                style="width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply;">
+                    <div class="reveal card">
+                        <div class="visual-mockup" data-type="dwell"
+                            style="height: 160px; margin: -2rem -2rem 1.5rem; background: #050505;">
                         </div>
-                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                             <div
-                                style="width: 40px; height: 40px; border-radius: 10px; background: rgba(245, 158, 11, 0.1); display: flex; align-items: center; justify-content: center; color: #F59E0B;">
-                                <i data-lucide="home" style="width: 20px;"></i>
+                                style="width: 32px; height: 32px; border-radius: 8px; background: rgba(245, 158, 11, 0.1); display: flex; align-items: center; justify-content: center; color: #F59E0B;">
+                                <i data-lucide="home" style="width: 16px;"></i>
                             </div>
-                            <h3 style="margin: 0; font-size: 1.5rem;">KenHome</h3>
+                            <h3 style="margin: 0; font-size: 1.25rem;">KenHome</h3>
                         </div>
-                        <p
-                            style="font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 2rem;">
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 2rem;">
                             Applying AI and vision to create smarter, safer, and more responsive living environments.
                         </p>
-                        <ul class="static-features" style="list-style: none; margin-bottom: 2.5rem; padding: 0;">
-                            <li
-                                style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                                <div style="width: 6px; height: 6px; border-radius: 50%; background: #F59E0B;"></div>
-                                Home security
-                            </li>
-                            <li
-                                style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                                <div style="width: 6px; height: 6px; border-radius: 50%; background: #F59E0B;"></div>
-                                Elder care monitoring
-                            </li>
-                            <li
-                                style="font-size: 0.85rem; color: var(--text-secondary); display: flex; align-items: center; gap: 0.5rem;">
-                                <div style="width: 6px; height: 6px; border-radius: 50%; background: #F59E0B;"></div>
-                                Energy efficiency
-                            </li>
-                        </ul>
-                        <a href="kenhome.html"
-                            style="text-decoration: none; font-weight: 700; color: var(--text-primary); font-size: 0.9rem;">View
-                            Details →</a>
+                        <a href="kenhome.html" class="link-arrow">Explore KenHome →</a>
                     </div>
 
                     <!-- KenSafety -->
-                    <div class="reveal card color-red-static">
-                        <div class="card-visual" style="height: 200px; margin: -3rem -3rem 2rem; background: #F8FAFC;">
-                            <img src="assets/products/kensafety.png" alt="KenSafety"
-                                style="width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply;">
+                    <div class="reveal card">
+                        <div class="visual-mockup" data-type="alert"
+                            style="height: 160px; margin: -2rem -2rem 1.5rem; background: #050505;">
                         </div>
-                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                             <div
-                                style="width: 40px; height: 40px; border-radius: 10px; background: rgba(239, 68, 68, 0.1); display: flex; align-items: center; justify-content: center; color: #EF4444;">
-                                <i data-lucide="shield" style="width: 20px;"></i>
+                                style="width: 32px; height: 32px; border-radius: 8px; background: rgba(239, 68, 68, 0.1); display: flex; align-items: center; justify-content: center; color: #EF4444;">
+                                <i data-lucide="shield" style="width: 16px;"></i>
                             </div>
-                            <h3 style="margin: 0; font-size: 1.5rem;">KenSafety</h3>
+                            <h3 style="margin: 0; font-size: 1.25rem;">KenSafety</h3>
                         </div>
-                        <p
-                            style="font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 2rem;">
-                            Proactive safety through early risk detection across high-risk environments.</p>
-                        <ul class="static-features" style="list-style: none; margin-bottom: 2.5rem; padding: 0;">
-                            <li
-                                style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                                <div style="width: 6px; height: 6px; border-radius: 50%; background: #EF4444;"></div>
-                                Industrial safety
-                            </li>
-                            <li
-                                style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                                <div style="width: 6px; height: 6px; border-radius: 50%; background: #EF4444;"></div>
-                                Hazard detection
-                            </li>
-                            <li
-                                style="font-size: 0.85rem; color: var(--text-secondary); display: flex; align-items: center; gap: 0.5rem;">
-                                <div style="width: 6px; height: 6px; border-radius: 50%; background: #EF4444;"></div>
-                                Incident prevention
-                            </li>
-                        </ul>
-                        <a href="kensafety.html"
-                            style="text-decoration: none; font-weight: 700; color: var(--text-primary); font-size: 0.9rem;">View
-                            Details →</a>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 2rem;">
+                            Proactive safety through early risk detection across high-risk environments.
+                        </p>
+                        <a href="kensafety.html" class="link-arrow">Explore KenSafety →</a>
                     </div>
                 </div>
             </div>
@@ -994,6 +915,7 @@
     </footer>
 
     <script src="scripts/main.js"></script>
+    <script src="scripts/visuals.js"></script>
     <script>
         lucide.createIcons();
     </script>
