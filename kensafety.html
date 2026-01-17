@@ -250,7 +250,8 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="hero" style="padding: 12rem 0 8rem; background: #F9FAFB; overflow: hidden; position: relative;">
+        <!-- Hero Section -->
+        <section class="hero">
             <div class="container">
                 <div class="grid-2">
                     <div class="reveal">
@@ -285,25 +286,45 @@
         <!-- What KenSafety Does -->
         <section style="padding: 8rem 0; background: var(--white); border-top: 1px solid var(--border-color);">
             <div class="container">
-                <div class="grid-2 reveal" style="align-items: center; gap: 4rem;">
-                    <div>
-                        <span class="section-label">What KenSafety Does</span>
-                        <h2 style="font-size: 3rem; line-height: 1.2; margin-bottom: 2rem;">Safety That Sees Risks
-                            Before They Become Incidents</h2>
-                        <p
-                            style="font-size: 1.25rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 2rem;">
-                            KenSafety is an AI-powered safety intelligence platform that detects hazards, prevents
-                            incidents, and protects people, assets, and infrastructure across construction sites,
-                            factories, and commercial environments.
-                        </p>
-                        <p style="color: var(--text-secondary); line-height: 1.6;">
-                            By combining computer vision and real-time analytics, we help enterprises move from reactive
-                            reporting to proactive prevention.
-                        </p>
+                <div class="reveal" style="max-width: 900px; margin-bottom: 4rem;">
+                    <span class="section-label">What KenSafety Does</span>
+                    <h2 style="font-size: 3rem; line-height: 1.2; margin-bottom: 1.5rem;">Safety That Sees Risks Before
+                        They Become Incidents</h2>
+                    <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 800px;">By combining computer
+                        vision and real-time analytics, we help enterprises move from reactive reporting to proactive
+                        prevention.</p>
+                </div>
+
+                <!-- Feature Cards -->
+                <div class="feature-cards-row">
+                    <!-- Card 1 -->
+                    <div class="feature-card reveal" style="transition-delay: 100ms;">
+                        <div class="feature-card-image">
+                            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800"
+                                alt="Hazard Detection">
+                        </div>
+                        <h4>Hazard Detection</h4>
+                        <p>Real-time monitoring for falls, spills, and dangerous behavior.</p>
                     </div>
-                    <div style="border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-lg);">
-                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800"
-                            alt="Safety Monitoring" style="width: 100%; height: auto; display: block;">
+
+                    <!-- Card 2 -->
+                    <div class="feature-card reveal" style="transition-delay: 200ms;">
+                        <div class="feature-card-image">
+                            <img src="https://images.unsplash.com/photo-1517089535819-de21223bc7df?q=80&w=800"
+                                alt="PPE Compliance">
+                        </div>
+                        <h4>PPE Compliance</h4>
+                        <p>Automatic detection of safety gear violations and zone breaches.</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="feature-card reveal" style="transition-delay: 300ms;">
+                        <div class="feature-card-image">
+                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800"
+                                alt="Emergency Response">
+                        </div>
+                        <h4>Emergency Response</h4>
+                        <p>Instant alerts and intelligent guidance during critical incidents.</p>
                     </div>
                 </div>
             </div>
