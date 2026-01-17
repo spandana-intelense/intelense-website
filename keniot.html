@@ -20,6 +20,45 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="styles/main.css">
     <style>
+        :root {
+            --accent-primary: #8B5CF6;
+            --accent-secondary: #7C3AED;
+            --accent-gradient: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+        }
+
+        /* Override main.css variables */
+        .section-label {
+            color: var(--accent-primary);
+        }
+
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-contact {
+            background: var(--accent-primary) !important;
+        }
+
+        .link-arrow {
+            color: var(--accent-primary) !important;
+        }
+
+        .capability-step {
+            color: var(--accent-primary) !important;
+        }
+
+        .capability-badge {
+            background: rgba(139, 92, 246, 0.1);
+            color: var(--accent-primary);
+        }
+
+        .use-case-content a {
+            color: var(--accent-primary);
+        }
+
         /* KenIoT Hero Specific Interactivity */
         .iot-network {
             position: relative;
@@ -31,14 +70,14 @@
             position: absolute;
             width: 12px;
             height: 12px;
-            background: var(--accent-blue);
+            background: var(--accent-primary);
             border-radius: 50%;
-            box-shadow: 0 0 15px var(--accent-blue);
+            box-shadow: 0 0 15px var(--accent-primary);
         }
 
         .iot-line {
             position: absolute;
-            background: var(--accent-blue);
+            background: var(--accent-primary);
             opacity: 0.2;
             height: 1px;
             transform-origin: left center;
@@ -233,7 +272,7 @@
                         </p>
                         <div style="display: flex; gap: 1rem;">
                             <a href="#use-cases" class="btn-contact"
-                                style="padding: 1rem 2rem; font-size: 1rem; background: var(--accent-blue);">Explore
+                                style="padding: 1rem 2rem; font-size: 1rem;">Explore
                                 Use-cases →</a>
                         </div>
                     </div>
@@ -243,9 +282,9 @@
                             <div
                                 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
                                 <i data-lucide="cpu"
-                                    style="width: 48px; height: 48px; color: var(--accent-blue); opacity: 0.8;"></i>
+                                    style="width: 48px; height: 48px; color: var(--accent-primary); opacity: 0.8;"></i>
                                 <div
-                                    style="font-size: 0.6rem; font-weight: 800; letter-spacing: 0.2em; color: var(--accent-blue); margin-top: 1rem;">
+                                    style="font-size: 0.6rem; font-weight: 800; letter-spacing: 0.2em; color: var(--accent-primary); margin-top: 1rem;">
                                     CENTRAL CORE</div>
                             </div>
                         </div>
@@ -364,13 +403,14 @@
 
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                             <div class="reveal">
-                                <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent-blue);">
+                                <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent-primary);">
                                     REAL-TIME TELEMETRY</h4>
                                 <p style="font-size: 0.8rem; color: var(--text-secondary);">Continuous streams of
                                     vibration, heat, and load data.</p>
                             </div>
                             <div class="reveal">
-                                <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent-blue);">DEVICE
+                                <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent-primary);">
+                                    DEVICE
                                     HEALTH</h4>
                                 <p style="font-size: 0.8rem; color: var(--text-secondary);">Automated status logs and
                                     predictive failure alerts.</p>
@@ -399,11 +439,11 @@
                             </div>
                             <div class="telemetry-stat">
                                 <span style="font-size: 0.85rem; color: #DDD;">Load Profile</span>
-                                <span style="font-weight: 700; color: var(--accent-blue);">82% High</span>
+                                <span style="font-weight: 700; color: var(--accent-primary);">82% High</span>
                             </div>
 
                             <div
-                                style="margin-top: 2rem; height: 100px; background: rgba(79, 70, 229, 0.05); border: 1px dashed rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: #A0A0A0;">
+                                style="margin-top: 2rem; height: 100px; background: rgba(139, 92, 246, 0.05); border: 1px dashed rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: #A0A0A0;">
                                 REAL-TIME TELEMETRY STREAM (24H)
                             </div>
                         </div>
@@ -488,7 +528,7 @@
                             <div class="graphic-ui-mock">
                                 <div class="ui-line"></div>
                                 <div class="ui-line short"></div>
-                                <div class="ui-btn" style="background: var(--accent-blue);"></div>
+                                <div class="ui-btn" style="background: var(--accent-primary);"></div>
                             </div>
                         </div>
                         <h4 style="margin-bottom: 0.5rem;">Secure Core</h4>
@@ -594,8 +634,7 @@
                 <p style="max-width: 600px; margin: 0 auto 3rem; color: #A0A0A0;">Explore how KenIoT fits into your
                     industry.</p>
                 <div style="display: flex; gap: 1rem; justify-content: center;">
-                    <a href="contact.html" class="btn-contact"
-                        style="padding: 1rem 2rem; background: var(--accent-blue);">Request a Demo</a>
+                    <a href="contact.html" class="btn-contact" style="padding: 1rem 2rem;">Request a Demo</a>
                     <a href="#use-cases"
                         style="display: inline-flex; align-items: center; padding: 1rem 2rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); text-decoration: none; color: var(--white); font-weight: 600;">
                         Explore Use-cases

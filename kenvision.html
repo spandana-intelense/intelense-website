@@ -19,6 +19,46 @@
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="styles/main.css">
+    <style>
+        :root {
+            --accent-primary: #4F46E5;
+            --accent-secondary: #3B82F6;
+            --accent-gradient: linear-gradient(135deg, #4F46E5 0%, #3B82F6 100%);
+        }
+
+        /* Override main.css variables if needed, or use local variables */
+        .section-label {
+            color: var(--accent-primary);
+        }
+
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-contact {
+            background: var(--accent-primary) !important;
+        }
+
+        .link-arrow {
+            color: var(--accent-primary) !important;
+        }
+
+        .capability-step {
+            color: var(--accent-primary) !important;
+        }
+
+        .capability-badge {
+            background: rgba(79, 70, 229, 0.1);
+            color: var(--accent-primary);
+        }
+
+        .use-case-content a {
+            color: var(--accent-primary);
+        }
+    </style>
 </head>
 
 <body>
@@ -188,7 +228,7 @@
                         </p>
                         <div style="display: flex; gap: 1rem;">
                             <a href="#use-cases" class="btn-contact"
-                                style="padding: 1rem 2rem; font-size: 1rem; background: var(--accent-blue);">Explore
+                                style="padding: 1rem 2rem; font-size: 1rem;">Explore
                                 Use-cases →</a>
                         </div>
                     </div>
@@ -199,7 +239,7 @@
                                 <div class="camera-lens"></div>
                             </div>
                             <div
-                                style="position: absolute; bottom: -40px; font-size: 0.7rem; font-weight: 700; color: var(--accent-blue); letter-spacing: 0.1em;">
+                                style="position: absolute; bottom: -40px; font-size: 0.7rem; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em;">
                                 ACTIVE TRACKING</div>
                         </div>
                     </div>
