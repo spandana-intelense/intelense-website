@@ -100,6 +100,76 @@ class NeuralCore {
     }
 }
 
+class CameraLens {
+    constructor(containerId) {
+        this.container = document.getElementById(containerId);
+        if (!this.container) return;
+        this.init();
+    }
+
+    init() {
+        this.container.innerHTML = '';
+        const lensContainer = document.createElement('div');
+        lensContainer.className = 'lens-graphic';
+        lensContainer.style.cssText = 'position:absolute; width:100%; height:100%; display:flex; align-items:center; justify-content:center;';
+
+        // Create concentric rings
+        for (let i = 0; i < 4; i++) {
+            const ring = document.createElement('div');
+            ring.style.cssText = `
+                position: absolute;
+                border: 1px solid rgba(139, 92, 246, ${0.1 + (i * 0.05)});
+                border-radius: 50%;
+                width: ${150 + (i * 60)}px;
+                height: ${150 + (i * 60)}px;
+                animation: rotateLens ${20 + (i * 10)}s linear infinite ${i % 2 === 0 ? '' : 'reverse'};
+            `;
+            lensContainer.appendChild(ring);
+
+            // Add lens "marks"
+            const marks = 4;
+            for (let j = 0; j < marks; j++) {
+                const mark = document.createElement('div');
+                const angle = (j / marks) * Math.PI * 2;
+                mark.style.cssText = `
+                    position: absolute;
+                    width: 4px;
+                    height: 1px;
+                    background: rgba(139, 92, 246, 0.3);
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%) rotate(${angle}rad) translateX(${(150 + (i * 60)) / 2}px);
+                `;
+                ring.appendChild(mark);
+            }
+        }
+
+        // Add aperture shape
+        const aperture = document.createElement('div');
+        aperture.style.cssText = `
+            width: 100px;
+            height: 100px;
+            border: 2px dashed rgba(139, 92, 246, 0.2);
+            border-radius: 50%;
+            animation: pulseLens 4s ease-in-out infinite;
+        `;
+        lensContainer.appendChild(aperture);
+
+        this.container.appendChild(lensContainer);
+
+        // Add keyframes if not present
+        if (!document.getElementById('lens-animations')) {
+            const style = document.createElement('style');
+            style.id = 'lens-animations';
+            style.textContent = `
+                @keyframes rotateLens { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+                @keyframes pulseLens { 0%, 100% { transform: scale(1); opacity: 0.3; } 50% { transform: scale(1.1); opacity: 0.5; } }
+            `;
+            document.head.appendChild(style);
+        }
+    }
+}
+
 class Scanner {
     constructor(containerId) {
         this.container = document.getElementById(containerId);
@@ -108,15 +178,18 @@ class Scanner {
     }
 
     init() {
-        this.container.style.position = 'relative';
+        this.container.style.position = 'absolute';
+        this.container.style.width = '100%';
+        this.container.style.height = '100%';
+        this.container.style.zIndex = '1';
         this.container.style.overflow = 'hidden';
 
         const line = document.createElement('div');
         line.className = 'scanner-line';
         this.container.appendChild(line);
 
-        // Add some random bounding boxes
-        for (let i = 0; i < 3; i++) {
+        // Add subtle bounding boxes centered behind
+        for (let i = 0; i < 4; i++) {
             this.createBox();
         }
     }
@@ -124,11 +197,12 @@ class Scanner {
     createBox() {
         const box = document.createElement('div');
         box.className = 'scanner-box';
-        const size = Math.random() * 50 + 30;
+        const size = Math.random() * 80 + 40;
         box.style.width = `${size}px`;
         box.style.height = `${size}px`;
-        box.style.left = `${Math.random() * 80}%`;
-        box.style.top = `${Math.random() * 80}%`;
+        box.style.left = `${Math.random() * 60 + 20}%`;
+        box.style.top = `${Math.random() * 60 + 20}%`;
+        box.style.opacity = '0.15';
         this.container.appendChild(box);
 
         setTimeout(() => {
@@ -137,7 +211,7 @@ class Scanner {
                 box.remove();
                 this.createBox();
             }, 1000);
-        }, Math.random() * 2000 + 1000);
+        }, Math.random() * 3000 + 2000);
     }
 }
 
@@ -150,16 +224,21 @@ class WaveVisual {
     }
 
     init() {
-        this.container.style.position = 'relative';
+        this.container.style.position = 'absolute';
+        this.container.style.width = '100%';
+        this.container.style.height = '100%';
         this.container.style.display = 'flex';
         this.container.style.alignItems = 'center';
         this.container.style.justifyContent = 'center';
+        this.container.style.zIndex = '1';
 
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 4; i++) {
             const wave = document.createElement('div');
             wave.className = 'pulse-wave';
             wave.style.borderColor = this.color;
-            wave.style.animationDelay = `${i * 1}s`;
+            wave.style.width = '200px';
+            wave.style.height = '200px';
+            wave.style.animationDelay = `${i * 1.5}s`;
             this.container.appendChild(wave);
         }
     }
@@ -173,10 +252,10 @@ class SensorNetwork {
     }
 
     init() {
-        const nodeCount = 8;
-        const radius = 120;
-        const centerX = this.container.offsetWidth / 2;
-        const centerY = this.container.offsetHeight / 2;
+        const nodeCount = 10;
+        const radius = 140;
+        const centerX = this.container.offsetWidth / 2 || 200;
+        const centerY = this.container.offsetHeight / 2 || 200;
 
         for (let i = 0; i < nodeCount; i++) {
             const angle = (i / nodeCount) * Math.PI * 2;
@@ -187,6 +266,8 @@ class SensorNetwork {
             node.className = 'iot-node';
             node.style.left = `${x}px`;
             node.style.top = `${y}px`;
+            node.style.width = '8px';
+            node.style.height = '8px';
             node.style.animationDelay = `${Math.random() * 2}s`;
             this.container.appendChild(node);
 
@@ -196,10 +277,12 @@ class SensorNetwork {
             line.style.top = `${centerY}px`;
             line.style.width = `${radius}px`;
             line.style.transform = `rotate(${angle}rad)`;
+            line.style.opacity = '0.05';
             this.container.appendChild(line);
         }
     }
 }
+
 class RoboticPath {
     constructor(containerId) {
         this.container = document.getElementById(containerId);
@@ -208,7 +291,7 @@ class RoboticPath {
     }
 
     init() {
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 5; i++) {
             this.createEntity(i);
         }
     }
@@ -216,24 +299,29 @@ class RoboticPath {
     createEntity(index) {
         const entity = document.createElement('div');
         entity.className = 'floating-robot';
-        entity.innerHTML = `<i data-lucide="bot" style="width:20px; color:var(--accent-blue)"></i>`;
+        entity.innerHTML = `<i data-lucide="bot" style="width:18px; color:var(--accent-primary)"></i>`;
+        entity.style.opacity = '0.4';
         this.container.appendChild(entity);
         lucide.createIcons();
 
-        const radius = 100 + (index * 40);
-        const duration = 10 + (index * 5);
+        const radius = 120 + (index * 35);
+        const duration = 15 + (index * 8);
 
         entity.style.animation = `orbit-${index} ${duration}s linear infinite`;
 
-        // Create style for dynamic orbit
         const style = document.createElement('style');
         style.textContent = `
             @keyframes orbit-${index} {
-                from { transform: rotate(0deg) translateX(${radius}px) rotate(0deg); }
-                to { transform: rotate(360deg) translateX(${radius}px) rotate(-360deg); }
+                from { transform: translate(-50%, -50%) rotate(0deg) translateX(${radius}px) rotate(0deg); }
+                to { transform: translate(-50%, -50%) rotate(360deg) translateX(${radius}px) rotate(-360deg); }
             }
         `;
         document.head.appendChild(style);
+
+        // Centering helper
+        entity.style.position = 'absolute';
+        entity.style.left = '50%';
+        entity.style.top = '50%';
     }
 }
 
@@ -245,23 +333,53 @@ class FieldGrid {
     }
 
     init() {
+        this.container.innerHTML = '';
         for (let i = 0; i < 25; i++) {
             const node = document.createElement('div');
             node.className = 'plant-node';
-            node.innerHTML = `<i data-lucide="sprout" style="width:16px;"></i>`;
+            node.style.opacity = '0.3';
+            node.innerHTML = `<i data-lucide="sprout" style="width:14px;"></i>`;
+            this.container.appendChild(node);
+            if (Math.random() > 0.6) node.classList.add('active');
+        }
+        lucide.createIcons();
+    }
+}
+
+class HomeNodes {
+    constructor(containerId) {
+        this.container = document.getElementById(containerId);
+        if (!this.container) return;
+        this.init();
+    }
+
+    init() {
+        const icons = ['home', 'shield', 'wifi', 'thermometer', 'lock'];
+        for (let i = 0; i < 8; i++) {
+            const node = document.createElement('div');
+            node.className = 'home-node';
+            node.style.position = 'absolute';
+            node.style.left = `${Math.random() * 80 + 10}%`;
+            node.style.top = `${Math.random() * 80 + 10}%`;
+            node.style.opacity = '0.3';
+            node.innerHTML = `<i data-lucide="${icons[i % icons.length]}" style="width:14px;"></i>`;
             this.container.appendChild(node);
 
-            // Randomly activate nodes
-            if (Math.random() > 0.7) {
-                node.classList.add('active');
-            }
+            // Random movement
+            node.animate([
+                { transform: 'translate(0,0)' },
+                { transform: `translate(${Math.random() * 40 - 20}px, ${Math.random() * 40 - 20}px)` }
+            ], {
+                duration: 3000 + Math.random() * 3000,
+                direction: 'alternate',
+                iterations: Infinity
+            });
         }
         lucide.createIcons();
     }
 }
 
-
-class PrivacyFlow {
+class SafetyPins {
     constructor(containerId) {
         this.container = document.getElementById(containerId);
         if (!this.container) return;
@@ -269,199 +387,15 @@ class PrivacyFlow {
     }
 
     init() {
-        const grid = this.container.querySelector('.privacy-grid');
-        if (!grid) return;
-
-        // Add dynamic particles flowing from left to right
-        setInterval(() => {
-            this.createParticle(grid);
-        }, 1000);
-    }
-
-    createParticle(parent) {
-        const particle = document.createElement('div');
-        particle.className = 'privacy-particle';
-        particle.innerHTML = `<i data-lucide="lock" style="width:12px; color:var(--accent-blue)"></i>`;
-        parent.appendChild(particle);
-        lucide.createIcons();
-
-        const duration = 3000;
-        particle.style.animation = `flow-right ${duration}ms ease-in-out forwards`;
-
-        setTimeout(() => {
-            particle.remove();
-        }, duration);
-    }
-}
-
-class CommandSphere {
-    constructor(containerId) {
-        this.container = document.getElementById(containerId);
-        if (!this.container) return;
-        this.init();
-    }
-
-    init() {
-        this.container.style.position = 'relative';
-        this.container.style.width = '100%';
-        this.container.style.height = '400px';
-        this.container.style.display = 'flex';
-        this.container.style.alignItems = 'center';
-        this.container.style.justifyContent = 'center';
-
-        const sphere = document.createElement('div');
-        sphere.className = 'sphere-core';
-        this.container.appendChild(sphere);
-
-        // Add orbiting rings
-        for (let i = 0; i < 3; i++) {
-            const ring = document.createElement('div');
-            ring.className = `sphere-ring ring-${i}`;
-            this.container.appendChild(ring);
-        }
-
-        // Add icons for products
-        const icons = ['camera', 'cpu', 'bot', 'sprout', 'home', 'shield'];
-        icons.forEach((icon, index) => {
-            const iconEl = document.createElement('div');
-            iconEl.className = 'sphere-icon';
-            iconEl.innerHTML = `<i data-lucide="${icon}" style="width:18px;"></i>`;
-            iconEl.style.animation = `float-icon-${index} 20s linear infinite`;
-            this.container.appendChild(iconEl);
-
-            const angle = (index / icons.length) * Math.PI * 2;
-            const radius = 150;
-
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes float-icon-${index} {
-                    from { transform: rotate(${angle}rad) translateX(${radius}px) rotate(-${angle}rad); }
-                    to { transform: rotate(${angle + Math.PI * 2}rad) translateX(${radius}px) rotate(-${angle + Math.PI * 2}rad); }
-                }
-            `;
-            document.head.appendChild(style);
-        });
-
-        lucide.createIcons();
-    }
-}
-
-class UIMockup {
-    constructor(containerId, type) {
-        this.container = document.getElementById(containerId);
-        if (!this.container) return;
-        this.type = type;
-        this.init();
-    }
-
-    init() {
-        this.container.innerHTML = '';
-        this.container.style.position = 'relative';
-        this.container.style.background = '#050505';
-        this.container.style.overflow = 'hidden';
-
-        switch (this.type) {
-            case 'heatmap': this.createHeatmap(); break;
-            case 'dwell': this.createDwell(); break;
-            case 'demographics': this.createDemographics(); break;
-            case 'alert': this.createAlert(); break;
-            case 'network': this.createNetwork(); break;
-        }
-        lucide.createIcons();
-    }
-
-    createHeatmap() {
-        // Create a fake grid with glowing spots
-        const grid = document.createElement('div');
-        grid.style.cssText = 'display:grid; grid-template-columns: repeat(10,1fr); gap:2px; width:100%; height:100%; opacity:0.3;';
-        for (let i = 0; i < 100; i++) {
-            const cell = document.createElement('div');
-            cell.style.background = 'rgba(255,255,255,0.05)';
-            grid.appendChild(cell);
-        }
-        this.container.appendChild(grid);
-
-        for (let i = 0; i < 5; i++) {
-            const spot = document.createElement('div');
-            spot.className = 'heatmap-spot';
-            spot.style.left = `${Math.random() * 80 + 10}%`;
-            spot.style.top = `${Math.random() * 80 + 10}%`;
-            spot.style.width = `${Math.random() * 100 + 50}px`;
-            spot.style.height = spot.style.width;
-            spot.style.animationDelay = `${Math.random() * 2}s`;
-            this.container.appendChild(spot);
-        }
-    }
-
-    createDwell() {
-        const circle = document.createElement('div');
-        circle.className = 'dwell-circle';
-        this.container.appendChild(circle);
-
-        const label = document.createElement('div');
-        label.className = 'mockup-label';
-        label.innerHTML = `<i data-lucide="clock" style="width:12px;"></i> 14m 22s`;
-        label.style.left = '60%';
-        label.style.top = '40%';
-        this.container.appendChild(label);
-    }
-
-    createDemographics() {
-        const stats = [
-            { label: 'Male', val: '64%', color: '#00D1FF' },
-            { label: 'Female', val: '36%', color: '#FF00E5' }
-        ];
-        const wrapper = document.createElement('div');
-        wrapper.style.cssText = 'display:flex; gap:20px; align-items:flex-end; height:60px;';
-        stats.forEach(s => {
-            const col = document.createElement('div');
-            col.style.cssText = `width:30px; height:${s.val}; background:${s.color}; border-radius:4px 4px 0 0; position:relative;`;
-            const t = document.createElement('span');
-            t.innerText = s.val;
-            t.style.cssText = 'position:absolute; top:-20px; left:0; font-size:10px; color:#FFF;';
-            col.appendChild(t);
-            wrapper.appendChild(col);
-        });
-        this.container.appendChild(wrapper);
-    }
-
-    createAlert() {
-        const box = document.createElement('div');
-        box.className = 'alert-box-mockup';
-        box.innerHTML = `<div class="tag" style="color:#FF3B30; margin-bottom:5px;">WARNING</div><div>Unauthorized Entry</div>`;
-        this.container.appendChild(box);
-
-        const scanner = document.createElement('div');
-        scanner.className = 'scanner-line';
-        this.container.appendChild(scanner);
-    }
-
-    createNetwork() {
-        const wrapper = document.createElement('div');
-        wrapper.style.cssText = 'position:relative; width:100%; height:100%; display:flex; align-items:center; justify-content:center;';
-
-        // Central node
-        const core = document.createElement('div');
-        core.style.cssText = 'width:20px; height:20px; background:var(--accent-blue); border-radius:50%; box-shadow:0 0 20px var(--accent-blue); z-index:2;';
-        wrapper.appendChild(core);
-
-        // Orbiting nodes
         for (let i = 0; i < 6; i++) {
-            const node = document.createElement('div');
-            node.style.cssText = `position:absolute; width:6px; height:6px; background:rgba(255,255,255,0.5); border-radius:50%; animation: orbit-mockup-${i} ${3 + i}s linear infinite;`;
-            wrapper.appendChild(node);
-
-            const radius = 60 + (i * 10);
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes orbit-mockup-${i} {
-                    from { transform: rotate(0deg) translateX(${radius}px); }
-                    to { transform: rotate(360deg) translateX(${radius}px); }
-                }
-            `;
-            document.head.appendChild(style);
+            const pin = document.createElement('div');
+            pin.className = 'safety-pin';
+            pin.style.position = 'absolute';
+            pin.style.left = `${Math.random() * 80 + 10}%`;
+            pin.style.top = `${Math.random() * 80 + 10}%`;
+            pin.style.opacity = '0.4';
+            this.container.appendChild(pin);
         }
-        this.container.appendChild(wrapper);
     }
 }
 
@@ -471,21 +405,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('iot-hero-visual')) new SensorNetwork('iot-hero-visual');
     if (document.getElementById('robotics-visual')) new RoboticPath('robotics-visual');
     if (document.getElementById('agri-grid')) new FieldGrid('agri-grid');
-    if (document.getElementById('command-sphere')) new CommandSphere('command-sphere');
-    if (document.getElementById('privacy-flow')) new PrivacyFlow('privacy-flow');
+    if (document.getElementById('home-visual-nodes')) new HomeNodes('home-visual-nodes');
+    if (document.getElementById('safety-visual-nodes')) new SafetyPins('safety-visual-nodes');
+    if (document.getElementById('vision-lens-visual')) new CameraLens('vision-lens-visual');
 
-    // Auto-init based on data attributes or classes
-    document.querySelectorAll('.visual-scanner').forEach(el => {
+    // Backward compatibility or generic scanner
+    document.querySelectorAll('.visual-scanner:not(#vision-lens-visual)').forEach(el => {
         new Scanner(el.id || (el.id = 'scan-' + Math.random().toString(36).substr(2, 9)));
     });
 
     document.querySelectorAll('.visual-pulse').forEach(el => {
         new WaveVisual(el.id || (el.id = 'pulse-' + Math.random().toString(36).substr(2, 9)));
-    });
-
-    document.querySelectorAll('.visual-mockup').forEach(el => {
-        const type = el.getAttribute('data-type');
-        new UIMockup(el.id || (el.id = 'mockup-' + Math.random().toString(36).substr(2, 9)), type);
     });
 
     lucide.createIcons();

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -22,6 +22,8 @@
     <style>
         :root {
             --accent-primary: #4F46E5;
+            --accent-primary-rgb: 79, 70, 229;
+            --accent-hover: #4338CA;
             --accent-secondary: #3B82F6;
             --accent-gradient: linear-gradient(135deg, #4F46E5 0%, #3B82F6 100%);
         }
@@ -38,8 +40,15 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .btn-contact {
+        .btn-Contact {
             background: var(--accent-primary) !important;
+            transition: all 0.3s ease;
+        }
+
+        .btn-Contact:hover {
+            background: var(--accent-hover) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(67, 56, 202, 0.3);
         }
 
         .link-arrow {
@@ -67,8 +76,6 @@
             <a href="index.html" class="logo">INTELENSE</a>
 
             <div class="nav-links">
-                <a href="index.html">Home</a>
-
                 <!-- KenVision -->
                 <div class="nav-item-wrapper has-mega-menu">
                     <a href="kenvision.html" class="active">KenVision</a>
@@ -202,45 +209,41 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
-
-                <a href="ken360.html">Ken 360</a>
+            <div class="nav-right">
                 <a href="about.html">About</a>
-                <a href="contact.html" class="btn-contact">Contact</a>
+                <a href="https://calendly.com/enquiries-intelense/30min" class="btn-purple">Contact</a>
             </div>
         </div>
     </nav>
 
     <main>
         <!-- Hero Section -->
-        <section class="hero" style="padding: 12rem 0 8rem; background: var(--bg-color); overflow: hidden;">
+        <section class="hero">
             <div class="container">
                 <div class="grid-2">
                     <div class="reveal">
-                        <span class="tag">AI Video Analytics & Computer Vision</span>
+                        <span class="tag">AI Video Analytics</span>
                         <h1 style="margin-bottom: 2rem; font-size: 4rem;">
-                            KenVision: <br>
-                            <span class="text-gradient">Intelligence for <br> every camera.</span>
+                            Intelligence that <span class="text-gradient">sees.</span> <br>
+                            Insights that lead.
                         </h1>
-                        <p style="max-width: 500px; margin-bottom: 3rem; font-size: 1.1rem; line-height: 1.6;">
-                            KenVision is an AI-powered computer vision platform that transforms live video into
-                            real-time insights for security, safety, and operations at scale.
+                        <p
+                            style="max-width: 500px; margin-bottom: 3rem; font-size: 1.1rem; line-height: 1.6; color: #4B5563;">
+                            KenVision transforms raw CCTV and video data into real-time business intelligence using
+                            advanced computer vision and AI.
                         </p>
                         <div style="display: flex; gap: 1rem;">
-                            <a href="#use-cases" class="btn-contact"
-                                style="padding: 1rem 2rem; font-size: 1rem;">Explore
+                            <a href="#use-cases" class="btn-purple" style="padding: 1rem 2rem; font-size: 1rem;">Explore
                                 Use-cases →</a>
                         </div>
                     </div>
-                    <div class="reveal" style="display: flex; justify-content: flex-end; align-items: center;">
-                        <div class="camera-container visual-scanner" style="background: #000; overflow:hidden;">
-                            <div class="camera-base"></div>
-                            <div class="camera-head">
-                                <div class="camera-lens"></div>
+                    <div class="reveal hero-visual">
+                        <div class="hero-logo-container">
+                            <div class="hero-logo-frame">
+                                <img src="assets/images/logos/kenvision-new.png" alt="KenVision Logo" class="hero-logo">
                             </div>
-                            <div
-                                style="position: absolute; bottom: -40px; font-size: 0.7rem; font-weight: 700; color: var(--accent-primary); letter-spacing: 0.1em;">
-                                ACTIVE TRACKING</div>
                         </div>
                     </div>
                 </div>
@@ -295,51 +298,45 @@
         <!-- Core Capabilities -->
         <section style="padding: 8rem 0; background: var(--bg-color);">
             <div class="container">
-                <div class="reveal" style="text-align: center;">
-                    <span class="section-label">Core Capabilities</span>
-                    <h2>Comprehensive features designed for scale.</h2>
+                <div class="reveal" style="text-align: left;">
+                    <span class="section-label">Why KenVision</span>
+                    <h2>Intelligence that empowers decisions.</h2>
                 </div>
 
                 <div class="capabilities-grid reveal">
                     <div class="capability-card">
-                        <span class="capability-step">Capability 01</span>
-                        <div class="capability-visual">
-                            <i data-lucide="footprints"></i>
+                        <div class="capability-image">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800"
+                                alt="Faster Response">
                         </div>
-                        <h3>Footfall Analytics</h3>
-                        <p>Understand entry counts, peak hours, repeat visits, and traffic distribution across zones
-                            with high precision.</p>
-                        <div class="capability-badge">ANALYTICS</div>
-                    </div>
-                    <div class="capability-card">
-                        <span class="capability-step">Capability 02</span>
-                        <div class="capability-visual">
-                            <i data-lucide="clock"></i>
-                        </div>
-                        <h3>Dwell Time Analysis</h3>
-                        <p>Identify high-engagement zones, congestion points, and underutilized spaces to optimize
-                            layout and flow.</p>
-                        <div class="capability-badge">ENGAGEMENT</div>
-                    </div>
-                    <div class="capability-card">
-                        <span class="capability-step">Capability 03</span>
-                        <div class="capability-visual">
-                            <i data-lucide="users"></i>
-                        </div>
-                        <h3>Demographics Insights</h3>
-                        <p>Analyze age groups and gender distribution to better understand audience composition and
-                            target effectively.</p>
-                        <div class="capability-badge">AUDIENCE</div>
-                    </div>
-                    <div class="capability-card">
-                        <span class="capability-step">Capability 04</span>
-                        <div class="capability-visual">
-                            <i data-lucide="alert-circle"></i>
-                        </div>
-                        <h3>Event Detection</h3>
-                        <p>Identify unusual behavior, crowding, loitering, and restricted access breaches in real-time.
+                        <h3>Faster Response, Lower Risk</h3>
+                        <p>Reduce reaction time from minutes to seconds with automated alerts and AI-driven insights.
                         </p>
-                        <div class="capability-badge">SECURITY</div>
+                    </div>
+                    <div class="capability-card">
+                        <div class="capability-image">
+                            <img src="https://images.unsplash.com/photo-1449156006000-d7c92ffaa281?q=80&w=800"
+                                alt="Scales Anywhere">
+                        </div>
+                        <h3>Scales Across Environments</h3>
+                        <p>From homes and campuses to factories and cities, KenVision adapts to any environment and
+                            camera setup.</p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="capability-image">
+                            <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=800"
+                                alt="Hardware-Agnostic">
+                        </div>
+                        <h3>Hardware-Agnostic</h3>
+                        <p>Works with existing camera infrastructure. No vendor lock-in.</p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="capability-image">
+                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc51?q=80&w=800"
+                                alt="Enterprise Reliability">
+                        </div>
+                        <h3>Enterprise-Grade Reliability</h3>
+                        <p>Designed for high uptime, secure deployments, and continuous learning.</p>
                     </div>
                 </div>
             </div>
@@ -375,132 +372,22 @@
                         </ul>
                     </div>
                     <div class="reveal"
-                        style="background: #F0F0F0; border-radius: 20px; display: flex; align-items: center; justify-content: center; position: relative; border: 1px solid var(--border-color);">
-                        <span style="color: var(--text-secondary); opacity: 0.3; font-weight: 800;">DASHBOARD
-                            PREVIEW</span>
+                        style="border-radius: 20px; overflow: hidden; border: 1px solid var(--border-color);">
+                        <img src="C:/Users/INTELENSE/.gemini/antigravity/brain/e9e460c0-b2d8-4ef4-b601-3cbbb6d92abb/uploaded_image_0_1768646135735.png"
+                            alt="KenVision Dashboard" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Benefits -->
-        <section style="padding: 8rem 0; background: var(--bg-color);">
-            <div class="container">
-                <!-- Header -->
-                <div class="reveal" style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
-                    <span class="section-label">Why KenVision</span>
-                    <h2 style="margin-bottom: 2rem;">Faster Response, Lower Risk</h2>
-                    <p style="font-size: 1.15rem; color: var(--text-secondary);">Reduce reaction time from minutes to
-                        seconds with automated alerts and AI-driven insights.</p>
-                </div>
-
-                <!-- Bento Grid V3 -->
-                <div class="bento-grid-v3">
-                    <!-- Card 1: Integration Flow -->
-                    <div class="bento-card hover-glow-card reveal">
-                        <div class="bento-graphic-box">
-                            <div class="graphic-flow">
-                                <div class="flow-node"><i data-lucide="video" style="width:20px;"></i></div>
-                                <div class="flow-line"></div>
-                                <div class="flow-node"><i data-lucide="cpu" style="width:20px;"></i></div>
-                            </div>
-                        </div>
-                        <h4 style="margin-bottom: 0.5rem;">Hardware-Agnostic</h4>
-                        <p style="font-size: 0.85rem;">Works with existing camera infrastructure. No vendor lock-in.</p>
-                    </div>
-
-                    <!-- Card 2: Orbit/Scale -->
-                    <div class="bento-card hover-glow-card reveal">
-                        <div class="bento-graphic-box">
-                            <div class="graphic-orbit">
-                                <div class="orbit-center"><i data-lucide="globe" style="width:20px;"></i></div>
-                                <div class="orbit-ring">
-                                    <div class="orbit-dot"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <h4 style="margin-bottom: 0.5rem;">Scales Across Environments</h4>
-                        <p style="font-size: 0.85rem;">From homes and campuses to factories and cities, KenVision adapts
-                            to any environment and camera setup.</p>
-                    </div>
-
-                    <!-- Card 3: UI Mockup -->
-                    <div class="bento-card hover-glow-card reveal">
-                        <div class="bento-graphic-box">
-                            <div class="graphic-ui-mock">
-                                <div class="ui-line"></div>
-                                <div class="ui-line short"></div>
-                                <div class="ui-btn"></div>
-                            </div>
-                        </div>
-                        <h4 style="margin-bottom: 0.5rem;">Visual Dashboard</h4>
-                        <p style="font-size: 0.85rem;">Intuitive interface for real-time monitoring and historical
-                            analysis.</p>
-                    </div>
-
-                    <!-- Card 4: Fanned Cards -->
-                    <div class="bento-card hover-glow-card reveal">
-                        <div class="bento-graphic-box">
-                            <div class="graphic-fan">
-                                <div class="fan-card">Retail</div>
-                                <div class="fan-card">Safety</div>
-                                <div class="fan-card">Ops</div>
-                            </div>
-                        </div>
-                        <h4 style="margin-bottom: 0.5rem;">Adaptable AI</h4>
-                        <p style="font-size: 0.85rem;">One platform, endless applications across diverse industries.</p>
-                    </div>
-
-                    <!-- Card 5: Line Chart -->
-                    <div class="bento-card hover-glow-card reveal">
-                        <div class="bento-graphic-box">
-                            <div class="graphic-line-chart">
-                                <svg viewBox="0 0 100 50" class="chart-line">
-                                    <path d="M0,50 Q25,40 50,25 T100,5" fill="none" stroke="currentColor" />
-                                </svg>
-                                <div class="chart-dot" style="right: 0; top: 5px;"></div>
-                            </div>
-                        </div>
-                        <h4 style="margin-bottom: 0.5rem;">Latency Reduction</h4>
-                        <p style="font-size: 0.85rem;">Real-time processing ensures alerts are delivered instantly.</p>
-                    </div>
-
-                    <!-- Card 6: Bar Chart -->
-                    <div class="bento-card hover-glow-card reveal">
-                        <div class="bento-graphic-box">
-                            <div class="graphic-bar-chart">
-                                <div class="bar-col" style="height: 40%;"></div>
-                                <div class="bar-col active"></div>
-                                <div class="bar-col" style="height: 60%;"></div>
-                            </div>
-                        </div>
-                        <h4 style="margin-bottom: 0.5rem;">Enterprise-Grade Reliability</h4>
-                        <p style="font-size: 0.85rem;">Designed for high uptime, secure deployments, and continuous
-                            learning.</p>
-                    </div>
-                </div>
-
-                <script>
-                    document.querySelectorAll('.hover-glow-card').forEach(card => {
-                        card.addEventListener('mousemove', e => {
-                            const rect = card.getBoundingClientRect();
-                            const x = e.clientX - rect.left;
-                            const y = e.clientY - rect.top;
-                            card.style.setProperty('--x', `${x}px`);
-                            card.style.setProperty('--y', `${y}px`);
-                        });
-                    });
-                </script>
-            </div>
-        </section>
 
         <!-- Use Cases -->
         <section id="use-cases" style="padding: 8rem 0; background: var(--white);">
             <div class="container">
-                <div class="reveal" style="margin-bottom: 5rem; text-align: center;">
+                <div class="reveal" style="margin-bottom: 5rem; text-align: left;">
                     <span class="section-label">Use Cases</span>
                     <h2>Intelligence Across Sectors</h2>
-                    <p style="max-width: 600px; margin: 1rem auto 0; color: var(--text-secondary);">Discover how
+                    <p style="max-width: 600px; margin: 1rem 0 0; color: var(--text-secondary);">Discover how
                         KenVision transforms operations across diverse industries with tailored AI solutions.</p>
                 </div>
 
@@ -512,12 +399,10 @@
                                 alt="Retail Analytics" class="use-case-image">
                         </div>
                         <div class="use-case-content">
-                            <h3>Retail Analytics</h3>
-                            <p>Transform your store into a data-driven powerhouse. Optimize layout based on heatmaps,
-                                reduce checkout wait times with queue management, and boost conversion rates by
-                                understanding customer demographics and behavior.</p>
-                            <a href="contact.html">Contact Sales <i data-lucide="arrow-right"
-                                    style="width: 18px;"></i></a>
+                            <h3>Retail Analytics Solutions</h3>
+                            <p>Optimize store performance with AI-powered insights into customer behavior, footfall
+                                patterns, dwell time, and sales trends.</p>
+                            <a href="https://calendly.com/enquiries-intelense/30min">Learn More</a>
                         </div>
                     </div>
 
@@ -529,11 +414,9 @@
                         </div>
                         <div class="use-case-content">
                             <h3>Commercial Buildings</h3>
-                            <p>Enhance workplace efficiency and security. Monitor real-time occupancy to optimize HVAC
-                                and lighting, automate access control for authorized personnel, and ensure compliance
-                                with safety regulations.</p>
-                            <a href="contact.html">Contact Sales <i data-lucide="arrow-right"
-                                    style="width: 18px;"></i></a>
+                            <p>Real-time occupancy analytics, intelligent access monitoring, and asset protection to
+                                improve efficiency and security.</p>
+                            <a href="https://calendly.com/enquiries-intelense/30min">Learn More</a>
                         </div>
                     </div>
 
@@ -544,12 +427,10 @@
                                 alt="Smart Cities" class="use-case-image">
                         </div>
                         <div class="use-case-content">
-                            <h3>Smart Cities & Public Spaces</h3>
-                            <p>Build safer, smarter communities. Monitor traffic flow to reduce congestion, detect crowd
-                                anomalies in public squares, and improve urban planning with long-term data on public
-                                space usage.</p>
-                            <a href="contact.html">Contact Sales <i data-lucide="arrow-right"
-                                    style="width: 18px;"></i></a>
+                            <h3>Smart Cities and Public Spaces</h3>
+                            <p>AI-driven traffic insights, crowd monitoring, and public safety intelligence for smarter
+                                urban management.</p>
+                            <a href="https://calendly.com/enquiries-intelense/30min">Learn More</a>
                         </div>
                     </div>
 
@@ -561,27 +442,37 @@
                         </div>
                         <div class="use-case-content">
                             <h3>AI for Video Surveillance</h3>
-                            <p>Proactive security that never sleeps. Detect intruders, loitering, and perimeter breaches
-                                instantly. Reduce false alarms with AI that distinguishes between threats and natural
-                                movements.</p>
-                            <a href="contact.html">Contact Sales <i data-lucide="arrow-right"
-                                    style="width: 18px;"></i></a>
+                            <p>Enhance surveillance systems with real-time detection, alerts, and analytics that reduce
+                                manual monitoring and improve response.</p>
+                            <a href="https://calendly.com/enquiries-intelense/30min">Learn More</a>
                         </div>
                     </div>
 
                     <!-- Item 5 -->
                     <div class="use-case-item" id="emergency">
                         <div class="use-case-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&q=80&w=800"
+                            <img src="https://images.unsplash.com/photo-1582139329536-e7284feaa2e3?auto=format&fit=crop&q=80&w=800"
                                 alt="Emergency Services" class="use-case-image">
                         </div>
                         <div class="use-case-content">
-                            <h3>Emergency Services</h3>
-                            <p>Save critical time when it matters most. Automatically detect accidents, fires, or
-                                violent incidents and dispatch first responders with real-time situational awareness
-                                from live video feeds.</p>
-                            <a href="contact.html">Contact Sales <i data-lucide="arrow-right"
-                                    style="width: 18px;"></i></a>
+                            <h3>Emergency Service Solutions</h3>
+                            <p>Improve response times and resource allocation with real-time video analytics for police,
+                                fire, and emergency services.</p>
+                            <a href="https://calendly.com/enquiries-intelense/30min">Learn More</a>
+                        </div>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="use-case-item" id="smart-city-solutions">
+                        <div class="use-case-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&q=80&w=800"
+                                alt="Smart City Solutions" class="use-case-image">
+                        </div>
+                        <div class="use-case-content">
+                            <h3>Smart City Solutions</h3>
+                            <p>Transform urban environments using AI-powered insights for traffic flow, safety, and
+                                infrastructure efficiency.</p>
+                            <a href="https://calendly.com/enquiries-intelense/30min">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -595,7 +486,7 @@
                 <p style="max-width: 600px; margin: 0 auto 3rem; color: #A0A0A0;">Explore how KenVision fits into your
                     environment.</p>
                 <div style="display: flex; gap: 1rem; justify-content: center;">
-                    <a href="contact.html" class="btn-contact"
+                    <a href="https://calendly.com/enquiries-intelense/30min" class="btn-purple"
                         style="padding: 1rem 2rem; background: var(--accent-blue);">Request a Demo</a>
                     <a href="#use-cases"
                         style="display: inline-flex; align-items: center; padding: 1rem 2rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); text-decoration: none; color: var(--white); font-weight: 600;">
@@ -614,7 +505,7 @@
                         INTELENSE <span></span>
                     </a>
                     <p style="color: #A0A0A0; margin-bottom: 2rem;">Turn data into insights.</p>
-                    <div class="contact-info">
+                    <div class="Contact-info">
                         <p
                             style="display: flex; align-items: center; gap: 0.75rem; color: #A0A0A0; font-size: 0.9rem; margin-bottom: 1rem;">
                             <i data-lucide="mail" style="width: 16px;"></i> enquiries@intelense.ca
@@ -645,7 +536,7 @@
                     <h4>Company</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="ken360.html">Ken 360</a></li>
+
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="blogs.html">Blogs</a></li>
                         <li><a href="faq.html">FAQ</a></li>
@@ -656,13 +547,11 @@
 
                 <div class="footer-col">
                     <h4>Connect</h4>
-                    <div style="display: flex; gap: 1rem;">
-                        <a href="#"
-                            style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--white);">
+                    <div class="footer-social">
+                        <a href="https://x.com/Intelenseinc" class="social-link" target="_blank">
                             <i data-lucide="twitter" style="width: 18px;"></i>
                         </a>
-                        <a href="#"
-                            style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--white);">
+                        <a href="https://www.linkedin.com/company/intelense/" class="social-link" target="_blank">
                             <i data-lucide="linkedin" style="width: 18px;"></i>
                         </a>
                     </div>

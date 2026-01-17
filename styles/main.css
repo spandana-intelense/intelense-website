@@ -147,7 +147,7 @@ p {
 
 .nav-container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   max-width: var(--max-width);
   margin: 0 auto;
@@ -161,38 +161,69 @@ p {
   letter-spacing: -0.01em;
   color: var(--text-primary);
   text-decoration: none;
-  margin-right: 4rem;
-  /* Spacing between logo and first link */
+  flex-shrink: 0;
 }
 
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   align-items: center;
-  position: relative;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   height: 100%;
 }
 
-.nav-links .btn-contact {
+.nav-right {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
   margin-left: auto;
 }
 
-.nav-links a {
+.nav-links a,
+.nav-right a {
   text-decoration: none;
-  color: var(--text-primary);
-  font-size: 0.8rem;
-  font-weight: 500;
-  opacity: 0.6;
-  transition: opacity 0.3s ease, color 0.3s ease;
+  color: #374151;
+  /* Dark grey */
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: color 0.3s ease;
   padding: 0.5rem 0;
+  white-space: nowrap;
   position: relative;
 }
 
 .nav-links a:hover,
-.nav-links a.active {
-  opacity: 1;
+.nav-links a.active,
+.nav-right a:hover {
   color: var(--accent-blue);
 }
+
+.btn-purple {
+  background: #8B5CF6;
+  color: white !important;
+  padding: 0.7rem 1.8rem;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-purple:hover {
+  background: #7C3AED;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+  color: white !important;
+}
+
 
 .nav-links a.active::after {
   content: '';
@@ -376,10 +407,36 @@ p {
 }
 
 .capability-card:hover .capability-step {
-  color: var(--accent-blue);
+  display: none;
 }
 
-/* Visual Icon Container */
+/* Visual Image Container */
+.capability-image {
+  width: 100%;
+  height: 200px;
+  background: #F8FAFC;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+}
+
+.capability-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.capability-card:hover .capability-image {
+  border-color: var(--accent-hover, var(--accent-blue));
+}
+
+.capability-card:hover .capability-image img {
+  transform: scale(1.05);
+}
+
 .capability-visual {
   width: 64px;
   height: 64px;
@@ -396,10 +453,10 @@ p {
 
 .capability-card:hover .capability-visual {
   transform: scale(1.1) rotate(5deg);
-  background: var(--accent-blue);
+  background: var(--accent-hover, var(--accent-blue));
   color: #FFF;
-  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
-  border-color: var(--accent-blue);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent-hover, var(--accent-blue));
 }
 
 .capability-visual i {
@@ -441,8 +498,8 @@ p {
 }
 
 .capability-card:hover .capability-badge {
-  background: #E0E7FF;
-  color: var(--accent-blue);
+  background: rgba(var(--accent-primary-rgb, 79, 70, 229), 0.1);
+  color: var(--accent-primary, var(--accent-blue));
 }
 
 /* Connectors (Arrow Buttons) */
@@ -471,8 +528,8 @@ p {
 }
 
 .capability-card:not(:last-child):hover::after {
-  background: var(--accent-blue);
-  border-color: var(--accent-blue);
+  background: var(--accent-hover, var(--accent-blue));
+  border-color: var(--accent-hover, var(--accent-blue));
   color: #FFF;
   transform: translateY(-50%) translateX(5px);
 }
@@ -594,18 +651,26 @@ p {
 }
 
 .btn-contact {
-  background: var(--dark-bg);
-  color: var(--white);
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
+  background: #8B5CF6;
+  color: white !important;
+  padding: 0.7rem 1.8rem;
+  border-radius: 8px;
+  font-weight: 700;
   text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 600;
-  transition: transform 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 0.85rem;
+  border: none;
+  cursor: pointer;
+  text-align: center;
 }
 
 .btn-contact:hover {
+  background: #7C3AED;
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
 }
 
 /* Ticker Tape */
@@ -1531,7 +1596,7 @@ p {
 
 /* Footer (Updated for shared use) */
 footer {
-  background: var(--dark-bg);
+  background: #111827;
   color: var(--white);
   padding: 4rem 0 2rem;
   margin-top: var(--section-spacing);
@@ -1545,7 +1610,7 @@ footer {
 }
 
 .footer-col h4 {
-  color: #00D1FF;
+  color: #8B5CF6;
   font-size: 0.8rem;
   text-transform: uppercase;
   margin-bottom: 1.5rem;
@@ -1568,7 +1633,7 @@ footer {
 }
 
 .footer-col ul li a:hover {
-  color: var(--white);
+  color: #8B5CF6;
 }
 
 .location-info h5 {
@@ -1580,6 +1645,32 @@ footer {
 .location-info p {
   color: #A0A0A0;
   font-size: 0.85rem;
+}
+
+/* Footer Social Links */
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  background: #8B5CF6;
+  color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
 }
 
 /* Bento Grid V2 (3-Column) */
@@ -2453,4 +2544,303 @@ footer {
     top: 0;
     min-height: auto;
   }
+}
+
+/* FAQ Accordion Styles */
+.faq-container {
+  max-width: 800px;
+  margin-top: 4rem;
+}
+
+.faq-item {
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-item:hover {
+  border-color: var(--accent-purple);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.05);
+}
+
+.faq-item.active {
+  border-color: var(--accent-purple);
+  box-shadow: 0 10px 40px rgba(139, 92, 246, 0.1);
+}
+
+.faq-question {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-align: left;
+  outline: none;
+}
+
+.faq-question h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+  transition: color 0.3s ease;
+}
+
+.faq-item.active .faq-question h3 {
+  color: var(--accent-purple);
+}
+
+.faq-icon-wrapper {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(139, 92, 246, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-purple);
+  transition: all 0.3s ease;
+}
+
+.faq-item.active .faq-icon-wrapper {
+  background: var(--accent-purple);
+  color: var(--white);
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #FAFAFA;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+}
+
+.faq-answer-content {
+  padding: 0 2rem 2.5rem;
+}
+
+.faq-answer p {
+  margin: 0;
+  color: #4B5563;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Global Hero Visual Interactions */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  position: relative;
+  min-height: 450px;
+}
+
+.hero-logo-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 400px;
+  margin-left: auto;
+}
+
+.hero-logo-frame {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-logo-container .hero-logo {
+  max-width: 320px;
+  height: auto;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.08));
+  position: relative;
+  z-index: 10;
+}
+
+/* Background shapes styling remains same if needed, but primary interaction is centered behind logo */
+
+/* Background Animation Shapes (KenVision style) */
+.hero-bg-elements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+}
+
+@keyframes floatElement {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  33% {
+    transform: translate(30px, -50px) rotate(5deg);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) rotate(-5deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+/* Agri Grid (KenAgri) */
+.field-grid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(45deg) rotateZ(-20deg);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  width: 380px;
+  height: 380px;
+  transform-style: preserve-3d;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.plant-node {
+  width: 40px;
+  height: 40px;
+  background: rgba(16, 185, 129, 0.05);
+  border: 1px solid rgba(16, 185, 129, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.plant-node:hover {
+  transform: translateZ(20px);
+  background: rgba(16, 185, 129, 0.2);
+  border-color: #10B981;
+}
+
+/* IoT Network (KenIoT) */
+.iot-network {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 320px;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.iot-node {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #8B5CF6;
+  border-radius: 50%;
+  box-shadow: 0 0 15px var(--accent-purple);
+}
+
+.iot-line {
+  position: absolute;
+  background: #8B5CF6;
+  opacity: 0.1;
+  height: 1px;
+  transform-origin: left center;
+}
+
+/* Robotics Path (KenRobotics) */
+.robotics-hero-visual {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: 450px;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.floating-robot {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Home Nodes (KenHome) */
+.home-visual-nodes {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  height: 380px;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.home-node {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+/* Safety Pins (KenSafety) */
+.safety-hero-nodes {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.safety-pin {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #EF4444;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
 }

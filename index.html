@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -53,6 +53,32 @@
             position: relative;
             z-index: 2;
         }
+
+
+        /* New Button and Card Styles */
+        .card-clickable {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-clickable:hover {
+            transform: translateY(-5px);
+        }
+
+        .industry-card-visual {
+            height: 140px;
+            margin: -2rem -2rem 1.5rem;
+            overflow: hidden;
+            background: #f0f0f0;
+        }
+
+        .industry-card-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     </style>
 </head>
 
@@ -62,8 +88,6 @@
             <a href="index.html" class="logo">INTELENSE</a>
 
             <div class="nav-links">
-                <a href="index.html" class="active">Home</a>
-
                 <!-- KenVision -->
                 <div class="nav-item-wrapper has-mega-menu">
                     <a href="kenvision.html">KenVision</a>
@@ -191,12 +215,11 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
-
-
-                <a href="ken360.html">Ken 360</a>
+            <div class="nav-right">
                 <a href="about.html">About</a>
-                <a href="contact.html" class="btn-contact">Contact</a>
+                <a href="https://calendly.com/enquiries-intelense/30min" class="btn-purple">Contact</a>
             </div>
         </div>
     </nav>
@@ -227,7 +250,7 @@
                     </p>
 
                     <div style="display: flex; gap: 1rem;">
-                        <a href="contact.html" class="btn-contact" style="padding: 1rem 2rem; font-size: 1rem;">Request
+                        <a href="https://calendly.com/enquiries-intelense/30min" class="btn-purple" style="padding: 1rem 2rem; font-size: 1rem;">Request
                             a Demo</a>
                         <a href="kenvision.html"
                             style="display: inline-flex; align-items: center; padding: 1rem 2rem; border-radius: 6px; border: 1px solid var(--border-color); text-decoration: none; color: var(--text-primary); font-weight: 600; font-size: 1rem; background: var(--white); transition: var(--transition-smooth);">
@@ -429,7 +452,7 @@
                             </div>
                         </div>
 
-                        <a href="ken360.html" class="btn-contact"
+                        <a href="ken360.html" class="btn-purple"
                             style="padding: 1rem 2rem; background: var(--dark-bg); color: var(--white);">Learn more
                             about Ken 360 →</a>
                     </div>
@@ -519,7 +542,7 @@
 
                 <div class="grid-3" style="gap: 2.5rem;">
                     <!-- KenVision -->
-                    <div class="reveal card">
+                    <a href="kenvision.html" class="reveal card card-clickable">
                         <div
                             style="height: 160px; margin: -2rem -2rem 1.5rem; overflow: hidden; background: #050505; position: relative; display: flex; align-items: center; justify-content: center;">
                             <img src="assets/images/ken_suite_vision.jpg" alt="KenVision Analytics"
@@ -540,14 +563,15 @@
                         <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 2rem;">
                             Advanced computer vision for retail analytics, building management, and urban safety.
                         </p>
-                        <a href="kenvision.html" class="link-arrow">Explore KenVision →</a>
-                    </div>
+                        <span class="btn-purple" style="width: 100%;">Explore KenVision →</span>
+                    </a>
 
                     <!-- KenIoT -->
-                    <div class="reveal card">
-                        <div style="height: 160px; margin: -2rem -2rem 1.5rem; overflow: hidden; background: #050505;">
-                            <img src="assets/images/ken_suite_iot_branded.jpg" alt="KenIoT Connectivity"
-                                style="width: 100%; height: 100%; object-fit: cover;">
+                    <a href="keniot.html" class="reveal card card-clickable">
+                        <div
+                            style="height: 160px; margin: -2rem -2rem 1.5rem; overflow: hidden; background: #050505; position: relative; display: flex; align-items: center; justify-content: center;">
+                            <img src="assets/images/ken_suite_iot_new_v2.png" alt="KenIoT Connectivity"
+                                style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
                         </div>
                         <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                             <div
@@ -559,10 +583,11 @@
                         <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 2rem;">
                             Seamless connectivity for industrial automation and remote diagnostics at the edge.
                         </p>
-                        <a href="keniot.html" class="link-arrow">Explore KenIoT →</a>
-                    </div>
+                        <span class="btn-purple" style="width: 100%;">Explore KenIoT →</span>
+                    </a>
 
-                    <div class="reveal card">
+                    <!-- KenRobotics -->
+                    <a href="kenrobotics.html" class="reveal card card-clickable">
                         <div
                             style="height: 160px; margin: -2rem -2rem 1.5rem; overflow: hidden; background: #050505; position: relative; display: flex; align-items: center; justify-content: center;">
                             <img src="assets/images/ken_suite_robotics_new.jpg" alt="KenRobotics AI"
@@ -583,11 +608,11 @@
                         <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 2rem;">
                             Robotics that sense, decide, and act autonomously for maximum efficiency.
                         </p>
-                        <a href="kenrobotics.html" class="link-arrow">Explore KenRobotics →</a>
-                    </div>
+                        <span class="btn-purple" style="width: 100%;">Explore KenRobotics →</span>
+                    </a>
 
                     <!-- KenAgri -->
-                    <div class="reveal card">
+                    <a href="kenagri.html" class="reveal card card-clickable">
                         <div
                             style="height: 160px; margin: -2rem -2rem 1.5rem; overflow: hidden; background: #050505; position: relative; display: flex; align-items: center; justify-content: center;">
                             <img src="assets/images/ken_suite_agri.jpg" alt="KenAgri Precision"
@@ -608,11 +633,11 @@
                         <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 2rem;">
                             Precision intelligence helping farmers make data-driven decisions for crop lifecycles.
                         </p>
-                        <a href="kenagri.html" class="link-arrow">Explore KenAgri →</a>
-                    </div>
+                        <span class="btn-purple" style="width: 100%;">Explore KenAgri →</span>
+                    </a>
 
                     <!-- KenHome -->
-                    <div class="reveal card">
+                    <a href="kenhome.html" class="reveal card card-clickable">
                         <div
                             style="height: 160px; margin: -2rem -2rem 1.5rem; overflow: hidden; background: #050505; position: relative; display: flex; align-items: center; justify-content: center;">
                             <img src="assets/images/ken_suite_home.jpg" alt="KenHome Safety"
@@ -633,11 +658,11 @@
                         <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 2rem;">
                             Applying AI and vision to create smarter, safer, and more responsive living environments.
                         </p>
-                        <a href="kenhome.html" class="link-arrow">Explore KenHome →</a>
-                    </div>
+                        <span class="btn-purple" style="width: 100%;">Explore KenHome →</span>
+                    </a>
 
                     <!-- KenSafety -->
-                    <div class="reveal card">
+                    <a href="kensafety.html" class="reveal card card-clickable">
                         <div
                             style="height: 160px; margin: -2rem -2rem 1.5rem; overflow: hidden; background: #050505; position: relative; display: flex; align-items: center; justify-content: center;">
                             <img src="assets/images/ken_suite_safety.jpg" alt="KenSafety Protection"
@@ -658,8 +683,8 @@
                         <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 2rem;">
                             Proactive safety through early risk detection across high-risk environments.
                         </p>
-                        <a href="kensafety.html" class="link-arrow">Explore KenSafety →</a>
-                    </div>
+                        <span class="btn-purple" style="width: 100%;">Explore KenSafety →</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -673,60 +698,89 @@
                 </div>
 
                 <div class="grid-3">
-                    <div class="reveal card">
+                    <!-- Public Safety -->
+                    <a href="https://calendly.com/enquiries-intelense/30min" class="reveal card card-clickable">
+                        <div class="industry-card-visual">
+                            <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=800"
+                                alt="Public Safety">
+                        </div>
                         <i data-lucide="shield" style="margin-bottom: 1.5rem; color: var(--accent-blue);"></i>
                         <h3 style="margin-bottom: 1rem;">Public Safety</h3>
                         <p style="margin-bottom: 2rem; font-size: 0.9rem;">Real-time threat detection and situational
                             awareness for urban environments.</p>
-                        <a href="contact.html"
-                            style="text-decoration: none; font-weight: 700; font-size: 0.85rem; color: var(--text-primary);">Explore
-                            Solution →</a>
-                    </div>
-                    <div class="reveal card">
+                        <span style="font-weight: 700; font-size: 0.85rem; color: var(--text-primary);">Explore
+                            Solution →</span>
+                    </a>
+
+                    <!-- Smart Infrastructure -->
+                    <a href="https://calendly.com/enquiries-intelense/30min" class="reveal card card-clickable">
+                        <div class="industry-card-visual">
+                            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=800"
+                                alt="Smart Infrastructure">
+                        </div>
                         <i data-lucide="building-2" style="margin-bottom: 1.5rem; color: var(--accent-blue);"></i>
                         <h3 style="margin-bottom: 1rem;">Smart Infrastructure</h3>
                         <p style="margin-bottom: 2rem; font-size: 0.9rem;">Monitoring and optimizing critical systems
                             for efficiency and safety.</p>
-                        <a href="contact.html"
-                            style="text-decoration: none; font-weight: 700; font-size: 0.85rem; color: var(--text-primary);">Explore
-                            Solution →</a>
-                    </div>
-                    <div class="reveal card">
+                        <span style="font-weight: 700; font-size: 0.85rem; color: var(--text-primary);">Explore
+                            Solution →</span>
+                    </a>
+
+                    <!-- Retail Analytics -->
+                    <a href="https://calendly.com/enquiries-intelense/30min" class="reveal card card-clickable">
+                        <div class="industry-card-visual">
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800"
+                                alt="Retail Analytics">
+                        </div>
                         <i data-lucide="shopping-bag" style="margin-bottom: 1.5rem; color: var(--accent-blue);"></i>
                         <h3 style="margin-bottom: 1rem;">Retail Analytics</h3>
                         <p style="margin-bottom: 2rem; font-size: 0.9rem;">Deep insights into footfall and customer
                             behavior patterns.</p>
-                        <a href="contact.html"
-                            style="text-decoration: none; font-weight: 700; font-size: 0.85rem; color: var(--text-primary);">Explore
-                            Solution →</a>
-                    </div>
-                    <div class="reveal card">
+                        <span style="font-weight: 700; font-size: 0.85rem; color: var(--text-primary);">Explore
+                            Solution →</span>
+                    </a>
+
+                    <!-- Logistics & Transport -->
+                    <a href="https://calendly.com/enquiries-intelense/30min" class="reveal card card-clickable">
+                        <div class="industry-card-visual">
+                            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800"
+                                alt="Logistics & Transport">
+                        </div>
                         <i data-lucide="truck" style="margin-bottom: 1.5rem; color: var(--accent-blue);"></i>
                         <h3 style="margin-bottom: 1rem;">Logistics & Transport</h3>
                         <p style="margin-bottom: 2rem; font-size: 0.9rem;">Optimizing fleets and routes with real-time
                             signal intelligence.</p>
-                        <a href="contact.html"
-                            style="text-decoration: none; font-weight: 700; font-size: 0.85rem; color: var(--text-primary);">Explore
-                            Solution →</a>
-                    </div>
-                    <div class="reveal card">
+                        <span style="font-weight: 700; font-size: 0.85rem; color: var(--text-primary);">Explore
+                            Solution →</span>
+                    </a>
+
+                    <!-- Industrial Automation -->
+                    <a href="https://calendly.com/enquiries-intelense/30min" class="reveal card card-clickable">
+                        <div class="industry-card-visual">
+                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800"
+                                alt="Industrial Automation">
+                        </div>
                         <i data-lucide="factory" style="margin-bottom: 1.5rem; color: var(--accent-blue);"></i>
                         <h3 style="margin-bottom: 1rem;">Industrial Automation</h3>
                         <p style="margin-bottom: 2rem; font-size: 0.9rem;">Enhanced safety and control for manufacturing
                             and robotics.</p>
-                        <a href="contact.html"
-                            style="text-decoration: none; font-weight: 700; font-size: 0.85rem; color: var(--text-primary);">Explore
-                            Solution →</a>
-                    </div>
-                    <div class="reveal card">
+                        <span style="font-weight: 700; font-size: 0.85rem; color: var(--text-primary);">Explore
+                            Solution →</span>
+                    </a>
+
+                    <!-- Precision Agriculture -->
+                    <a href="https://calendly.com/enquiries-intelense/30min" class="reveal card card-clickable">
+                        <div class="industry-card-visual">
+                            <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&q=80&w=800"
+                                alt="Precision Agriculture">
+                        </div>
                         <i data-lucide="sprout" style="margin-bottom: 1.5rem; color: var(--accent-blue);"></i>
                         <h3 style="margin-bottom: 1rem;">Precision Agriculture</h3>
                         <p style="margin-bottom: 2rem; font-size: 0.9rem;">Data-driven crop health monitoring and yield
                             optimization.</p>
-                        <a href="contact.html"
-                            style="text-decoration: none; font-weight: 700; font-size: 0.85rem; color: var(--text-primary);">Explore
-                            Solution →</a>
-                    </div>
+                        <span style="font-weight: 700; font-size: 0.85rem; color: var(--text-primary);">Explore
+                            Solution →</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -789,7 +843,7 @@
                 <p style="max-width: 600px; margin-bottom: 3rem; font-size: 1.1rem;">Join leading organizations using
                     Intelense to transform visual signals into operational intelligence.</p>
                 <div style="display: flex; gap: 1rem;">
-                    <a href="contact.html" class="btn-contact"
+                    <a href="https://calendly.com/enquiries-intelense/30min" class="btn-purple"
                         style="padding: 1.25rem 2.5rem; font-size: 1.1rem;">Request a Demo</a>
                     <a href="kenvision.html"
                         style="display: inline-flex; align-items: center; padding: 1.25rem 2.5rem; border-radius: 6px; border: 1px solid var(--border-color); text-decoration: none; color: var(--text-primary); font-weight: 600; font-size: 1.1rem; background: var(--white); transition: var(--transition-smooth);">
@@ -808,7 +862,7 @@
                         INTELENSE <span></span>
                     </a>
                     <p style="color: #A0A0A0; margin-bottom: 2rem;">Turn data into insights.</p>
-                    <div class="contact-info">
+                    <div class="Contact-info">
                         <p
                             style="display: flex; align-items: center; gap: 0.75rem; color: #A0A0A0; font-size: 0.9rem; margin-bottom: 1rem;">
                             <i data-lucide="mail" style="width: 16px;"></i> enquiries@intelense.ca
@@ -839,7 +893,7 @@
                     <h4>Company</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="ken360.html">Ken 360</a></li>
+                        
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="blogs.html">Blogs</a></li>
                         <li><a href="faq.html">FAQ</a></li>
@@ -850,13 +904,11 @@
 
                 <div class="footer-col">
                     <h4>Connect</h4>
-                    <div style="display: flex; gap: 1rem;">
-                        <a href="#"
-                            style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--white);">
+                    <div class="footer-social">
+                        <a href="https://x.com/Intelenseinc" class="social-link" target="_blank">
                             <i data-lucide="twitter" style="width: 18px;"></i>
                         </a>
-                        <a href="#"
-                            style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--white);">
+                        <a href="https://www.linkedin.com/company/intelense/" class="social-link" target="_blank">
                             <i data-lucide="linkedin" style="width: 18px;"></i>
                         </a>
                     </div>
@@ -885,3 +937,6 @@
 </body>
 
 </html>
+
+
+

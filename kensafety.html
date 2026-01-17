@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -20,77 +20,51 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="styles/main.css">
     <style>
-        /* KenSafety Specific Visuals */
-        .safety-hero-visual {
-            position: relative;
-            width: 400px;
-            height: 350px;
-            background: #F9F9FB;
-            border-radius: 20px;
-            border: 1px solid var(--border-color);
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        :root {
+            --accent-primary: #EF4444;
+            --accent-hover: #DC2626;
+            --accent-secondary: #DC2626;
+            --accent-gradient: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
         }
 
-        .safety-pin {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background: #FF3B30;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 15px rgba(255, 59, 48, 0.4);
-            cursor: pointer;
+        /* Override main.css variables */
+        .section-label {
+            color: var(--accent-primary);
+        }
+
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-Contact {
+            background: var(--accent-primary) !important;
             transition: all 0.3s ease;
         }
 
-        .safety-pin::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 2px solid #FF3B30;
-            border-radius: 50%;
-            animation: ping 1.5s infinite;
+        .btn-Contact:hover {
+            background: var(--accent-hover) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
         }
 
-        @keyframes ping {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-
-            100% {
-                transform: scale(3);
-                opacity: 0;
-            }
+        .link-arrow {
+            color: var(--accent-primary) !important;
         }
 
-        .safety-tooltip {
-            position: absolute;
-            bottom: 25px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #1A1A1A;
-            color: #FFF;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.7rem;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            pointer-events: none;
+        .capability-step {
+            color: var(--accent-primary) !important;
         }
 
-        .safety-pin:hover .safety-tooltip {
-            opacity: 1;
-            visibility: visible;
-            bottom: 30px;
+        .capability-badge {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--accent-primary);
+        }
+
+        .use-case-content a {
+            color: var(--accent-primary);
         }
 
         /* Monitor UI */
@@ -138,8 +112,6 @@
             <a href="index.html" class="logo">INTELENSE</a>
 
             <div class="nav-links">
-                <a href="index.html">Home</a>
-
                 <!-- KenVision -->
                 <div class="nav-item-wrapper has-mega-menu">
                     <a href="kenvision.html">KenVision</a>
@@ -267,48 +239,42 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <a href="ken360.html">Ken 360</a>
+            <div class="nav-right">
                 <a href="about.html">About</a>
-                <a href="contact.html" class="btn-contact">Contact</a>
+                <a href="https://calendly.com/enquiries-intelense/30min" class="btn-purple">Contact</a>
             </div>
         </div>
     </nav>
 
     <main>
         <!-- Hero Section -->
-        <section class="hero" style="padding: 12rem 0 8rem; background: var(--bg-color); overflow: hidden;">
+        <section class="hero" style="padding: 12rem 0 8rem; background: #F9FAFB; overflow: hidden; position: relative;">
             <div class="container">
                 <div class="grid-2">
                     <div class="reveal">
-                        <span class="tag">Proactive safety. Zero compromise.</span>
+                        <span class="tag" style="background: rgba(239, 68, 68, 0.1); color: #EF4444;">Proactive safety.
+                            Zero compromise.</span>
                         <h1 style="margin-bottom: 2rem; font-size: 4rem;">
                             Safety that <span class="text-gradient">sees risks.</span> <br>
                             Before they happen.
                         </h1>
-                        <p style="max-width: 500px; margin-bottom: 3rem; font-size: 1.1rem; line-height: 1.6;">
+                        <p
+                            style="max-width: 500px; margin-bottom: 3rem; font-size: 1.1rem; line-height: 1.6; color: #4B5563;">
                             KenSafety is an AI-powered safety intelligence platform that detects hazards, prevents
                             incidents, and protects people, assets, and infrastructure across construction sites,
                             factories, and commercial environments.
                         </p>
                         <div style="display: flex; gap: 1rem;">
-                            <a href="#use-cases" class="btn-contact"
-                                style="padding: 1rem 2rem; font-size: 1rem; background: var(--accent-blue);">Explore
+                            <a href="#use-cases" class="btn-purple" style="padding: 1rem 2rem; font-size: 1rem;">Explore
                                 Use-cases →</a>
                         </div>
                     </div>
-                    <div class="reveal" style="display: flex; justify-content: flex-end; align-items: center;">
-                        <div class="safety-hero-visual">
-                            <i data-lucide="factory"
-                                style="width: 200px; height: 200px; opacity: 0.05; position: absolute;"></i>
-                            <div class="safety-pin" style="top: 30%; left: 40%;">
-                                <div class="safety-tooltip">PPE VIOLATION DETECTED</div>
-                            </div>
-                            <div class="safety-pin" style="bottom: 40%; right: 30%;">
-                                <div class="safety-tooltip">ZONE BREACH ALERT</div>
-                            </div>
-                            <div class="safety-pin" style="top: 50%; left: 60%;">
-                                <div class="safety-tooltip">SPOKE DETECTED</div>
+                    <div class="reveal hero-visual">
+                        <div class="hero-logo-container">
+                            <div class="hero-logo-frame">
+                                <img src="assets/images/logos/kensafety-new.png" alt="KenSafety Logo" class="hero-logo">
                             </div>
                         </div>
                     </div>
@@ -353,42 +319,38 @@
 
                 <div class="capabilities-grid reveal">
                     <div class="capability-card">
-                        <span class="capability-step">Capability 01</span>
-                        <div class="capability-visual" style="overflow: hidden; padding: 0;">
+                        <div class="capability-image">
                             <img src="https://images.unsplash.com/photo-1517089535819-de21223bc7df?auto=format&fit=crop&q=80&w=800"
-                                alt="Construction Safety" style="width: 100%; height: 100%; object-fit: cover;">
+                                alt="Construction Safety">
                         </div>
                         <h3>Construction Site Safety</h3>
                         <p>Detect PPE violations, unsafe behavior, falls, and restricted-zone breaches in real time.</p>
                         <div class="capability-badge">SITE SAFETY</div>
                     </div>
                     <div class="capability-card">
-                        <span class="capability-step">Capability 02</span>
-                        <div class="capability-visual" style="overflow: hidden; padding: 0;">
-                            <img src="https://images.unsplash.com/photo-1542332213-31f87348057f?auto=format&fit=crop&q=80&w=800"
-                                alt="Fire Detection" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="capability-image">
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800"
+                                alt="Commercial Buildings">
                         </div>
-                        <h3>Fire and Smoke Detection</h3>
-                        <p>Identify early signs of fire, smoke, or heat anomalies to prevent escalation and reduce
-                            damage.</p>
-                        <div class="capability-badge">FIRE WATCH</div>
+                        <h3>Commercial Buildings</h3>
+                        <p>Protect office spaces and public areas with fire detection, occupancy monitoring, and
+                            emergency response intelligence.</p>
+                        <div class="capability-badge">COMMERCIAL</div>
                     </div>
                     <div class="capability-card">
-                        <span class="capability-step">Capability 03</span>
-                        <div class="capability-visual" style="overflow: hidden; padding: 0;">
-                            <img src="https://images.unsplash.com/photo-1557090491-199616cad866?auto=format&fit=crop&q=80&w=800"
-                                alt="Perimeter Security" style="width: 100%; height: 100%; object-fit: cover;">
+                        <div class="capability-image">
+                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800"
+                                alt="Industrial Facilities">
                         </div>
-                        <h3>Perimeter Intrusion Detection</h3>
-                        <p>Monitor site boundaries and detect unauthorized access, tailgating, and suspicious movement.
-                        </p>
-                        <div class="capability-badge">SECURITY</div>
+                        <h3>Industrial Facilities</h3>
+                        <p>Monitor high-risk environments for machinery hazards, operator safety, and automated safety
+                            shutdowns.</p>
+                        <div class="capability-badge">INDUSTRIAL</div>
                     </div>
                     <div class="capability-card">
-                        <span class="capability-step">Capability 04</span>
-                        <div class="capability-visual" style="overflow: hidden; padding: 0;">
+                        <div class="capability-image">
                             <img src="https://images.unsplash.com/photo-1589793907316-f94025b46850?auto=format&fit=crop&q=80&w=800"
-                                alt="Hazard Detection" style="width: 100%; height: 100%; object-fit: cover;">
+                                alt="Hazard Detection">
                         </div>
                         <h3>Hazard and Anomaly Detection</h3>
                         <p>Identify spills, obstructions, equipment misuse, and other operational hazards automatically.
@@ -410,57 +372,23 @@
                             tracking and compliance management.</p>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                             <div class="reveal">
-                                <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent-blue);">PPE
-                                    COMPLIANCE</h4>
-                                <p style="font-size: 0.8rem; color: var(--text-secondary);">Real-time tracking of safety
-                                    gear adherence across all zones.</p>
+                                <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent-primary);">
+                                    PPE COMPLIANCE</h4>
+                                <p style="font-size: 0.8rem; color: var(--text-secondary);">Real-time tracking of
+                                    safety gear adherence across all zones.</p>
                             </div>
                             <div class="reveal">
-                                <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent-blue);">
-                                    INCIDENT LOGS</h4>
+                                <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent-primary);">
+                                    REAL-TIME MONITORING</h4>
                                 <p style="font-size: 0.8rem; color: var(--text-secondary);">Automated reports with video
                                     evidence and time stamps.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="reveal">
-                        <div class="safety-monitor">
-                            <div
-                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-                                <h4 style="font-size: 0.8rem; text-transform: uppercase;">Site Safety: Sector 4</h4>
-                                <span class="status-pill" style="background: rgba(255, 59, 48, 0.1); color: #FF3B30;">2
-                                    WARNINGS</span>
-                            </div>
-
-                            <div class="monitor-stat-grid">
-                                <div class="monitor-stat">
-                                    <div style="font-size: 0.7rem; color: #A0A0A0; margin-bottom: 0.5rem;">PPE
-                                        Compliance</div>
-                                    <div style="font-size: 1.5rem; font-weight: 800; color: #00FF94;">98%</div>
-                                </div>
-                                <div class="monitor-stat">
-                                    <div style="font-size: 0.7rem; color: #A0A0A0; margin-bottom: 0.5rem;">Active
-                                        Workers</div>
-                                    <div style="font-size: 1.5rem; font-weight: 800;">142</div>
-                                </div>
-                            </div>
-
-                            <h5
-                                style="font-size: 0.75rem; color: #666; margin-bottom: 1rem; text-transform: uppercase;">
-                                Real-Time Feed</h5>
-                            <div class="incidents-list">
-                                <div class="incident-item"
-                                    style="display: flex; justify-content: space-between; align-items: center;">
-                                    <span>Zone B - Unauthorized personnel detected</span>
-                                    <span style="font-size: 0.6rem; opacity: 0.6;">NOW</span>
-                                </div>
-                                <div class="incident-item"
-                                    style="border-left-color: #00FF94; background: rgba(0, 255, 148, 0.05);">
-                                    <span>System Check: All cameras operational</span>
-                                    <span style="float: right; font-size: 0.6rem; opacity: 0.6;">10M AGO</span>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="reveal"
+                        style="border-radius: 20px; overflow: hidden; border: 1px solid var(--border-color);">
+                        <img src="C:/Users/INTELENSE/.gemini/antigravity/brain/e9e460c0-b2d8-4ef4-b601-3cbbb6d92abb/uploaded_image_3_1768646135735.png"
+                            alt="Safety Monitor Dashboard" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                 </div>
             </div>
@@ -557,7 +485,8 @@
                         <div class="use-case-content">
                             <h3>Construction Sites</h3>
                             <p>Ensure worker safety, monitor compliance, and reduce site accidents.</p>
-                            <a href="contact.html">Learn More <i data-lucide="arrow-right" style="width: 18px;"></i></a>
+                            <a href="https://calendly.com/enquiries-intelense/30min">Learn More <i
+                                    data-lucide="arrow-right" style="width: 18px;"></i></a>
                         </div>
                     </div>
 
@@ -570,7 +499,8 @@
                         <div class="use-case-content">
                             <h3>Industrial Facilities</h3>
                             <p>Detect hazards, prevent equipment-related incidents, and improve operational safety.</p>
-                            <a href="contact.html">Learn More <i data-lucide="arrow-right" style="width: 18px;"></i></a>
+                            <a href="https://calendly.com/enquiries-intelense/30min">Learn More <i
+                                    data-lucide="arrow-right" style="width: 18px;"></i></a>
                         </div>
                     </div>
 
@@ -583,7 +513,8 @@
                         <div class="use-case-content">
                             <h3>Commercial Buildings</h3>
                             <p>Monitor fire risks, restricted areas, and emergency situations in real time.</p>
-                            <a href="contact.html">Learn More <i data-lucide="arrow-right" style="width: 18px;"></i></a>
+                            <a href="https://calendly.com/enquiries-intelense/30min">Learn More <i
+                                    data-lucide="arrow-right" style="width: 18px;"></i></a>
                         </div>
                     </div>
 
@@ -596,7 +527,8 @@
                         <div class="use-case-content">
                             <h3>Warehouses and Logistics</h3>
                             <p>Prevent collisions, monitor forklift safety, and secure perimeters.</p>
-                            <a href="contact.html">Learn More <i data-lucide="arrow-right" style="width: 18px;"></i></a>
+                            <a href="https://calendly.com/enquiries-intelense/30min">Learn More <i
+                                    data-lucide="arrow-right" style="width: 18px;"></i></a>
                         </div>
                     </div>
                 </div>
@@ -610,8 +542,8 @@
                 <p style="max-width: 600px; margin: 0 auto 3rem; color: #A0A0A0;">Explore how KenSafety can protect your
                     assets and workforce.</p>
                 <div style="display: flex; gap: 1rem; justify-content: center;">
-                    <a href="contact.html" class="btn-contact"
-                        style="padding: 1rem 2rem; background: var(--accent-blue);">Request a Demo</a>
+                    <a href="https://calendly.com/enquiries-intelense/30min" class="btn-purple"
+                        style="padding: 1rem 2rem;">Request a Demo</a>
                     <a href="#use-cases"
                         style="display: inline-flex; align-items: center; padding: 1rem 2rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); text-decoration: none; color: var(--white); font-weight: 600;">
                         Explore Use-cases
@@ -629,7 +561,7 @@
                         INTELENSE <span></span>
                     </a>
                     <p style="color: #A0A0A0; margin-bottom: 2rem;">Turn data into insights.</p>
-                    <div class="contact-info">
+                    <div class="Contact-info">
                         <p
                             style="display: flex; align-items: center; gap: 0.75rem; color: #A0A0A0; font-size: 0.9rem; margin-bottom: 1rem;">
                             <i data-lucide="mail" style="width: 16px;"></i> enquiries@intelense.ca
@@ -660,7 +592,7 @@
                     <h4>Company</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="ken360.html">Ken 360</a></li>
+
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="blogs.html">Blogs</a></li>
                         <li><a href="faq.html">FAQ</a></li>
@@ -671,13 +603,12 @@
 
                 <div class="footer-col">
                     <h4>Connect</h4>
-                    <div style="display: flex; gap: 1rem;">
-                        <a href="#"
-                            style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--white);">
+                    <div class="footer-social">
+                        <a href="https://x.com/Intelenseinc" class="social-link" target="_blank"
+                            title="X (formerly Twitter)">
                             <i data-lucide="twitter" style="width: 18px;"></i>
                         </a>
-                        <a href="#"
-                            style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--white);">
+                        <a href="https://www.linkedin.com/company/intelense/" class="social-link" target="_blank">
                             <i data-lucide="linkedin" style="width: 18px;"></i>
                         </a>
                     </div>

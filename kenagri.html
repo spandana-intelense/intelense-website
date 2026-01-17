@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -22,6 +22,7 @@
     <style>
         :root {
             --accent-primary: #10B981;
+            --accent-hover: #059669;
             --accent-secondary: #059669;
             --accent-gradient: linear-gradient(135deg, #10B981 0%, #059669 100%);
         }
@@ -38,8 +39,15 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .btn-contact {
+        .btn-Contact {
             background: var(--accent-primary) !important;
+            transition: all 0.3s ease;
+        }
+
+        .btn-Contact:hover {
+            background: var(--accent-hover) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
         }
 
         .link-arrow {
@@ -58,80 +66,6 @@
         .use-case-content a {
             color: var(--accent-primary);
         }
-
-        /* KenAgri Specific Visuals */
-        .field-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 1.5rem;
-            width: 350px;
-            height: 350px;
-            transform: rotateX(45deg) rotateZ(-20deg);
-            transform-style: preserve-3d;
-        }
-
-        .plant-node {
-            width: 40px;
-            height: 40px;
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.2);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .plant-node:hover {
-            transform: translateZ(20px);
-            background: rgba(16, 185, 129, 0.3);
-            border-color: var(--accent-primary);
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
-        }
-
-        .plant-node.active i {
-            color: var(--accent-primary);
-            transform: scale(1.2);
-        }
-
-        /* NDVI Map UI */
-        .map-container {
-            background: #111;
-            border-radius: 12px;
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .ndvi-grid {
-            display: grid;
-            grid-template-columns: repeat(8, 1fr);
-            gap: 2px;
-            margin-bottom: 2rem;
-        }
-
-        .ndvi-cell {
-            aspect-ratio: 1;
-            border-radius: 1px;
-        }
-
-        .zone-label {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.75rem;
-            color: #DDD;
-        }
-
-        .status-pill {
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.65rem;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
     </style>
 </head>
 
@@ -141,8 +75,6 @@
             <a href="index.html" class="logo">INTELENSE</a>
 
             <div class="nav-links">
-                <a href="index.html">Home</a>
-
                 <!-- KenVision -->
                 <div class="nav-item-wrapper has-mega-menu">
                     <a href="kenvision.html">KenVision</a>
@@ -219,10 +151,10 @@
                             <div class="mega-column">
                                 <span class="column-title">Applications</span>
                                 <ul>
-                                    <li><a href="kenagri.html#precision">Precision Farming</a></li>
-                                    <li><a href="kenagri.html#large-scale">Large-Scale Farm Management</a></li>
-                                    <li><a href="kenagri.html#agri-input">Agri-Input Optimization</a></li>
-                                    <li><a href="kenagri.html#climate">Climate-Resilient Farming</a></li>
+                                    <li><a href="kenagri.html#farming">Precision Farming</a></li>
+                                    <li><a href="kenagri.html#management">Farm Management</a></li>
+                                    <li><a href="kenagri.html#optimization">Agri-Input Optimization</a></li>
+                                    <li><a href="kenagri.html#resilience">Climate-Resilient</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -270,40 +202,43 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <a href="ken360.html">Ken 360</a>
+            <div class="nav-right">
                 <a href="about.html">About</a>
-                <a href="contact.html" class="btn-contact">Contact</a>
+                <a href="https://calendly.com/enquiries-intelense/30min" class="btn-purple">Contact</a>
             </div>
         </div>
     </nav>
 
     <main>
         <!-- Hero Section -->
-        <section class="hero" style="padding: 12rem 0 8rem; background: var(--bg-color); overflow: hidden;">
+        <section class="hero" style="padding: 12rem 0 8rem; background: #F9FAFB; overflow: hidden; position: relative;">
             <div class="container">
                 <div class="grid-2">
                     <div class="reveal">
-                        <span class="tag">Smart Agriculture</span>
+                        <span class="tag" style="background: rgba(16, 185, 129, 0.1); color: #10B981;">Precision
+                            Agriculture</span>
                         <h1 style="margin-bottom: 2rem; font-size: 4rem;">
-                            Intelligence for farms. <br>
-                            <span class="text-gradient">Precision at scale.</span>
+                            Cultivating the <span class="text-gradient">future.</span> <br>
+                            Measured in data.
                         </h1>
-                        <p style="max-width: 500px; margin-bottom: 3rem; font-size: 1.1rem; line-height: 1.6;">
-                            KenAgri is an AI-powered agriculture intelligence platform that helps farmers,
-                            agribusinesses, and institutions optimize yield, reduce input costs, and manage farms
+                        <p
+                            style="max-width: 500px; margin-bottom: 3rem; font-size: 1.1rem; line-height: 1.6; color: #4B5563;">
+                            KenAgri optimizes crop yields and farm operations by helping farmers monitor and manage
+                            fields
                             sustainably using data-driven insights.
                         </p>
                         <div style="display: flex; gap: 1rem;">
-                            <a href="#use-cases" class="btn-contact"
-                                style="padding: 1rem 2rem; font-size: 1rem;">Explore
+                            <a href="#use-cases" class="btn-purple" style="padding: 1rem 2rem; font-size: 1rem;">Explore
                                 Use-cases →</a>
                         </div>
                     </div>
-                    <div class="reveal"
-                        style="display: flex; justify-content: flex-end; align-items: center; perspective: 1000px;">
-                        <div class="field-grid" id="agri-grid">
-                            <!-- Nodes added via JS -->
+                    <div class="reveal hero-visual">
+                        <div class="hero-logo-container">
+                            <div class="hero-logo-frame">
+                                <img src="assets/images/logos/kenagri-new.png" alt="KenAgri Logo" class="hero-logo">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -321,7 +256,6 @@
                                 <span class="section-label">What KenAgri Does</span>
                                 <h2 style="font-size: 3rem; line-height: 1.2; margin-bottom: 1.5rem;">Data-Driven
                                     Farming, Made Practical</h2>
-                                <span style="font-weight: 700; color: var(--accent-primary);">+12% vs LY</span>
                                 <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 800px;">
                                     KenAgri combines AI, sensors, satellite data, and computer vision to deliver
                                     real-time insights that improve crop health, resource efficiency, and farm
@@ -341,10 +275,9 @@
 
                             <div class="capabilities-grid reveal">
                                 <div class="capability-card">
-                                    <span class="capability-step">Capability 01</span>
-                                    <div class="capability-visual" style="overflow: hidden; padding: 0;">
-                                        <img src="assets/images/kenagri_capability_crop_health.png" alt="Crop Health"
-                                            style="width: 100%; height: 100%; object-fit: cover;">
+                                    <div class="capability-image">
+                                        <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=800"
+                                            alt="Crop Health Monitoring">
                                     </div>
                                     <h3>Crop Health Monitoring</h3>
                                     <p>Detect stress, disease, and nutrient deficiencies early using AI-driven visual
@@ -352,10 +285,9 @@
                                     <div class="capability-badge">MONITORING</div>
                                 </div>
                                 <div class="capability-card">
-                                    <span class="capability-step">Capability 02</span>
-                                    <div class="capability-visual" style="overflow: hidden; padding: 0;">
+                                    <div class="capability-image">
                                         <img src="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&q=80&w=800"
-                                            alt="Precision Input" style="width: 100%; height: 100%; object-fit: cover;">
+                                            alt="Precision Input">
                                     </div>
                                     <h3>Precision Input</h3>
                                     <p>Optimize water, fertilizer, and pesticide application to reduce waste and improve
@@ -363,11 +295,9 @@
                                     <div class="capability-badge">EFFICIENCY</div>
                                 </div>
                                 <div class="capability-card">
-                                    <span class="capability-step">Capability 03</span>
-                                    <div class="capability-visual" style="overflow: hidden; padding: 0;">
+                                    <div class="capability-image">
                                         <img src="https://images.unsplash.com/photo-1558449028-15820960d704?auto=format&fit=crop&q=80&w=800"
-                                            alt="Yield Prediction"
-                                            style="width: 100%; height: 100%; object-fit: cover;">
+                                            alt="Yield Prediction">
                                     </div>
                                     <h3>Yield Prediction</h3>
                                     <p>Leverage AI models to forecast yields and plan harvests with greater accuracy.
@@ -375,10 +305,9 @@
                                     <div class="capability-badge">FORECASTING</div>
                                 </div>
                                 <div class="capability-card">
-                                    <span class="capability-step">Capability 04</span>
-                                    <div class="capability-visual" style="overflow: hidden; padding: 0;">
+                                    <div class="capability-image">
                                         <img src="https://images.unsplash.com/photo-1594488687399-5b304ff1df5b?auto=format&fit=crop&q=80&w=800"
-                                            alt="Farm Operations" style="width: 100%; height: 100%; object-fit: cover;">
+                                            alt="Farm Operations">
                                     </div>
                                     <h3>Farm Operations</h3>
                                     <p>Track field activities, equipment usage, and farm performance across seasons.</p>
@@ -417,40 +346,11 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="reveal">
-                                    <div class="map-container">
-                                        <div
-                                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-                                            <h4 style="font-size: 0.8rem; color: #FFF; text-transform: uppercase;">CROP
-                                                HEALTH INDEX
-                                            </h4>
-                                            <span
-                                                style="font-size: 1.5rem; font-weight: 800; color: #00FF94;">8.5/10</span>
-                                        </div>
-                                        <h4
-                                            style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent-primary);">
-                                            NDVI ANALYSIS</h4>
-
-                                        <div class="ndvi-grid" id="ndvi-grid">
-                                            <!-- Generated Cells -->
-                                        </div>
-
-                                        <div
-                                            style="display: flex; justify-content: space-between; align-items: center;">
-                                            <div class="zone-label">
-                                                <span class="status-pill"
-                                                    style="background: rgba(0,179,89,0.2); color: var(--accent-primary);">Zone
-                                                    A:
-                                                    Healthy</span>
-                                            </div>
-                                            <div class="zone-label">
-                                                <span class="status-pill"
-                                                    style="background: rgba(255,184,0,0.2); color: #FFB800;">Zone B:
-                                                    Stress
-                                                    Detected</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="reveal"
+                                    style="border-radius: 20px; overflow: hidden; border: 1px solid var(--border-color);">
+                                    <img src="C:/Users/INTELENSE/.gemini/antigravity/brain/e9e460c0-b2d8-4ef4-b601-3cbbb6d92abb/uploaded_image_1_1768646135735.png"
+                                        alt="Field Command Center"
+                                        style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>
                             </div>
                         </div>
@@ -536,9 +436,7 @@
                             <div class="reveal" style="margin-bottom: 5rem; text-align: center;">
                                 <span class="section-label">Use Cases</span>
                                 <h2>Intelligence in the Field</h2>
-                                <h4 style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--accent-primary);">
-                                    YIELD
-                                    PROJECTION</h4>
+
                                 <p style="max-width: 600px; margin: 1rem auto 0; color: var(--text-secondary);">
                                     Empowering farmers with actionable insights for smarter agriculture.
                                 </p>
@@ -554,8 +452,8 @@
                                     <div class="use-case-content">
                                         <h3>Precision Farming</h3>
                                         <p>Make data-driven decisions at every stage of the crop lifecycle.</p>
-                                        <a href="contact.html">Contact Sales <i data-lucide="arrow-right"
-                                                style="width: 18px;"></i></a>
+                                        <a href="https://calendly.com/enquiries-intelense/30min">Contact<i
+                                                data-lucide="arrow-right" style="width: 18px;"></i></a>
                                     </div>
                                 </div>
 
@@ -568,8 +466,8 @@
                                     <div class="use-case-content">
                                         <h3>Large-Scale Farm Management</h3>
                                         <p>Monitor thousands of hectares with centralized intelligence.</p>
-                                        <a href="contact.html">Contact Sales <i data-lucide="arrow-right"
-                                                style="width: 18px;"></i></a>
+                                        <a href="https://calendly.com/enquiries-intelense/30min">Contact<i
+                                                data-lucide="arrow-right" style="width: 18px;"></i></a>
                                     </div>
                                 </div>
 
@@ -582,8 +480,8 @@
                                     <div class="use-case-content">
                                         <h3>Agri-Input Optimization</h3>
                                         <p>Apply inputs only where and when needed to maximize ROI.</p>
-                                        <a href="contact.html">Contact Sales <i data-lucide="arrow-right"
-                                                style="width: 18px;"></i></a>
+                                        <a href="https://calendly.com/enquiries-intelense/30min">Contact<i
+                                                data-lucide="arrow-right" style="width: 18px;"></i></a>
                                     </div>
                                 </div>
 
@@ -596,8 +494,8 @@
                                     <div class="use-case-content">
                                         <h3>Climate-Resilient Farming</h3>
                                         <p>Adapt farming practices using predictive insights and early warnings.</p>
-                                        <a href="contact.html">Contact Sales <i data-lucide="arrow-right"
-                                                style="width: 18px;"></i></a>
+                                        <a href="https://calendly.com/enquiries-intelense/30min">Contact<i
+                                                data-lucide="arrow-right" style="width: 18px;"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -669,7 +567,8 @@
                     into your
                     agricultural ecosystem.</p>
                 <div style="display: flex; gap: 1rem; justify-content: center;">
-                    <a href="contact.html" class="btn-contact" style="padding: 1rem 2rem;">Request a Demo</a>
+                    <a href="https://calendly.com/enquiries-intelense/30min" class="btn-purple"
+                        style="padding: 1rem 2rem;">Request a Demo</a>
                     <a href="#use-cases"
                         style="display: inline-flex; align-items: center; padding: 1rem 2rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); text-decoration: none; color: var(--white); font-weight: 600;">
                         Explore Use-cases
@@ -687,7 +586,7 @@
                         INTELENSE <span></span>
                     </a>
                     <p style="color: #A0A0A0; margin-bottom: 2rem;">Turn data into insights.</p>
-                    <div class="contact-info">
+                    <div class="Contact-info">
                         <p
                             style="display: flex; align-items: center; gap: 0.75rem; color: #A0A0A0; font-size: 0.9rem; margin-bottom: 1rem;">
                             <i data-lucide="mail" style="width: 16px;"></i> enquiries@intelense.ca
@@ -718,7 +617,7 @@
                     <h4>Company</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="ken360.html">Ken 360</a></li>
+
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="blogs.html">Blogs</a></li>
                         <li><a href="faq.html">FAQ</a></li>
@@ -729,13 +628,12 @@
 
                 <div class="footer-col">
                     <h4>Connect</h4>
-                    <div style="display: flex; gap: 1rem;">
-                        <a href="#"
-                            style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--white);">
+                    <div class="footer-social">
+                        <a href="https://x.com/Intelenseinc" class="social-link" target="_blank"
+                            title="X (formerly Twitter)">
                             <i data-lucide="twitter" style="width: 18px;"></i>
                         </a>
-                        <a href="#"
-                            style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--white);">
+                        <a href="https://www.linkedin.com/company/intelense/" class="social-link" target="_blank">
                             <i data-lucide="linkedin" style="width: 18px;"></i>
                         </a>
                     </div>

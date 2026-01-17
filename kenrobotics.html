@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -22,6 +22,7 @@
     <style>
         :root {
             --accent-primary: #F97316;
+            --accent-hover: #EA580C;
             --accent-secondary: #EA580C;
             --accent-gradient: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
         }
@@ -38,8 +39,15 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .btn-contact {
+        .btn-Contact {
             background: var(--accent-primary) !important;
+            transition: all 0.3s ease;
+        }
+
+        .btn-Contact:hover {
+            background: var(--accent-hover) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
         }
 
         .link-arrow {
@@ -58,79 +66,6 @@
         .use-case-content a {
             color: var(--accent-primary);
         }
-
-        /* KenRobotics Specific Visuals */
-        .robotics-hero-visual {
-            position: relative;
-            width: 400px;
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .core-ai {
-            width: 80px;
-            height: 80px;
-            background: var(--accent-gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--white);
-            box-shadow: 0 0 30px rgba(249, 115, 22, 0.4);
-            z-index: 5;
-            position: relative;
-        }
-
-        .floating-robot {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background: var(--white);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease-out;
-        }
-
-        .robot-path {
-            position: absolute;
-            border: 1px dashed var(--accent-primary);
-            opacity: 0.1;
-            border-radius: 50%;
-        }
-
-        /* Feature Image Placeholder */
-        .visual-placeholder {
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #F0F0F0 0%, #E0E0E0 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            font-weight: 700;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .visual-placeholder::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.02) 10px, transparent 10px, transparent 20px);
-        }
     </style>
 </head>
 
@@ -140,8 +75,6 @@
             <a href="index.html" class="logo">INTELENSE</a>
 
             <div class="nav-links">
-                <a href="index.html">Home</a>
-
                 <!-- KenVision -->
                 <div class="nav-item-wrapper has-mega-menu">
                     <a href="kenvision.html">KenVision</a>
@@ -269,43 +202,44 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <a href="ken360.html">Ken 360</a>
+            <div class="nav-right">
                 <a href="about.html">About</a>
-                <a href="contact.html" class="btn-contact">Contact</a>
+                <a href="https://calendly.com/enquiries-intelense/30min" class="btn-purple">Contact</a>
             </div>
         </div>
     </nav>
 
     <main>
         <!-- Hero Section -->
-        <section class="hero" style="padding: 12rem 0 8rem; background: var(--bg-color); overflow: hidden;">
+        <section class="hero" style="padding: 12rem 0 8rem; background: #F9FAFB; overflow: hidden; position: relative;">
             <div class="container">
                 <div class="grid-2">
                     <div class="reveal">
-                        <span class="tag">AI Robotics Platform</span>
+                        <span class="tag" style="background: rgba(249, 115, 22, 0.1); color: #F97316;">AI Robotics
+                            Platform</span>
                         <h1 style="margin-bottom: 2rem; font-size: 4rem;">
                             Autonomy that <span class="text-gradient">adapts.</span> <br>
                             Intelligence that performs.
                         </h1>
-                        <p style="max-width: 500px; margin-bottom: 3rem; font-size: 1.1rem; line-height: 1.6;">
+                        <p
+                            style="max-width: 500px; margin-bottom: 3rem; font-size: 1.1rem; line-height: 1.6; color: #4B5563;">
                             KenRobotics is an AI-powered robotics platform that enables autonomous operation, remote
                             monitoring, and intelligent control across industrial and commercial environments.
                         </p>
                         <div style="display: flex; gap: 1rem;">
-                            <a href="#use-cases" class="btn-contact"
+                            <a href="#use-cases" class="btn-purple"
                                 style="padding: 1rem 2rem; font-size: 1rem;">Explore
                                 Use-cases →</a>
                         </div>
                     </div>
-                    <div class="reveal" style="display: flex; justify-content: flex-end; align-items: center;">
-                        <div class="robotics-hero-visual" id="robotics-visual">
-                            <div class="robot-path" style="width: 300px; height: 300px;"></div>
-                            <div class="robot-path" style="width: 200px; height: 200px;"></div>
-                            <div class="core-ai">
-                                <i data-lucide="brain" style="width: 32px; height: 32px;"></i>
+                    <div class="reveal hero-visual">
+                        <div class="hero-logo-container">
+                            <div class="hero-logo-frame">
+                                <img src="assets/images/logos/kenrobotics-new.png" alt="KenRobotics Logo"
+                                    class="hero-logo">
                             </div>
-                            <!-- Floating entities will be added via script -->
                         </div>
                     </div>
                 </div>
@@ -318,12 +252,11 @@
                 <!-- Header -->
                 <div class="reveal" style="max-width: 900px; margin-bottom: 4rem;">
                     <span class="section-label">What KenRobotics Does</span>
-                    <h2 style="font-size: 3rem; line-height: 1.2; margin-bottom: 1.5rem;">Robots That Sense,
-                        Decide, and Act</h2>
-                    <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 800px;">
-                        KenRobotics combines AI, computer vision, and real-time control systems to help
-                        robots operate autonomously, respond to dynamic environments, and deliver consistent
-                        performance at scale.</p>
+                    <h2 style="font-size: 3rem; line-height: 1.2; margin-bottom: 1.5rem;">Robots That Sense, Decide, and
+                        Act</h2>
+                    <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 800px;">KenRobotics combines
+                        AI, computer vision, and real-time control systems to help robots operate autonomously, respond
+                        to dynamic environments, and deliver consistent performance at scale.</p>
                 </div>
 
                 <!-- Feature Cards -->
@@ -334,8 +267,7 @@
                             <i data-lucide="layers"></i>
                         </div>
                         <h4>Inputs</h4>
-                        <p>CCTV, IP Cameras, Drones, and Hardware Sensors providing raw environmental data.
-                        </p>
+                        <p>CCTV, IP Cameras, Drones, and Hardware Sensors providing raw environmental data.</p>
                     </div>
 
                     <!-- Card 2 -->
@@ -362,174 +294,57 @@
         <!-- Core Capabilities -->
         <section style="padding: 8rem 0; background: var(--bg-color);">
             <div class="container">
-                <div class="reveal" style="text-align: center;">
-                    <span class="section-label">Core Capabilities</span>
-                    <h2>Comprehensive features designed for scale.</h2>
+                <div class="reveal" style="text-align: left;">
+                    <span class="section-label">Why KenRobotics</span>
+                    <h2>Intelligence that powers productivity.</h2>
                 </div>
 
                 <div class="capabilities-grid reveal">
                     <div class="capability-card">
-                        <span class="capability-step">Capability 01</span>
-                        <div class="capability-visual">
-                            <i data-lucide="navigation"></i>
+                        <div class="capability-image">
+                            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=800"
+                                alt="Higher Productivity">
                         </div>
-                        <h3>Autonomous Navigation</h3>
-                        <p>Enable robots to navigate complex environments safely using AI-driven perception
-                            and
-                            real-time decision-making without human intervention.</p>
-                        <div class="capability-badge">AUTONOMY</div>
+                        <h3>Higher Productivity, Lower Risk</h3>
+                        <p>Automate repetitive and high-risk tasks while improving operational speed and accuracy.</p>
                     </div>
                     <div class="capability-card">
-                        <span class="capability-step">Capability 02</span>
-                        <div class="capability-visual">
-                            <i data-lucide="monitor"></i>
+                        <div class="capability-image">
+                            <img src="https://images.unsplash.com/photo-1546771732-2435da823439?q=80&w=800"
+                                alt="Real-World Environments">
                         </div>
-                        <h3>Remote Monitoring</h3>
-                        <p>Monitor robotic systems in real time and manage operations remotely from a
-                            centralized
-                            control layer with Full HD video feeds.</p>
-                        <div class="capability-badge">CONTROL</div>
+                        <h3>Built for Real-World Environments</h3>
+                        <p>Reliable performance in dynamic, unstructured, and mission-critical industrial settings.</p>
                     </div>
                     <div class="capability-card">
-                        <span class="capability-step">Capability 03</span>
-                        <div class="capability-visual">
-                            <i data-lucide="search"></i>
+                        <div class="capability-image">
+                            <img src="https://images.unsplash.com/photo-1558444458-208b8862ece2?q=80&w=800"
+                                alt="Hardware-Agnostic">
                         </div>
-                        <h3>Automated Inspection</h3>
-                        <p>Deploy robots for consistent, high-precision inspections of infrastructure,
-                            pipelines, and
-                            equipment in hazardous areas.</p>
-                        <div class="capability-badge">INSPECTION</div>
-                    </div>
-                    <div class="capability-card">
-                        <span class="capability-step">Capability 04</span>
-                        <div class="capability-visual">
-                            <i data-lucide="network"></i>
-                        </div>
-                        <h3>Fleet Orchestration</h3>
-                        <p>Coordinate swarms of robots for synchronized tasks, optimizing routes and battery
-                            usage for
-                            maximum efficiency.</p>
-                        <div class="capability-badge">SCALE</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Benefits -->
-        <section style="padding: 8rem 0; background: var(--white);">
-            <div class="container">
-                <!-- Header -->
-                <div class="reveal" style="text-align: center; max-width: 800px; margin: 0 auto 4rem;">
-                    <span class="section-label">Why KenRobotics</span>
-                    <h2 style="margin-bottom: 2rem;">Higher Productivity, Built for the Real World</h2>
-                    <p style="font-size: 1.15rem; color: var(--text-secondary);">Designed to perform
-                        reliably in
-                        dynamic, unstructured, and mission-critical settings.</p>
-                </div>
-
-                <!-- Bento Grid V3 -->
-                <div class="bento-grid-v3">
-                    <!-- Card 1: Line Chart (Productivity) -->
-                    <div class="bento-card hover-glow-card reveal">
-                        <div class="bento-graphic-box">
-                            <div class="graphic-line-chart">
-                                <svg viewBox="0 0 100 50" class="chart-line">
-                                    <path d="M0,50 Q25,40 50,25 T100,5" fill="none" stroke="currentColor" />
-                                </svg>
-                                <div class="chart-dot" style="right: 0; top: 5px;"></div>
-                            </div>
-                        </div>
-                        <h4 style="margin-bottom: 0.5rem;">Productivity Boost</h4>
-                        <p style="font-size: 0.85rem;">Automate repetitive and high-risk tasks while
-                            improving speed and
-                            accuracy.</p>
-                    </div>
-
-                    <!-- Card 2: Integration Flow (Hardware) -->
-                    <div class="bento-card hover-glow-card reveal">
-                        <div class="bento-graphic-box">
-                            <div class="graphic-flow">
-                                <div class="flow-node"><i data-lucide="bot" style="width:20px;"></i></div>
-                                <div class="flow-line"></div>
-                                <div class="flow-node"><i data-lucide="cpu" style="width:20px;"></i></div>
-                            </div>
-                        </div>
-                        <h4 style="margin-bottom: 0.5rem;">Hardware Agnostic</h4>
-                        <p style="font-size: 0.85rem;">Integrates with a wide range of robotic hardware
-                            without vendor
+                        <h3>Hardware-Agnostic Platform</h3>
+                        <p>Integrates with a wide range of robotic hardware and enterprise systems without vendor
                             lock-in.</p>
                     </div>
-
-                    <!-- Card 3: Orbit (Mission Critical) -->
-                    <div class="bento-card hover-glow-card reveal">
-                        <div class="bento-graphic-box">
-                            <div class="graphic-orbit">
-                                <div class="orbit-center"><i data-lucide="crosshair" style="width:20px;"></i></div>
-                                <div class="orbit-ring">
-                                    <div class="orbit-dot"></div>
-                                </div>
-                            </div>
+                    <div class="capability-card">
+                        <div class="capability-image">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800"
+                                alt="Enterprise Control">
                         </div>
-                        <h4 style="margin-bottom: 0.5rem;">Mission-Critical</h4>
-                        <p style="font-size: 0.85rem;">Reliable perfromance in dynamic and unstructured
-                            environments.
-                        </p>
-                    </div>
-
-                    <!-- Card 4: Fanned Cards (Workflows) -->
-                    <div class="bento-card hover-glow-card reveal">
-                        <div class="bento-graphic-box">
-                            <div class="graphic-fan">
-                                <div class="fan-card">Nav</div>
-                                <div class="fan-card">Task</div>
-                                <div class="fan-card">Done</div>
-                            </div>
-                        </div>
-                        <h4 style="margin-bottom: 0.5rem;">Automated Workflows</h4>
-                        <p style="font-size: 0.85rem;">Orchestrate complex sequences of robotic actions
-                            seamlessly.</p>
-                    </div>
-
-                    <!-- Card 5: UI Mock (Remote Command) -->
-                    <div class="bento-card hover-glow-card reveal">
-                        <div class="bento-graphic-box">
-                            <div class="graphic-ui-mock">
-                                <div class="ui-line"></div>
-                                <div class="ui-line short"></div>
-                                <div class="ui-btn" style="background: var(--accent-primary);"></div>
-                            </div>
-                        </div>
-                        <h4 style="margin-bottom: 0.5rem;">Remote Command</h4>
-                        <p style="font-size: 0.85rem;">Centralized control layer for monitoring and managing
-                            fleets.</p>
-                    </div>
-
-                    <!-- Card 6: Bar Chart (Security) -->
-                    <div class="bento-card hover-glow-card reveal">
-                        <div class="bento-graphic-box">
-                            <div class="graphic-bar-chart">
-                                <div class="bar-col" style="height: 40%;"></div>
-                                <div class="bar-col active"></div>
-                                <div class="bar-col" style="height: 60%;"></div>
-                            </div>
-                        </div>
-                        <h4 style="margin-bottom: 0.5rem;">Enterprise Security</h4>
-                        <p style="font-size: 0.85rem;">Role-based access and secure communication protocols.
-                        </p>
+                        <h3>Enterprise-Grade Control and Security</h3>
+                        <p>Centralized fleet management with role-based access and secure communication protocols.</p>
                     </div>
                 </div>
             </div>
         </section>
+
 
         <!-- Use Cases -->
         <section id="use-cases" style="padding: 8rem 0; background: var(--bg-color);">
             <div class="container">
-                <div class="reveal" style="margin-bottom: 5rem; text-align: center;">
+                <div class="reveal" style="margin-bottom: 5rem; text-align: left;">
                     <span class="section-label">Use Cases</span>
                     <h2>Intelligence in Motion</h2>
-                    <p style="max-width: 600px; margin: 1rem auto 0; color: var(--text-secondary);">Deploy
-                        autonomous
+                    <p style="max-width: 600px; margin: 1rem 0 0; color: var(--text-secondary);">Deploy autonomous
                         systems that transform how you operate.</p>
                 </div>
 
@@ -542,13 +357,10 @@
                         </div>
                         <div class="use-case-content">
                             <h3>Industrial Robotics</h3>
-                            <p>Automate manufacturing, inspection, and material handling workflows with
-                                precision AI.
-                                Increase throughput and consistency while reallocating human workers to
-                                higher-value
+                            <p>Automate manufacturing, inspection, and material handling workflows with precision AI.
+                                Increase throughput and consistency while reallocating human workers to higher-value
                                 tasks.</p>
-                            <a href="contact.html">Contact Sales <i data-lucide="arrow-right"
-                                    style="width: 18px;"></i></a>
+                            <a href="https://calendly.com/enquiries-intelense/30min">Contact<i data-lucide="arrow-right" style="width: 18px;"></i></a>
                         </div>
                     </div>
 
@@ -560,12 +372,10 @@
                         </div>
                         <div class="use-case-content">
                             <h3>Warehousing & Logistics</h3>
-                            <p>Enable autonomous movement, sorting, and intelligent inventory handling at
-                                scale.
-                                Optimize warehouse space and reduce fulfillment times with coordinated
-                                robotic fleets.</p>
-                            <a href="contact.html">Contact Sales <i data-lucide="arrow-right"
-                                    style="width: 18px;"></i></a>
+                            <p>Enable autonomous movement, sorting, and intelligent inventory handling at scale.
+                                Optimize warehouse space and reduce fulfillment times with coordinated robotic fleets.
+                            </p>
+                            <a href="https://calendly.com/enquiries-intelense/30min">Contact<i data-lucide="arrow-right" style="width: 18px;"></i></a>
                         </div>
                     </div>
 
@@ -577,13 +387,10 @@
                         </div>
                         <div class="use-case-content">
                             <h3>Infrastructure Inspection</h3>
-                            <p>Deploy autonomous drones or ground robots for inspection of pipelines,
-                                bridges, and
-                                hard-to-reach assets. Detect faults early with high-resolution imaging and
-                                thermal
+                            <p>Deploy autonomous drones or ground robots for inspection of pipelines, bridges, and
+                                hard-to-reach assets. Detect faults early with high-resolution imaging and thermal
                                 sensors.</p>
-                            <a href="contact.html">Contact Sales <i data-lucide="arrow-right"
-                                    style="width: 18px;"></i></a>
+                            <a href="https://calendly.com/enquiries-intelense/30min">Contact<i data-lucide="arrow-right" style="width: 18px;"></i></a>
                         </div>
                     </div>
 
@@ -595,13 +402,10 @@
                         </div>
                         <div class="use-case-content">
                             <h3>Safety & Surveillance</h3>
-                            <p>Use autonomous systems for monitoring hazardous or restricted environments
-                                intelligently.
-                                Maintain perimeter security and rapid response capabilities without putting
-                                personnel at
+                            <p>Use autonomous systems for monitoring hazardous or restricted environments intelligently.
+                                Maintain perimeter security and rapid response capabilities without putting personnel at
                                 risk.</p>
-                            <a href="contact.html">Contact Sales <i data-lucide="arrow-right"
-                                    style="width: 18px;"></i></a>
+                            <a href="https://calendly.com/enquiries-intelense/30min">Contact<i data-lucide="arrow-right" style="width: 18px;"></i></a>
                         </div>
                     </div>
                 </div>
@@ -611,17 +415,14 @@
         <!-- CTA Section -->
         <section style="padding: 10rem 0; background: var(--dark-bg); text-align: center; color: var(--white);">
             <div class="container reveal">
-                <h2 style="font-size: 3rem; margin-bottom: 2rem;">Ready to deploy <br> intelligent autonomy?
-                </h2>
-                <p style="max-width: 600px; margin: 0 auto 3rem; color: #A0A0A0;">Explore how KenRobotics
-                    can transform
+                <h2 style="font-size: 3rem; margin-bottom: 2rem;">Ready to deploy <br> intelligent autonomy?</h2>
+                <p style="max-width: 600px; margin: 0 auto 3rem; color: #A0A0A0;">Explore how KenRobotics can transform
                     your operational efficiency.</p>
                 <div style="display: flex; gap: 1rem; justify-content: center;">
-                    <a href="contact.html" class="btn-contact" style="padding: 1rem 2rem;">Request a Demo</a>
+                    <a href="https://calendly.com/enquiries-intelense/30min" class="btn-purple" style="padding: 1rem 2rem;">Request a Demo</a>
                     <a href="#use-cases"
-                        style="display: inline-flex; align-items: center; padding: 1rem 2rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); text-decoration: none; color: var(--white); font-weight: 600;">
-                        Explore Use-cases
-                    </a>
+                        style="display: inline-flex; align-items: center; padding: 1rem 2rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); text-decoration: none; color: var(--white); font-weight: 600;">Explore
+                        Use-cases</a>
                 </div>
             </div>
         </section>
@@ -631,11 +432,10 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
-                    <a href="index.html" class="logo" style="color: var(--white); margin-bottom: 1.5rem;">
-                        INTELENSE <span></span>
-                    </a>
+                    <a href="index.html" class="logo" style="color: var(--white); margin-bottom: 1.5rem;">INTELENSE
+                        <span></span></a>
                     <p style="color: #A0A0A0; margin-bottom: 2rem;">Turn data into insights.</p>
-                    <div class="contact-info">
+                    <div class="Contact-info">
                         <p
                             style="display: flex; align-items: center; gap: 0.75rem; color: #A0A0A0; font-size: 0.9rem; margin-bottom: 1rem;">
                             <i data-lucide="mail" style="width: 16px;"></i> enquiries@intelense.ca
@@ -649,7 +449,6 @@
                         </p>
                     </div>
                 </div>
-
                 <div class="footer-col">
                     <h4>Products</h4>
                     <ul>
@@ -661,12 +460,11 @@
                         <li><a href="kensafety.html">KenSafety</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-col">
                     <h4>Company</h4>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="ken360.html">Ken 360</a></li>
+
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="blogs.html">Blogs</a></li>
                         <li><a href="faq.html">FAQ</a></li>
@@ -674,27 +472,23 @@
                         <li><a href="terms.html">Terms of Service</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-col">
                     <h4>Connect</h4>
-                    <div style="display: flex; gap: 1rem;">
-                        <a href="#"
-                            style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--white);">
+                    <div class="footer-social">
+                        <a href="https://x.com/Intelenseinc" class="social-link" target="_blank"
+                            title="X (formerly Twitter)">
                             <i data-lucide="twitter" style="width: 18px;"></i>
                         </a>
-                        <a href="#"
-                            style="width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: var(--white);">
+                        <a href="https://www.linkedin.com/company/intelense/" class="social-link" target="_blank">
                             <i data-lucide="linkedin" style="width: 18px;"></i>
                         </a>
                     </div>
                 </div>
-
                 <div class="footer-col">
                     <h4>Locations</h4>
                     <div class="location-info">
                         <h5>Canada</h5>
                         <p>3600 Steeles Ave E, Markham, ON M1W 2Z2, Canada</p>
-
                         <h5>India</h5>
                         <p>No. 45, C2 Gubbalala Village (Deepika Layout), Uttarahalli Hobli, Bangalore South, Karnataka-
                             560061</p>
@@ -724,24 +518,20 @@
 
                 entities.push({
                     el: entity,
-                    x: Math.random() * 300 - 150,
-                    y: Math.random() * 300 - 150,
-                    vx: (Math.random() - 0.5) * 2,
-                    vy: (Math.random() - 0.5) * 2,
-                    angle: Math.random() * Math.PI * 2
+                    angle: (i / numEntities) * Math.PI * 2,
+                    radius: 100 + Math.random() * 40,
+                    speed: 0.005 + Math.random() * 0.01
                 });
             }
+
             lucide.createIcons();
 
             function animateRobotics() {
                 entities.forEach(ent => {
-                    ent.angle += 0.01;
-                    const orbitX = Math.cos(ent.angle) * 120;
-                    const orbitY = Math.sin(ent.angle) * 120;
-
-                    // Add subtle mouse parallax if tracking is enabled in main.js
-                    // For now simple orbit
-                    ent.el.style.transform = `translate(${orbitX}px, ${orbitY}px)`;
+                    ent.angle += ent.speed;
+                    const x = Math.cos(ent.angle) * ent.radius;
+                    const y = Math.sin(ent.angle) * ent.radius;
+                    ent.el.style.transform = `translate(${x}px, ${y}px)`;
                 });
                 requestAnimationFrame(animateRobotics);
             }
@@ -751,3 +541,4 @@
 </body>
 
 </html>
+
