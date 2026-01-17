@@ -74,6 +74,10 @@
         <div class="container nav-container">
             <a href="index.html" class="logo">INTELENSE</a>
 
+            <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                <i data-lucide="menu"></i>
+            </button>
+
             <div class="nav-links">
                 <!-- KenVision -->
                 <div class="nav-item-wrapper has-mega-menu">
@@ -233,29 +237,35 @@
                                 Use-cases →</a>
                         </div>
                     </div>
-                    <div class="reveal hero-visual">
-                        <div class="hero-logo-container">
-                            <div class="hero-logo-frame">
-                                <img src="assets/images/logos/kenrobotics-new.png" alt="KenRobotics Logo"
-                                    class="hero-logo">
-                            </div>
-                        </div>
+                    <div class="reveal"
+                        style="border-radius: 20px; overflow: hidden; border: 1px solid var(--border-color);">
+                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=800"
+                            alt="KenRobotics Dashboard" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- What KenRobotics Does -->
-        <section style="padding: 8rem 0; background: var(--white); border-top: 1px solid var(--border-color);">
+        <section
+            style="padding: 8rem 0; background: var(--white); color: var(--text-primary); border-top: 1px solid var(--border-color);">
             <div class="container">
                 <!-- Header -->
-                <div class="reveal" style="max-width: 900px; margin-bottom: 4rem;">
-                    <span class="section-label">What KenRobotics Does</span>
-                    <h2 style="font-size: 3rem; line-height: 1.2; margin-bottom: 1.5rem;">Robots That Sense, Decide, and
-                        Act</h2>
-                    <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 800px;">KenRobotics combines
-                        AI, computer vision, and real-time control systems to help robots operate autonomously, respond
-                        to dynamic environments, and deliver consistent performance at scale.</p>
+                <div class="grid-2" style="gap: 4rem; align-items: center; margin-bottom: 4rem;">
+                    <div class="reveal" style="max-width: 600px;">
+                        <span class="section-label">What KenRobotics Does</span>
+                        <h2 style="font-size: 3rem; line-height: 1.2; margin-bottom: 1.5rem;">Robots That Sense, Decide,
+                            and
+                            Act</h2>
+                        <p style="font-size: 1.2rem; color: var(--text-secondary);">KenRobotics combines
+                            AI, computer vision, and real-time control systems to help robots operate autonomously,
+                            respond
+                            to dynamic environments, and deliver consistent performance at scale.</p>
+                    </div>
+                    <div class="reveal" style="display: flex; justify-content: flex-end;">
+                        <img src="assets/images/ken_suite_robotics_new.jpg" alt="What KenRobotics Does"
+                            style="width: 100%; max-width: 600px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                    </div>
                 </div>
 
                 <!-- Feature Cards -->
@@ -296,7 +306,7 @@
         <!-- Core Capabilities -->
         <section style="padding: 8rem 0; background: var(--bg-color);">
             <div class="container">
-                <div class="reveal" style="text-align: left;">
+                <div class="reveal">
                     <span class="section-label">Why KenRobotics</span>
                     <h2>Intelligence that powers productivity.</h2>
                 </div>
@@ -343,7 +353,7 @@
         <!-- Use Cases -->
         <section id="use-cases" style="padding: 8rem 0; background: var(--bg-color);">
             <div class="container">
-                <div class="reveal" style="margin-bottom: 5rem; text-align: left;">
+                <div class="reveal" style="margin-bottom: 5rem;">
                     <span class="section-label">Use Cases</span>
                     <h2>Intelligence in Motion</h2>
                     <p style="max-width: 600px; margin: 1rem 0 0; color: var(--text-secondary);">Deploy autonomous
@@ -419,12 +429,12 @@
         </section>
 
         <!-- CTA Section -->
-        <section style="padding: 10rem 0; background: var(--dark-bg); text-align: center; color: var(--white);">
+        <section style="padding: 10rem 0; background: var(--white); color: var(--text-primary);">
             <div class="container reveal">
                 <h2 style="font-size: 3rem; margin-bottom: 2rem;">Ready to deploy <br> intelligent autonomy?</h2>
-                <p style="max-width: 600px; margin: 0 auto 3rem; color: #A0A0A0;">Explore how KenRobotics can transform
+                <p style="max-width: 600px; margin: 0 0 3rem; color: #A0A0A0;">Explore how KenRobotics can transform
                     your operational efficiency.</p>
-                <div style="display: flex; gap: 1rem; justify-content: center;">
+                <div style="display: flex; gap: 1rem;">
                     <a href="https://calendly.com/enquiries-intelense/30min" class="btn-purple"
                         style="padding: 1rem 2rem;">Request a Demo</a>
                     <a href="#use-cases"

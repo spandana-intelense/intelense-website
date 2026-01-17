@@ -1,4 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Mobile Hamburger Menu Toggle
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileBtn && navLinks) {
+        mobileBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+
+            // Toggle icon between 'menu' and 'x' (optional refinement)
+            const icon = mobileBtn.querySelector('i'); // Assumes Lucide <i> tag
+            if (navLinks.classList.contains('active')) {
+                // You might want to switch icon here or just toggle class for CSS handling
+            }
+        });
+
+        // Close menu when clicking a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+    }
+
     // Reveal animations on scroll
     const revealElements = document.querySelectorAll('.reveal, .reveal-stagger');
 
