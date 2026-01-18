@@ -56,7 +56,7 @@ class NeuralCore {
 
             this.ctx.beginPath();
             this.ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-            this.ctx.fillStyle = 'rgba(0, 113, 227, 0.4)';
+            this.ctx.fillStyle = 'rgba(99, 102, 241, 0.4)';
             this.ctx.fill();
 
             // Connections
@@ -71,7 +71,7 @@ class NeuralCore {
                     this.ctx.moveTo(node.x, node.y);
                     this.ctx.lineTo(other.x, other.y);
                     const opacity = 1 - (distance / this.connectionDistance);
-                    this.ctx.strokeStyle = `rgba(0, 113, 227, ${opacity * 0.2})`;
+                    this.ctx.strokeStyle = `rgba(99, 102, 241, ${opacity * 0.2})`;
                     this.ctx.lineWidth = 0.5;
                     this.ctx.stroke();
                 }
@@ -87,7 +87,7 @@ class NeuralCore {
                     this.ctx.moveTo(node.x, node.y);
                     this.ctx.lineTo(this.mouse.x, this.mouse.y);
                     const mopacity = 1 - (mdist / 200);
-                    this.ctx.strokeStyle = `rgba(0, 113, 227, ${mopacity * 0.15})`;
+                    this.ctx.strokeStyle = `rgba(99, 102, 241, ${mopacity * 0.15})`;
                     this.ctx.stroke();
                 }
             }
@@ -400,23 +400,21 @@ class SafetyPins {
 }
 
 // Initialize all visuals when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-    if (document.getElementById('home-hero-canvas')) new NeuralCore('home-hero-canvas');
-    if (document.getElementById('iot-hero-visual')) new SensorNetwork('iot-hero-visual');
-    if (document.getElementById('robotics-visual')) new RoboticPath('robotics-visual');
-    if (document.getElementById('agri-grid')) new FieldGrid('agri-grid');
-    if (document.getElementById('home-visual-nodes')) new HomeNodes('home-visual-nodes');
-    if (document.getElementById('safety-visual-nodes')) new SafetyPins('safety-visual-nodes');
-    if (document.getElementById('vision-lens-visual')) new CameraLens('vision-lens-visual');
+if (document.getElementById('home-hero-canvas')) new NeuralCore('home-hero-canvas');
+if (document.getElementById('iot-hero-visual')) new SensorNetwork('iot-hero-visual');
+if (document.getElementById('robotics-visual')) new RoboticPath('robotics-visual');
+if (document.getElementById('agri-grid')) new FieldGrid('agri-grid');
+if (document.getElementById('home-visual-nodes')) new HomeNodes('home-visual-nodes');
+if (document.getElementById('vision-lens-visual')) new CameraLens('vision-lens-visual');
 
-    // Backward compatibility or generic scanner
-    document.querySelectorAll('.visual-scanner:not(#vision-lens-visual)').forEach(el => {
-        new Scanner(el.id || (el.id = 'scan-' + Math.random().toString(36).substr(2, 9)));
-    });
+// Backward compatibility or generic scanner
+document.querySelectorAll('.visual-scanner:not(#vision-lens-visual)').forEach(el => {
+    new Scanner(el.id || (el.id = 'scan-' + Math.random().toString(36).substr(2, 9)));
+});
 
-    document.querySelectorAll('.visual-pulse').forEach(el => {
-        new WaveVisual(el.id || (el.id = 'pulse-' + Math.random().toString(36).substr(2, 9)));
-    });
+document.querySelectorAll('.visual-pulse').forEach(el => {
+    new WaveVisual(el.id || (el.id = 'pulse-' + Math.random().toString(36).substr(2, 9)));
+});
 
-    lucide.createIcons();
+lucide.createIcons();
 });

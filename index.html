@@ -23,8 +23,9 @@
         .hero {
             position: relative;
             z-index: 1;
-            background: #FAFAFB !important;
-            /* Light consistent background */
+            background: radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.08) 0%, rgba(255, 255, 255, 0) 70%), var(--bg-color);
+            background-size: 100% 100%;
+            overflow: hidden;
         }
 
         #home-hero-canvas {
@@ -34,19 +35,13 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.6;
+            opacity: 0.8;
+            mix-blend-mode: multiply;
         }
 
         .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 100%);
-            z-index: 0;
-            pointer-events: none;
+            display: none;
+            /* Removed old gradient overlay */
         }
 
         .hero .container {
@@ -230,37 +225,40 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="hero" style="padding: 10rem 0 6rem; overflow: hidden;">
+        <section class="hero" style="padding: 8rem 0 6rem; overflow: hidden;">
             <canvas id="home-hero-canvas"></canvas>
             <div class="container">
-                <div class="reveal-stagger">
-                    <div
-                        style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border: 1px solid var(--border-color); border-radius: 50px; margin-bottom: 2rem; background: var(--white);">
-                        <i data-lucide="sparkles" style="width: 16px; color: var(--accent-purple);"></i>
-                        <span
-                            style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary);">Intelligence
-                            at the edge</span>
-                    </div>
+                <div class="hero-content" style="text-align: left; max-width: 800px;">
+                    <div class="reveal-stagger">
+                        <div
+                            style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; border: 1px solid var(--border-color); border-radius: 50px; margin-bottom: 2rem; background: var(--white); box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                            <i data-lucide="sparkles" style="width: 16px; color: var(--accent-purple);"></i>
+                            <span
+                                style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary);">Intelligence
+                                at the edge</span>
+                        </div>
 
-                    <h1 style="margin-bottom: 2rem;">
-                        Turn Complex Data <br>
-                        <span class="text-gradient">Into Real-Time Intelligence.</span>
-                    </h1>
+                        <h1 style="margin-bottom: 2rem; color: var(--text-primary);">
+                            Turn Complex Data <br>
+                            <span style="color: var(--accent-purple-hover);">Into Real-Time Intelligence.</span>
+                        </h1>
 
-                    <p style="max-width: 500px; margin-bottom: 3rem; font-size: 1.1rem; line-height: 1.6;">
-                        Intelense helps organizations see, understand, and act on
-                        data instantly using AI-powered analytics built for scale and
-                        security.
-                    </p>
+                        <p
+                            style="max-width: 600px; margin-bottom: 3rem; font-size: 1.2rem; line-height: 1.6; color: var(--text-secondary);">
+                            Intelense helps organizations see, understand, and act on
+                            data instantly using AI-powered analytics built for scale and
+                            security.
+                        </p>
 
-                    <div style="display: flex; gap: 1rem;">
-                        <a href="https://calendly.com/enquiries-intelense/30min" class="btn-purple"
-                            style="padding: 1rem 2rem; font-size: 1rem;">Request
-                            a Demo</a>
-                        <a href="kenvision.html"
-                            style="display: inline-flex; align-items: center; padding: 1rem 2rem; border-radius: 6px; border: 1px solid var(--border-color); text-decoration: none; color: var(--text-primary); font-weight: 600; font-size: 1rem; background: var(--white); transition: var(--transition-smooth);">
-                            Explore Platform
-                        </a>
+                        <div style="display: flex; gap: 1rem; justify-content: flex-start;">
+                            <a href="https://calendly.com/enquiries-intelense/30min" class="btn-purple"
+                                style="padding: 1rem 2rem; font-size: 1rem;">Request
+                                a Demo</a>
+                            <a href="kenvision.html"
+                                style="display: inline-flex; align-items: center; padding: 1rem 2rem; border-radius: var(--btn-radius); border: 1px solid var(--border-color); text-decoration: none; color: var(--text-primary); font-weight: 600; font-size: 1rem; background: var(--nm-bg, #EFEFF4); box-shadow: 5px 5px 10px var(--shadow-dark), -5px -5px 10px var(--shadow-light); transition: var(--transition-smooth);">
+                                Explore Platform
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -706,8 +704,7 @@
                     <!-- Public Safety -->
                     <a href="https://calendly.com/enquiries-intelense/30min" class="reveal card card-clickable">
                         <div class="industry-card-visual">
-                            <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=800"
-                                alt="Public Safety">
+                            <img src="assets/images/kensafety_use_case_commercial.png" alt="Public Safety">
                         </div>
                         <i data-lucide="shield" style="margin-bottom: 1.5rem; color: var(--accent-blue);"></i>
                         <h3 style="margin-bottom: 1rem;">Public Safety</h3>
@@ -720,8 +717,7 @@
                     <!-- Smart Infrastructure -->
                     <a href="https://calendly.com/enquiries-intelense/30min" class="reveal card card-clickable">
                         <div class="industry-card-visual">
-                            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=800"
-                                alt="Smart Infrastructure">
+                            <img src="assets/images/homepage_card_infrastructure.png" alt="Smart Infrastructure">
                         </div>
                         <i data-lucide="building-2" style="margin-bottom: 1.5rem; color: var(--accent-blue);"></i>
                         <h3 style="margin-bottom: 1rem;">Smart Infrastructure</h3>
@@ -734,8 +730,7 @@
                     <!-- Retail Analytics -->
                     <a href="https://calendly.com/enquiries-intelense/30min" class="reveal card card-clickable">
                         <div class="industry-card-visual">
-                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800"
-                                alt="Retail Analytics">
+                            <img src="assets/images/homepage_card_retail.png" alt="Retail Analytics">
                         </div>
                         <i data-lucide="shopping-bag" style="margin-bottom: 1.5rem; color: var(--accent-blue);"></i>
                         <h3 style="margin-bottom: 1rem;">Retail Analytics</h3>
@@ -748,8 +743,7 @@
                     <!-- Logistics & Transport -->
                     <a href="https://calendly.com/enquiries-intelense/30min" class="reveal card card-clickable">
                         <div class="industry-card-visual">
-                            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800"
-                                alt="Logistics & Transport">
+                            <img src="assets/images/kensafety_use_case_logistics.jpg" alt="Logistics & Transport">
                         </div>
                         <i data-lucide="truck" style="margin-bottom: 1.5rem; color: var(--accent-blue);"></i>
                         <h3 style="margin-bottom: 1rem;">Logistics & Transport</h3>
@@ -762,8 +756,7 @@
                     <!-- Industrial Automation -->
                     <a href="https://calendly.com/enquiries-intelense/30min" class="reveal card card-clickable">
                         <div class="industry-card-visual">
-                            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800"
-                                alt="Industrial Automation">
+                            <img src="assets/images/kensafety_use_case_industrial.jpg" alt="Industrial Automation">
                         </div>
                         <i data-lucide="factory" style="margin-bottom: 1.5rem; color: var(--accent-blue);"></i>
                         <h3 style="margin-bottom: 1rem;">Industrial Automation</h3>
@@ -776,8 +769,7 @@
                     <!-- Precision Agriculture -->
                     <a href="https://calendly.com/enquiries-intelense/30min" class="reveal card card-clickable">
                         <div class="industry-card-visual">
-                            <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&q=80&w=800"
-                                alt="Precision Agriculture">
+                            <img src="assets/images/kenagri_use_case_precision.png" alt="Precision Agriculture">
                         </div>
                         <i data-lucide="sprout" style="margin-bottom: 1.5rem; color: var(--accent-blue);"></i>
                         <h3 style="margin-bottom: 1rem;">Precision Agriculture</h3>

@@ -1,31 +1,41 @@
 :root {
-  /* Colors */
-  --bg-color: #F9F9F9;
-  --text-primary: #1A1A1A;
-  --text-secondary: #4A4A4A;
-  --accent-blue: #4F46E5;
-  --accent-purple: #7C3AED;
-  --accent-gradient: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
-  --white: #FFFFFF;
-  --dark-bg: #1E1B4B;
-  --border-color: rgba(0, 0, 0, 0.08);
+  /* Colors - Neumorphic Base */
+  --bg-color: #EFEFF4;
+  /* Neumorphic Base Color (Light Blue-Grey) */
+  --text-primary: #1E293B;
+  /* Slate-800 */
+  --text-secondary: #64748B;
+  /* Slate-500 */
+  --accent-purple: #6366F1;
+  /* Indigo-500 */
+  --accent-purple-hover: #4F46E5;
+  --white: #EFEFF4;
+  /* "White" in neumorphism is often the base color */
+  --shadow-light: #FFFFFF;
+  --shadow-dark: #D1D5DB;
+  /* Grey-300 */
+  --border-color: rgba(255, 255, 255, 0.5);
+  /* Highlight border */
 
-  /* Typography Scale */
+  /* Typography Scale - Enhanced Fluid Type */
   --font-main: 'DM Sans', sans-serif;
-  --fs-hero: clamp(2.5rem, 8vw, 4.5rem);
-  --fs-section: clamp(1.8rem, 6vw, 3rem);
-  --fs-subhead: 1.25rem;
-  --fs-body: 1rem;
+  --fs-hero: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+  --fs-section: clamp(2rem, 4vw + 1rem, 3.5rem);
+  --fs-subhead: clamp(1.25rem, 2vw, 1.5rem);
+  --fs-body: clamp(1rem, 1vw + 0.5rem, 1.125rem);
   --lh-body: 1.6;
 
   /* Spacing & Grid */
   --container-padding: 2rem;
-  --section-spacing: 5rem;
-  --max-width: 1440px;
-  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --section-spacing: 6rem;
+  --max-width: 1280px;
+  /* Slightly tighter for readablity */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --card-radius: 16px;
+  --btn-radius: 8px;
+
   --dark-bg: #1E1B4B;
-  /* Deep Indigo/Purple */
-  --bg-purple-light: #F5F3FF;
+  --bg-purple-light: #F3F4F6;
 }
 
 * {
@@ -197,6 +207,103 @@ p {
   position: relative;
 }
 
+/* Mobile Menu Button - Initial State Hidden */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-primary);
+  padding: 0.5rem;
+}
+
+@media (max-width: 992px) {
+  .mobile-menu-btn {
+    display: block;
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+    /* Above navbar */
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 60px;
+    /* Below navbar */
+    left: 0;
+    width: 100%;
+    height: 0;
+    flex-direction: column;
+    background: var(--white);
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    padding: 0;
+    gap: 0;
+    transform: none;
+    /* Reset desktop centering */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    align-items: flex-start;
+  }
+
+  .nav-links.active {
+    height: auto;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  /* Mobile Link Styles */
+  .nav-item-wrapper {
+    width: 100%;
+    padding: 0;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  }
+
+  /* Hide Nav Right (Contact) on mobile and move into menu if needed, 
+     or keep it specific. For now, nav-right often breaks layout. 
+     Let's hide nav-right and rely on main menu or ensure it doesn't overlap. */
+  .nav-right {
+    display: none;
+  }
+
+  /* If user wants contact in mobile menu, ideally we duplicate it in JS or HTML, 
+     but for CSS-only fix, we focus on the main links. */
+
+  /* Mega Menu Reset for Mobile */
+  .mega-menu {
+    position: static;
+    width: 100%;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    background: #F8FAFC;
+    box-shadow: none;
+    padding: 0;
+    display: none;
+    /* Hidden by default code, handled by click or always open? 
+                      Let's set to none and only show if parent is active/hovered 
+                      OR just simplify for mobile stability first. */
+    border-radius: 0;
+  }
+
+  /* For this fix, we will simplify mobile nav to just show top level links clearly 
+     or ensure the dropdowns don't break the screen 
+     Given "missing basic design rules", a clean list is safer. */
+
+  .nav-links.active {
+    overflow-y: auto;
+    max-height: 80vh;
+  }
+}
+
 .nav-links a:hover,
 .nav-links a.active,
 .nav-right a:hover {
@@ -204,27 +311,28 @@ p {
 }
 
 .btn-purple {
-  background: #8B5CF6;
-  color: white !important;
-  padding: 0.7rem 1.8rem;
-  border-radius: 8px;
-  font-weight: 700;
+  background: var(--accent-purple);
+  color: var(--white) !important;
+  padding: 0.875rem 2rem;
+  border-radius: var(--btn-radius);
+  font-weight: 600;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
-  font-size: 0.85rem;
-  border: none;
+  transition: var(--transition-smooth);
+  font-size: 0.95rem;
+  border: 1px solid transparent;
   cursor: pointer;
   text-align: center;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .btn-purple:hover {
-  background: #7C3AED;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
-  color: white !important;
+  background: var(--accent-purple-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  color: var(--white) !important;
 }
 
 
@@ -371,45 +479,31 @@ p {
   position: relative;
 }
 
+/* Modern SaaS Card Design */
 .capability-card {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 24px;
-  padding: 2rem;
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.02),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.6);
-  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  background: var(--white);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: var(--card-radius);
+  padding: 0;
+  /* Remove padding to let image bleed */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  transition: var(--transition-smooth);
   position: relative;
-  z-index: 1;
+  overflow: hidden;
+  /* rounded corners clip image */
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
 .capability-card:hover {
-  transform: translateY(-8px);
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow:
-    0 25px 50px rgba(0, 0, 0, 0.06),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.9);
-  z-index: 10;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-color: rgba(124, 58, 237, 0.1);
 }
 
-/* Step Label */
+/* Hide Step Label */
 .capability-step {
-  font-size: 0.65rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #A0A0A0;
-  margin-bottom: 1.5rem;
-  display: block;
-}
-
-.capability-card:hover .capability-step {
   display: none;
 }
 
@@ -417,71 +511,52 @@ p {
 .capability-image {
   width: 100%;
   height: 200px;
-  background: #F8FAFC;
-  border-radius: 12px;
-  overflow: hidden;
-  margin-bottom: 2rem;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  transition: all 0.4s ease;
+  background: #F3F4F6;
+  margin: 0;
+  border-radius: 0;
+  border: none;
+  position: relative;
 }
 
 .capability-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.capability-card:hover .capability-image {
-  border-color: var(--accent-hover, var(--accent-blue));
+  transition: transform 0.5s ease;
 }
 
 .capability-card:hover .capability-image img {
   transform: scale(1.05);
 }
 
+/* Remove old visual styling */
 .capability-visual {
-  width: 64px;
-  height: 64px;
-  background: linear-gradient(135deg, rgba(79, 70, 229, 0.05), rgba(79, 70, 229, 0.02));
-  border-radius: 16px;
+  display: none;
+}
+
+/* Content Container */
+.capability-content {
+  padding: 1.5rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-  color: var(--accent-blue);
-  border: 1px solid rgba(79, 70, 229, 0.1);
-  transition: all 0.4s ease;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
-.capability-card:hover .capability-visual {
-  transform: scale(1.1) rotate(5deg);
-  background: var(--accent-hover, var(--accent-blue));
-  color: #FFF;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  border-color: var(--accent-hover, var(--accent-blue));
-}
-
-.capability-visual i {
-  width: 28px;
-  height: 28px;
-  stroke-width: 2px;
-}
-
-/* Content */
 .capability-card h3 {
-  font-size: 1.15rem;
-  font-weight: 800;
-  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
   color: var(--text-primary);
-  line-height: 1.3;
+  padding: 0 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .capability-card p {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--text-secondary);
   line-height: 1.6;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  padding: 0 1.5rem;
   flex-grow: 1;
 }
 
@@ -1203,19 +1278,22 @@ p {
 .card {
   background: var(--white);
   padding: 2rem;
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  /* Keep padding to match HTML negative margins */
+  border: 1px solid transparent;
+  /* Cleaner border */
+  border-radius: var(--card-radius);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  transition: var(--transition-smooth);
   position: relative;
   z-index: 1;
   overflow: hidden;
 }
 
 .card:hover {
-  transform: scale(1.02);
-  border-color: var(--accent-blue);
-  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.05);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   z-index: 2;
+  border-color: rgba(124, 58, 237, 0.1);
 }
 
 /* Feature Cards with Images */
@@ -3173,6 +3251,7 @@ footer {
     padding: 0.5rem 0;
   }
 }
+
 /* Forced Mobile Navbar Fix */
 @media (max-width: 992px) {
   .nav-container {
@@ -3183,5 +3262,296 @@ footer {
     flex-wrap: nowrap !important;
     gap: 0 !important;
   }
-  .nav-links { margin-top: 0 !important; }
+
+  .nav-links {
+    margin-top: 0 !important;
+  }
+}
+
+/* Added stack-card matching style */
+.stack-card {
+  background: var(--white);
+  border-radius: var(--card-radius);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  transition: var(--transition-smooth);
+  border: 1px solid transparent;
+}
+
+.stack-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  border-color: rgba(124, 58, 237, 0.1);
+}
+
+/* Mobile Horizontal Scroll */
+@media (max-width: 768px) {
+  .grid-3 {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 2rem;
+    gap: 1rem;
+  }
+
+  .grid-3>* {
+    flex: 0 0 85%;
+    scroll-snap-align: start;
+  }
+}
+
+/* Global Neumorphism Utility */
+.neumorph {
+  background: var(--bg-color);
+  box-shadow: 9px 9px 16px var(--shadow-dark),
+    -9px -9px 16px var(--shadow-light);
+  border-radius: var(--card-radius);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.neumorph-inset {
+  box-shadow: inset 6px 6px 12px var(--shadow-dark),
+    inset -6px -6px 12px var(--shadow-light);
+}
+
+/* Card Updates for Neumorphism */
+.card,
+.feature-card,
+.stack-card,
+.faq-item,
+.capability-card {
+  background: var(--bg-color) !important;
+  box-shadow: 8px 8px 16px var(--shadow-dark),
+    -8px -8px 16px var(--shadow-light) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  border-radius: var(--card-radius);
+  color: var(--text-primary);
+}
+
+.card:hover,
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 12px 12px 20px rgba(163, 177, 198, 0.7),
+    -12px -12px 20px rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Hero Grid Layout */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+  min-height: 80vh;
+}
+
+.hero-content {
+  z-index: 2;
+}
+
+.hero-visual-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .hero-visual-container {
+    height: 300px;
+    order: -1;
+  }
+}
+
+
+
+/* Fix Text Gradient Visibility */
+.text-gradient {
+  background: none;
+  -webkit-text-fill-color: var(--accent-purple-hover);
+  color: var(--accent-purple-hover);
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVENESS & UI SIMPLIFICATION
+   ========================================= */
+
+@media (max-width: 768px) {
+
+  /* 1. Global Spacing Reduction */
+  :root {
+    --container-padding: 1.25rem;
+    --section-spacing: 3.5rem;
+  }
+
+  .container {
+    padding: 0 var(--container-padding);
+  }
+
+  section {
+    padding: var(--section-spacing) 0 !important;
+  }
+
+  /* 2. Typography Optimization */
+  h1 {
+    font-size: 2.25rem !important;
+    line-height: 1.1;
+  }
+
+  h2 {
+    font-size: 1.75rem !important;
+    line-height: 1.2;
+    margin-bottom: 1.25rem !important;
+  }
+
+  h3 {
+    font-size: 1.25rem !important;
+  }
+
+  p {
+    font-size: 0.95rem !important;
+    line-height: 1.5;
+  }
+
+  /* 3. Hero Section Specifics */
+  .hero {
+    padding-top: 6rem !important;
+    padding-bottom: 2rem !important;
+    min-height: auto;
+  }
+
+  .hero-content {
+    text-align: left;
+  }
+
+  /* Stack buttons on mobile */
+  .hero .btn-purple,
+  .hero a {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero div[style*="display: flex"] {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem !important;
+  }
+
+  /* 4. Horizontal Scrolling Containers (The "Less Scroll Time" Fix) */
+  /* Target grids that contain cards and make them swipeable */
+  .grid-3,
+  .feature-cards-row,
+  .capabilities-grid,
+  .use-case-list,
+  .stacking-right {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    gap: 1rem !important;
+    padding-bottom: 1.5rem !important;
+    /* Visual cue for scroll */
+    margin: 0 -1.25rem !important;
+    /* Bleed to edges */
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    width: calc(100% + 2.5rem) !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Card Sizing for Scroll */
+  .card,
+  .feature-card,
+  .capability-card,
+  .stack-card,
+  .use-case-item,
+  .grid-3>a {
+    min-width: 85vw !important;
+    max-width: 85vw !important;
+    scroll-snap-align: center;
+    margin-bottom: 0 !important;
+    flex-shrink: 0;
+    height: auto !important;
+    /* Let content define height */
+  }
+
+  /* Ensure Layout Grids (Text + Image) Stack Vertically, NOT Scroll */
+  section .container>.grid-2 {
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: visible !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 2rem !important;
+  }
+
+  section .container>.grid-2>.reveal {
+    min-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* 5. Simpler Navbar */
+  .navbar {
+    padding: 0.5rem 0;
+  }
+
+  .nav-links {
+    top: 60px;
+    height: calc(100vh - 60px);
+    background: var(--white);
+  }
+
+  /* 6. Hide Complex Hub */
+  .ken-hub-wrapper {
+    display: none !important;
+  }
+
+  /* 7. Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: left;
+    /* Easier to read on mobile than center */
+  }
+
+  /* 8. Ticker Fix */
+  .ticker-val {
+    font-size: 1.5rem !important;
+  }
+
+  .ticker-item {
+    padding: 0 1.5rem !important;
+  }
+
+  /* 9. Visual Tweaks */
+  .hero-bg-canvas,
+  #home-hero-canvas {
+    opacity: 0.2 !important;
+  }
+
+  .industry-card-visual {
+    height: 140px !important;
+  }
+
+  /* Fix Sticky Left on Mobile */
+  .sticky-left {
+    position: static !important;
+    margin-bottom: 1rem;
+  }
+
+  .sticky-grid {
+    display: block !important;
+  }
 }
