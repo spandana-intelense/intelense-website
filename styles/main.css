@@ -3387,10 +3387,11 @@ footer {
 
 @media (max-width: 768px) {
 
-  /* 1. Global Spacing Reduction */
+  /* 1. Global Spacing & Layout */
   :root {
     --container-padding: 1.25rem;
-    --section-spacing: 3.5rem;
+    --section-spacing: 2rem;
+    /* Significantly reduced */
   }
 
   .container {
@@ -3401,157 +3402,392 @@ footer {
     padding: var(--section-spacing) 0 !important;
   }
 
-  /* 2. Typography Optimization */
+  /* 2. Typography & Contrast */
   h1 {
-    font-size: 2.25rem !important;
+    font-size: 2rem !important;
     line-height: 1.1;
+    margin-bottom: 0.75rem !important;
+    color: var(--text-primary);
   }
 
   h2 {
-    font-size: 1.75rem !important;
+    font-size: 1.5rem !important;
     line-height: 1.2;
-    margin-bottom: 1.25rem !important;
+    margin-bottom: 0.75rem !important;
+    color: var(--text-primary);
   }
 
   h3 {
-    font-size: 1.25rem !important;
+    font-size: 1.1rem !important;
+    font-weight: 600;
   }
 
   p {
-    font-size: 0.95rem !important;
+    font-size: 0.9rem !important;
     line-height: 1.5;
+    color: var(--text-secondary);
   }
 
-  /* 3. Hero Section Specifics */
+  /* 3. Hero Section: Max 80vh & Tightly Grouped */
   .hero {
-    padding-top: 6rem !important;
-    padding-bottom: 2rem !important;
-    min-height: auto;
+    padding-top: 4.5rem !important;
+    padding-bottom: 1.5rem !important;
+    min-height: auto !important;
+    max-height: 80vh !important;
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
   }
 
   .hero-content {
     text-align: left;
   }
 
-  /* Stack buttons on mobile */
-  .hero .btn-purple,
-  .hero a {
+  .hero div[style*="display: flex"] {
+    flex-direction: row !important;
+    gap: 0.5rem !important;
+    align-items: center;
     width: 100%;
-    justify-content: center;
-    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
   }
 
-  .hero div[style*="display: flex"] {
-    flex-direction: column;
-    width: 100%;
+  .hero .btn-purple,
+  .hero a {
+    padding: 0.6rem 0.75rem !important;
+    font-size: 0.8rem !important;
+    flex: 1;
+    justify-content: center;
+    margin: 0 !important;
+    white-space: nowrap;
+    min-height: auto !important;
+    border-radius: 8px !important;
+  }
+
+  /* Match CTA section buttons to hero style */
+  section .btn-purple,
+  section a[style*="border: 1px solid"] {
+    padding: 0.6rem 0.75rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  section div[style*="display: flex"][style*="gap: 1rem"] {
+    flex-direction: row !important;
     gap: 0.5rem !important;
   }
 
-  /* 4. Horizontal Scrolling Containers (The "Less Scroll Time" Fix) */
-  /* Target grids that contain cards and make them swipeable */
-  .grid-3,
+  section div[style*="display: flex"][style*="gap: 1rem"] a {
+    flex: 1;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  /* CTA section specific styling */
+  section[style*="padding: 6rem"] {
+    padding: 3rem 0 !important;
+  }
+
+  section[style*="padding: 6rem"] h2 {
+    font-size: 1.75rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  section[style*="padding: 6rem"] p {
+    font-size: 0.9rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* 4. Ticker Tape: Minimal & Smaller */
+  .ticker-wrap {
+    padding: 0.6rem 0 !important;
+  }
+
+  .ticker-val {
+    font-size: 1rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .ticker-label {
+    font-size: 0.6rem !important;
+    margin-top: 0.25rem !important;
+    letter-spacing: 0.05em;
+  }
+
+  .ticker-item {
+    padding: 0 0.75rem !important;
+  }
+
+  .ticker-desc {
+    display: none !important;
+  }
+
+  /* 5. Section Layouts: Horizontal Scroll for Product Pages, Vertical for Home */
+  /* Product pages: horizontal scroll for feature/capability/use-case cards */
   .feature-cards-row,
   .capabilities-grid,
   .use-case-list,
-  .stacking-right {
+  .grid-4 {
     display: flex !important;
     flex-direction: row !important;
     overflow-x: auto !important;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    gap: 1rem !important;
-    padding-bottom: 1.5rem !important;
-    /* Visual cue for scroll */
+    gap: 0 !important;
+    padding: 0 1rem 1.5rem 1rem !important;
     margin: 0 -1.25rem !important;
-    /* Bleed to edges */
-    padding-left: 1.25rem !important;
-    padding-right: 1.25rem !important;
     width: calc(100% + 2.5rem) !important;
+    scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    scroll-padding: 0 1rem;
   }
 
-  /* Card Sizing for Scroll */
-  .card,
+  /* Hide scrollbar but keep functionality */
+  .feature-cards-row::-webkit-scrollbar,
+  .capabilities-grid::-webkit-scrollbar,
+  .use-case-list::-webkit-scrollbar,
+  .grid-4::-webkit-scrollbar {
+    display: none;
+  }
+
   .feature-card,
   .capability-card,
-  .stack-card,
   .use-case-item,
-  .grid-3>a {
-    min-width: 85vw !important;
-    max-width: 85vw !important;
-    scroll-snap-align: center;
-    margin-bottom: 0 !important;
+  .benefit-card {
+    min-width: 80vw !important;
+    max-width: 80vw !important;
     flex-shrink: 0;
-    height: auto !important;
-    /* Let content define height */
+    scroll-snap-align: center;
+    margin-right: 0.75rem;
   }
 
-  /* Ensure Layout Grids (Text + Image) Stack Vertically, NOT Scroll */
+  .feature-card:last-child,
+  .capability-card:last-child,
+  .use-case-item:last-child,
+  .benefit-card:last-child {
+    margin-right: 1rem;
+  }
+
+  /* Home page: vertical stack for intelligence cards only */
+  .stacking-right {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    overflow: visible !important;
+  }
+
+  .stack-card {
+    min-width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Standardized card styling (home page only) */
+  .card,
+  .stack-card,
+  .use-case-item {
+    min-width: 100% !important;
+    max-width: 100% !important;
+    margin-bottom: 0 !important;
+    padding: 1rem !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    background: var(--white) !important;
+    height: auto !important;
+    position: static !important;
+    opacity: 1 !important;
+    transform: none !important;
+    border: 1px solid var(--border-color);
+  }
+
+  /* Product page cards keep their styling from above */
+  .feature-card,
+  .capability-card {
+    margin-bottom: 0 !important;
+    padding: 1rem !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+    background: var(--white) !important;
+    height: auto !important;
+    position: static !important;
+    opacity: 1 !important;
+    transform: none !important;
+    border: 1px solid var(--border-color);
+  }
+
+  .card-visual,
+  .feature-card-image,
+  .capability-image,
+  .use-case-image-wrapper {
+    height: 160px !important;
+    margin-bottom: 0.75rem !important;
+    border-radius: 8px !important;
+    object-fit: cover;
+  }
+
+  /* Specific image sizing for feature cards */
+  .feature-card-image img,
+  .capability-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .accordion-features {
+    display: none !important;
+  }
+
+  /* 6. Ken 360 Diagram: Mobile Optimized */
+  .ken-hub-wrapper {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0.75);
+    transform-origin: center center;
+    margin: 2rem auto;
+    width: 100%;
+    height: 320px;
+    overflow: visible;
+  }
+
+  .ken-hub-center {
+    width: 90px;
+    height: 90px;
+  }
+
+  .spoke-node {
+    width: 50px;
+    height: 50px;
+    font-size: 0.75rem;
+  }
+
+  .spoke-node span {
+    font-size: 0.7rem;
+  }
+
+  /* 6. Ken Product Suite: Compact 2-Column Grid */
+  #home-products .grid-3 {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.6rem !important;
+    width: 100% !important;
+  }
+
+  #home-products .card {
+    padding: 0.6rem !important;
+  }
+
+  #home-products .card h3 {
+    font-size: 0.85rem !important;
+  }
+
+  #home-products .card p {
+    display: none !important;
+  }
+
+  #home-products .card .btn-purple {
+    padding: 0.4rem !important;
+    font-size: 0.7rem !important;
+  }
+
+  /* 7. Compact & Grouped Footer */
+  .footer {
+    padding: 2rem 0 1rem !important;
+  }
+
+  .footer-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.25rem 1rem !important;
+    text-align: left;
+  }
+
+  .footer-col:first-child {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-col:last-child {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  .footer-col h4 {
+    font-size: 0.85rem !important;
+    margin-bottom: 0.6rem !important;
+  }
+
+  .footer-col ul li a,
+  .footer-col p,
+  .location-info p,
+  .location-info h5 {
+    text-align: left !important;
+    font-size: 0.75rem !important;
+  }
+
+  .location-info {
+    text-align: left !important;
+  }
+
+  .location-info h5 {
+    font-size: 0.8rem !important;
+    margin-top: 0.75rem !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+
+
+  /* Only stack layout grids (Text + Image) */
   section .container>.grid-2 {
     display: flex !important;
     flex-direction: column !important;
-    overflow: visible !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    gap: 2rem !important;
+    /* Stack vertical */
   }
 
-  section .container>.grid-2>.reveal {
-    min-width: 100% !important;
-    width: 100% !important;
-  }
-
-  /* 5. Simpler Navbar */
+  /* Simpler Navbar */
   .navbar {
     padding: 0.5rem 0;
   }
 
   .nav-links {
-    top: 60px;
-    height: calc(100vh - 60px);
+    top: 55px;
+    height: calc(100vh - 55px);
     background: var(--white);
   }
+}
 
-  /* 6. Hide Complex Hub */
-  .ken-hub-wrapper {
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 0.5rem !important;
+    padding: 1rem !important;
+  }
+
+  /* Hide About and Contact from navbar on mobile */
+  .nav-right {
     display: none !important;
   }
 
-  /* 7. Footer */
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    text-align: left;
-    /* Easier to read on mobile than center */
+  .nav-right a {
+    width: 100% !important;
+    text-align: left !important;
+    padding: 0.75rem 1rem !important;
   }
 
-  /* 8. Ticker Fix */
-  .ticker-val {
-    font-size: 1.5rem !important;
+  .nav-right .btn-purple {
+    background: var(--accent-purple) !important;
+    color: white !important;
+    border-radius: 8px !important;
   }
 
-  .ticker-item {
-    padding: 0 1.5rem !important;
+  /* Better spacing for nav items */
+  .nav-item-wrapper {
+    margin-bottom: 0.25rem !important;
   }
 
-  /* 9. Visual Tweaks */
-  .hero-bg-canvas,
-  #home-hero-canvas {
-    opacity: 0.2 !important;
-  }
-
-  .industry-card-visual {
-    height: 140px !important;
-  }
-
-  /* Fix Sticky Left on Mobile */
-  .sticky-left {
-    position: static !important;
-    margin-bottom: 1rem;
-  }
-
-  .sticky-grid {
-    display: block !important;
+  .nav-item-wrapper>a {
+    padding: 0.75rem 1rem !important;
   }
 }
