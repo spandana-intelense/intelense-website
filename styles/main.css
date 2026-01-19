@@ -311,21 +311,32 @@ p {
 }
 
 .btn-purple {
-  background: var(--accent-purple);
-  color: var(--white) !important;
-  padding: 0.875rem 2rem;
-  border-radius: var(--btn-radius);
-  font-weight: 600;
+  background: #8776FF;
+  color: #FFFFFF !important;
+  padding: 1rem 2.5rem;
+  border-radius: 20px;
+  font-weight: 700;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   transition: var(--transition-smooth);
-  font-size: 0.95rem;
-  border: 1px solid transparent;
+  font-size: 1.1rem;
+  border: none;
   cursor: pointer;
   text-align: center;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Navbar Contact Button Specific Override */
+.nav-right .btn-purple {
+  padding: 0.8rem 2.5rem;
+  /* Smaller button */
+  border-radius: 50px;
+  /* Pill shape */
+  margin-left: 1rem;
+  /* Space around the button */
+  font-size: 1rem;
+  /* Slightly smaller text */
 }
 
 .btn-purple:hover {
@@ -3790,4 +3801,121 @@ footer {
   .nav-item-wrapper>a {
     padding: 0.75rem 1rem !important;
   }
+}
+
+/* Logo Ticker */
+/* Logo Ticker Refinements */
+.logo-ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--white);
+  padding: 3rem 0;
+  white-space: nowrap;
+  position: relative;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.logo-ticker {
+  display: inline-block;
+  animation: ticker 40s linear infinite;
+}
+
+/* Left to Right Animation */
+@keyframes ticker {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.logo-ticker-item {
+  display: inline-block;
+  margin: 0 4rem;
+  /* Increased spacing */
+  vertical-align: middle;
+}
+
+.logo-ticker-item img {
+  height: 70px;
+  /* Increased size */
+  width: auto;
+  opacity: 1;
+  /* Full opacity */
+  filter: grayscale(0%);
+  /* Full color */
+  transition: all 0.3s ease;
+}
+
+.logo-ticker-item:hover img {
+  transform: scale(1.1);
+}
+
+/* Cursor Glow Effect */
+.card {
+  position: relative;
+  /* overflow: hidden; Removed to ensure glow isn't clipped if we want it to bleed, but 'hidden' is usually safer for internal glows. Keeping existing behavior/overriding if needed. layout assumes overflow hidden on .card-visual mostly. */
+}
+
+/* Base Glow Style */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y),
+      var(--glow-color),
+      transparent 40%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 10;
+  /* Above content but below interactive elements if needed, or adjust z-indexes of children */
+  mix-blend-mode: screen;
+  /* Or overlay/soft-light depending on look */
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* Brand Specific Glow Colors */
+.card-vision {
+  --glow-color: rgba(79, 70, 229, 0.15);
+  /* Purple */
+}
+
+.card-iot {
+  --glow-color: rgba(59, 130, 246, 0.15);
+  /* Blue */
+}
+
+.card-robotics {
+  --glow-color: rgba(249, 115, 22, 0.15);
+  /* Orange */
+}
+
+.card-agri {
+  --glow-color: rgba(16, 185, 129, 0.15);
+  /* Green */
+}
+
+.card-home {
+  --glow-color: rgba(245, 158, 11, 0.15);
+  /* Amber/Yellow */
+}
+
+.card-safety {
+  --glow-color: rgba(239, 68, 68, 0.15);
+  /* Red */
+}
+
+/* Adjust Navbar Logo Size */
+.logo.img-logo img {
+  max-height: 40px;
+  width: auto;
 }
