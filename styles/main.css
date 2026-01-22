@@ -63,6 +63,21 @@ body {
   padding: 0 var(--container-padding);
 }
 
+/* Global Hero Section */
+.hero {
+  padding-top: 9rem;
+  padding-bottom: 6rem;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 7rem;
+    /* Reduced top padding for mobile to fix overlap/gap */
+    padding-bottom: 4rem;
+  }
+}
+
 /* Typography Utility */
 h1 {
   font-size: var(--fs-hero);
@@ -757,7 +772,7 @@ p {
 
 .ticker-item {
   flex-shrink: 0;
-  padding: 0 4rem;
+  padding: 0 2rem;
   display: flex;
   flex-direction: column;
   border-right: 1px solid var(--border-color);
@@ -1286,25 +1301,37 @@ p {
   }
 }
 
-.card {
-  background: var(--white);
+
+/* Standardized Neumorphic Card Styling - Base */
+.card,
+.stack-card,
+.feature-card,
+.capability-card,
+.benefit-card,
+.use-case-item,
+.process-card {
+  background: var(--bg-color);
   padding: 2rem;
-  /* Keep padding to match HTML negative margins */
-  border: 1px solid transparent;
-  /* Cleaner border */
-  border-radius: var(--card-radius);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  box-shadow: 10px 10px 20px var(--shadow-dark), -10px -10px 20px var(--shadow-light);
   transition: var(--transition-smooth);
   position: relative;
   z-index: 1;
   overflow: hidden;
 }
 
-.card:hover {
+.card:hover,
+.stack-card:hover,
+.feature-card:hover,
+.capability-card:hover,
+.benefit-card:hover,
+.use-case-item:hover,
+.process-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: 12px 12px 24px var(--shadow-dark), -12px -12px 24px var(--shadow-light);
   z-index: 2;
-  border-color: rgba(124, 58, 237, 0.1);
+  border-color: rgba(255, 255, 255, 0.8);
 }
 
 /* Feature Cards with Images */
@@ -3108,11 +3135,11 @@ footer {
 /* MOBILE LAYOUT (< 768px) */
 @media (max-width: 768px) {
 
-  /* Cards: 2 per row (2/3 in a row logic) with smaller gap */
+  /* Cards: 1 per row for better readability on mobile */
   .grid-3,
   .feature-cards-row {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 1rem !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
   }
 
   .grid-2 {
@@ -3323,19 +3350,19 @@ footer {
   border-color: rgba(124, 58, 237, 0.1);
 }
 
-/* Mobile Horizontal Scroll */
+/* Mobile Vertical Stack (No Horizontal Scroll) */
 @media (max-width: 768px) {
   .grid-3 {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 2rem;
-    gap: 1rem;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    padding-bottom: 0;
+    gap: 2rem !important;
+    overflow-x: visible !important;
   }
 
   .grid-3>* {
-    flex: 0 0 85%;
-    scroll-snap-align: start;
+    flex: none;
+    width: 100%;
   }
 }
 
@@ -3469,8 +3496,8 @@ footer {
 
   /* 3. Hero Section: Max 80vh & Tightly Grouped */
   .hero {
-    padding-top: 4.5rem !important;
-    padding-bottom: 1.5rem !important;
+    padding-top: 10rem !important;
+    padding-bottom: 2rem !important;
     min-height: auto !important;
     max-height: 80vh !important;
     height: auto !important;
@@ -3561,48 +3588,39 @@ footer {
     display: none !important;
   }
 
-  /* 5. Section Layouts: Horizontal Scroll for Product Pages, Vertical for Home */
-  /* Product pages: horizontal scroll for feature/capability/use-case cards */
+  /* 5. Section Layouts: Vertical Stack for All Cards */
   .feature-cards-row,
   .capabilities-grid,
   .use-case-list,
   .grid-4 {
     display: flex !important;
-    flex-direction: row !important;
-    overflow-x: auto !important;
-    gap: 0 !important;
-    padding: 0 1rem 1.5rem 1rem !important;
-    margin: 0 -1.25rem !important;
-    width: calc(100% + 2.5rem) !important;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scroll-padding: 0 1rem;
-  }
-
-  /* Hide scrollbar but keep functionality */
-  .feature-cards-row::-webkit-scrollbar,
-  .capabilities-grid::-webkit-scrollbar,
-  .use-case-list::-webkit-scrollbar,
-  .grid-4::-webkit-scrollbar {
-    display: none;
+    flex-direction: column !important;
+    overflow-x: visible !important;
+    gap: 1.5rem !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    scroll-snap-type: none !important;
   }
 
   .feature-card,
   .capability-card,
   .use-case-item,
   .benefit-card {
-    min-width: 80vw !important;
-    max-width: 80vw !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
     flex-shrink: 0;
-    scroll-snap-align: center;
-    margin-right: 0.75rem;
+    margin-right: 0 !important;
+    margin-bottom: 1.5rem !important;
   }
 
+  /* Reset last child margin */
   .feature-card:last-child,
   .capability-card:last-child,
   .use-case-item:last-child,
   .benefit-card:last-child {
-    margin-right: 1rem;
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
   }
 
   /* Home page: vertical stack for intelligence cards only */
@@ -3621,37 +3639,26 @@ footer {
     max-width: 100% !important;
   }
 
-  /* Standardized card styling (home page only) */
+  /* Standardized Neumorphic Card Styling */
   .card,
   .stack-card,
-  .use-case-item {
+  .use-case-item,
+  .feature-card,
+  .capability-card,
+  .benefit-card,
+  .process-card {
     min-width: 100% !important;
     max-width: 100% !important;
     margin-bottom: 0 !important;
-    padding: 1rem !important;
-    border-radius: 12px !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
-    background: var(--white) !important;
+    padding: 1.5rem !important;
+    border-radius: 20px !important;
+    background: var(--bg-color) !important;
+    box-shadow: 10px 10px 20px var(--shadow-dark), -10px -10px 20px var(--shadow-light) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
     height: auto !important;
     position: static !important;
     opacity: 1 !important;
     transform: none !important;
-    border: 1px solid var(--border-color);
-  }
-
-  /* Product page cards keep their styling from above */
-  .feature-card,
-  .capability-card {
-    margin-bottom: 0 !important;
-    padding: 1rem !important;
-    border-radius: 12px !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
-    background: var(--white) !important;
-    height: auto !important;
-    position: static !important;
-    opacity: 1 !important;
-    transform: none !important;
-    border: 1px solid var(--border-color);
   }
 
   .card-visual,
@@ -3705,29 +3712,29 @@ footer {
     font-size: 0.7rem;
   }
 
-  /* 6. Ken Product Suite: Compact 2-Column Grid */
+  /* 6. Ken Product Suite: Single Column Vertical Stack */
   #home-products .grid-3 {
     display: grid !important;
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 0.6rem !important;
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
     width: 100% !important;
   }
 
   #home-products .card {
-    padding: 0.6rem !important;
+    padding: 2rem !important;
   }
 
   #home-products .card h3 {
-    font-size: 0.85rem !important;
+    font-size: 1.25rem !important;
   }
 
   #home-products .card p {
-    display: none !important;
+    display: block !important;
   }
 
   #home-products .card .btn-purple {
-    padding: 0.4rem !important;
-    font-size: 0.7rem !important;
+    padding: 0.8rem 1.5rem !important;
+    font-size: 0.9rem !important;
   }
 
   /* 7. Compact & Grouped Footer */
@@ -3861,8 +3868,8 @@ footer {
 
 .logo-ticker-item {
   display: inline-block;
-  margin: 0 4rem;
-  /* Increased spacing */
+  margin: 0 2rem;
+  /* Reduced spacing */
   vertical-align: middle;
 }
 
@@ -3965,4 +3972,54 @@ footer {
   .grid-4 {
     grid-template-columns: 1fr;
   }
+}
+
+/* Built to Grow Section Grid */
+.built-to-grow-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .built-to-grow-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Forced Hero Padding Fix for Mobile/Tablet Overlap */
+@media screen and (max-width: 1024px) {
+  .hero {
+    padding-top: 11rem !important;
+    min-height: auto !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+}
+
+/* Footer Contact Info */
+.footer-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #A0A0A0;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-contact-link:hover {
+  color: var(--accent-blue);
+}
+
+.footer-contact-link i {
+  width: 16px;
+  flex-shrink: 0;
 }
