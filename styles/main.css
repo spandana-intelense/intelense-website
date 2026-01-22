@@ -752,7 +752,7 @@ p {
 .ticker {
   display: flex;
   width: fit-content;
-  animation: ticker 30s linear infinite;
+  animation: ticker-rtl 30s linear infinite;
 }
 
 .ticker-item {
@@ -807,7 +807,7 @@ p {
   color: var(--text-secondary);
 }
 
-@keyframes ticker {
+@keyframes ticker-rtl {
   0% {
     transform: translateX(0);
   }
@@ -1549,7 +1549,7 @@ p {
   align-items: center;
   justify-content: center;
   z-index: 10;
-  box-shadow: 0 20px 40px rgba(79, 70, 229, 0.08);
+  box-shadow: 0 20px 60px rgba(79, 70, 229, 0.15), 0 0 0 1px rgba(79, 70, 229, 0.05);
 }
 
 .ken-hub-center h3 {
@@ -1579,9 +1579,10 @@ p {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 130px;
+  width: 200px;
   height: 1px;
-  background: rgba(79, 70, 229, 0.15);
+  background: var(--accent-purple);
+  opacity: 0.3;
   transform-origin: left center;
   z-index: 1;
 }
@@ -1606,7 +1607,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 10px 25px rgba(79, 70, 229, 0.06);
   transition: var(--transition-smooth);
 }
 
@@ -1619,7 +1620,7 @@ p {
 .spoke-node i {
   width: 28px;
   height: 28px;
-  color: #4A5568;
+  color: var(--accent-purple);
 }
 
 .spoke-node-wrapper span {
@@ -1631,68 +1632,70 @@ p {
 /* Positioning spokes in a circle (6 nodes = 60 degrees apart) */
 /* Top: 270deg */
 .node-top {
-  transform: translate(-50%, -200px);
+  transform: translate(-50%, -236px);
   top: 50%;
   left: 50%;
 }
 
 .line-top {
-  transform: rotate(-90deg) translateX(60px);
+  transform: rotate(-90deg) translateX(65px);
 }
+
+
 
 /* Top Right: 330deg */
 .node-top-right {
-  transform: translate(120px, -130px);
+  transform: translate(calc(-50% + 173px), -136px);
   top: 50%;
   left: 50%;
 }
 
 .line-top-right {
-  transform: rotate(-30deg) translateX(60px);
+  transform: rotate(-30deg) translateX(65px);
 }
 
 /* Bottom Right: 30deg */
 .node-bottom-right {
-  transform: translate(120px, 40px);
+  transform: translate(calc(-50% + 173px), 64px);
   top: 50%;
   left: 50%;
 }
 
 .line-bottom-right {
-  transform: rotate(30deg) translateX(60px);
+  transform: rotate(30deg) translateX(65px);
 }
 
 /* Bottom: 90deg */
 .node-bottom {
-  transform: translate(-50%, 110px);
+  transform: translate(-50%, 164px);
   top: 50%;
   left: 50%;
 }
 
 .line-bottom {
-  transform: rotate(90deg) translateX(60px);
+  transform: rotate(90deg) translateX(65px);
 }
 
 /* Bottom Left: 150deg */
 .node-bottom-left {
-  transform: translate(-220px, 40px);
+  transform: translate(calc(-50% - 173px), 64px);
   top: 50%;
   left: 50%;
 }
 
 .line-bottom-left {
-  transform: rotate(150deg) translateX(60px);
+  transform: rotate(150deg) translateX(65px);
 }
 
 /* Top Left: 210deg */
 .node-top-left {
-  transform: translate(-220px, -130px);
+  transform: translate(calc(-50% - 173px), -136px);
   top: 50%;
   left: 50%;
 }
 
 .line-top-left {
-  transform: rotate(210deg) translateX(60px);
+  transform: rotate(210deg) translateX(65px);
 }
 
 /* Industry Visuals Style */
@@ -1703,6 +1706,31 @@ p {
   overflow: hidden;
   background: var(--white);
   border: 1px solid var(--border-color);
+}
+
+/* Feature Box Design (Neumorph) */
+.feature-box {
+  background: var(--bg-color);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.feature-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 12px 12px 20px rgba(163, 177, 198, 0.7), -12px -12px 20px rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.feature-box h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
 }
 
 .industry-visual-card img {
@@ -3817,11 +3845,11 @@ footer {
 
 .logo-ticker {
   display: inline-block;
-  animation: ticker 40s linear infinite;
+  animation: ticker-ltr 40s linear infinite;
 }
 
 /* Left to Right Animation */
-@keyframes ticker {
+@keyframes ticker-ltr {
   0% {
     transform: translateX(-50%);
   }
@@ -3918,4 +3946,23 @@ footer {
 .logo.img-logo img {
   max-height: 40px;
   width: auto;
+}
+
+/* Grid 4 Column Utility */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
 }

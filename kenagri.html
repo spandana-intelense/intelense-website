@@ -63,8 +63,136 @@
             color: var(--accent-primary);
         }
 
+        .process-card {
+            transition: all 0.3s ease;
+        }
+
+        .process-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.1) !important;
+            border-color: var(--accent-primary) !important;
+        }
+
         .use-case-content a {
             color: var(--accent-primary);
+        }
+
+        .process-arrow {
+            width: 60px;
+            height: 60px;
+            background: #7C3AED;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+            transition: transform 0.3s ease;
+            margin: 0 1rem;
+            flex-shrink: 0;
+        }
+
+        .process-arrow:hover {
+            transform: scale(1.1);
+        }
+
+        .process-arrow i {
+            width: 24px;
+            height: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .process-arrow {
+                transform: rotate(90deg);
+                margin: 0.5rem 0;
+                position: relative;
+                right: auto;
+                top: auto;
+                align-self: center;
+                z-index: 2;
+            }
+
+            .process-card-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .process-card {
+                margin-bottom: 0;
+                width: 100%;
+            }
+        }
+
+        /* Neumorphic Green Styles */
+        .process-card-row {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            gap: 1rem;
+            /* Closer gap */
+            position: relative;
+            padding: 2rem 1rem;
+        }
+
+        .process-card {
+            flex: 1;
+            background: #ffffff;
+            /* White background */
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            /* Neumorphic shadow for white surface */
+            box-shadow: 10px 10px 20px #e1e5ee,
+                -10px -10px 20px #ffffff;
+            border: 1px solid rgba(255, 255, 255, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            min-height: 220px;
+        }
+
+        .process-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 12px 12px 24px #cbd5e1,
+                -12px -12px 24px #ffffff;
+        }
+
+        /* Arrow styling - Floating between cards */
+        .process-arrow {
+            width: 48px;
+            height: 48px;
+            background: #10B981;
+            /* Green */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 4px 4px 10px rgba(16, 185, 129, 0.3),
+                -4px -4px 10px rgba(255, 255, 255, 0.8);
+            /* Neumorphic-ish */
+            transition: transform 0.3s ease;
+
+            /* Positioning "between" */
+            margin: 0 -24px;
+            /* Pull closer to overlap gap */
+            z-index: 10;
+            position: relative;
+            align-self: center;
+            border: 4px solid var(--bg-color);
+            /* Cutout effect matching bg */
+        }
+
+        .process-arrow:hover {
+            transform: scale(1.1);
+            background: #059669;
+        }
+
+        .process-arrow i {
+            width: 20px;
+            height: 20px;
         }
     </style>
 </head>
@@ -224,14 +352,15 @@
                         <span class="tag" style="background: rgba(16, 185, 129, 0.1); color: #10B981;">Precision
                             Agriculture</span>
                         <h1 style="margin-bottom: 2rem; font-size: 4rem;">
-                            Cultivating the <span class="text-gradient">future.</span> <br>
-                            Measured in data.
+                            Intelligence for <span class="text-gradient">farms.</span> <br>
+                            Precision at scale.
                         </h1>
                         <p
                             style="max-width: 500px; margin-bottom: 3rem; font-size: 1.1rem; line-height: 1.6; color: #4B5563;">
-                            KenAgri optimizes crop yields and farm operations by helping farmers monitor and manage
-                            fields
-                            sustainably using data-driven insights.
+                            KenAgri is an AI-powered agriculture intelligence platform that helps farmers,
+                            agribusinesses,
+                            and institutions optimize yield, reduce input costs, and manage farms sustainably using
+                            data-driven insights.
                         </p>
                         <div style="display: flex; gap: 1rem;">
                             <a href="#use-cases" class="btn-purple" style="padding: 1rem 2rem; font-size: 1rem;">Explore
@@ -248,281 +377,300 @@
         </section>
 
         <!-- What KenAgri Does -->
-        <section style="padding: 5rem 0; background: var(--white); border-top: 1px solid var(--border-color);">
+        <section style="padding: 5rem 0 3rem; background: var(--white); border-top: 1px solid var(--border-color);">
             <div class="container">
-                <div class="bento-grid">
-                    <!-- What KenAgri Does Header -->
-                    <section style="padding: 0 0 4rem; background: var(--white);">
-                        <div class="container">
-                            <div class="grid-2" style="gap: 4rem; align-items: center;">
-                                <div class="reveal" style="max-width: 600px;">
-                                    <span class="section-label">What KenAgri Does</span>
-                                    <h2 style="font-size: 3rem; line-height: 1.2; margin-bottom: 1.5rem;">Data-Driven
-                                        Farming, Made Practical</h2>
-                                    <p style="font-size: 1.2rem; color: var(--text-secondary);">
-                                        KenAgri combines AI, sensors, satellite data, and computer vision to deliver
-                                        real-time insights that improve crop health, resource efficiency, and farm
-                                        productivity.
-                                    </p>
-                                </div>
-                                <div class="reveal" style="display: flex; justify-content: flex-end;">
-                                    <img src="assets/images/ken_suite_agri.jpg" alt="What KenAgri Does"
-                                        style="width: 100%; max-width: 600px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
-                                </div>
-                            </div>
+                <!-- Header -->
+                <div class="reveal" style="max-width: 800px; margin-bottom: 4rem;">
+                    <span class="section-label">What KenAgri Does</span>
+                    <h2 style="font-size: 3rem; line-height: 1.2; margin-bottom: 1.5rem;">Data-Driven
+                        Farming, Made Practical</h2>
+                    <p style="font-size: 1.2rem; color: var(--text-secondary);">
+                        KenAgri combines AI, sensors, satellite data, and computer vision to deliver
+                        real-time insights that improve crop health, resource efficiency, and farm
+                        productivity.
+                    </p>
+                </div>
+
+                <!-- Feature Cards -->
+                <div class="feature-cards-row reveal">
+                    <!-- Card 1 -->
+                    <div class="feature-card">
+                        <div class="feature-card-image">
+                            <img src="https://images.unsplash.com/photo-1625246333195-5840356cda26?auto=format&fit=crop&q=80&w=800"
+                                alt="Connects Farms">
                         </div>
-                    </section>
+                        <h4>Connects Farms</h4>
+                        <p>Integrate data from sensors, machinery, and satellites into one platform.</p>
+                    </div>
 
-                    <!-- Core Capabilities -->
-                    <section style="padding: 3rem 0 5rem; background: var(--bg-color);">
-                        <div class="container">
-                            <div class="reveal">
-                                <span class="section-label">Core Capabilities</span>
-                                <h2>Comprehensive features designed for scale.</h2>
-                            </div>
-
-                            <div class="capabilities-grid reveal">
-                                <div class="capability-card">
-                                    <div class="capability-image">
-                                        <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=800"
-                                            alt="Crop Health Monitoring">
-                                    </div>
-                                    <h3>Crop Health Monitoring</h3>
-                                    <p>Detect stress, disease, and nutrient deficiencies early using AI-driven visual
-                                        and sensor-based analysis.</p>
-                                    <div class="capability-badge">MONITORING</div>
-                                </div>
-                                <div class="capability-card">
-                                    <div class="capability-image">
-                                        <img src="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&q=80&w=800"
-                                            alt="Precision Input">
-                                    </div>
-                                    <h3>Precision Input</h3>
-                                    <p>Optimize water, fertilizer, and pesticide application to reduce waste and improve
-                                        yields.</p>
-                                    <div class="capability-badge">EFFICIENCY</div>
-                                </div>
-                                <div class="capability-card">
-                                    <div class="capability-image">
-                                        <img src="assets/images/kenagri/kenagri_yield_prediction.jpg"
-                                            alt="Yield Prediction">
-                                    </div>
-                                    <h3>Yield Prediction</h3>
-                                    <p>Leverage AI models to forecast yields and plan harvests with greater accuracy.
-                                    </p>
-                                    <div class="capability-badge">FORECASTING</div>
-                                </div>
-                                <div class="capability-card">
-                                    <div class="capability-image">
-                                        <img src="assets/images/kenagri/kenagri_farm_operations.jpg"
-                                            alt="Farm Operations">
-                                    </div>
-                                    <h3>Farm Operations</h3>
-                                    <p>Track field activities, equipment usage, and farm performance across seasons.</p>
-                                    <div class="capability-badge">INTELLIGENCE</div>
-                                </div>
-                            </div>
+                    <!-- Card 2 -->
+                    <div class="feature-card">
+                        <div class="feature-card-image">
+                            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb7d5c7a?auto=format&fit=crop&q=80&w=800"
+                                alt="Analyzes Data">
                         </div>
-                    </section>
+                        <h4>Analyzes Data</h4>
+                        <p>Advanced AI models detect patterns and crop stress before they become issues.</p>
+                    </div>
 
-                    <!-- Benefits (Why KenAgri) -->
-                    <section style="padding: 8rem 0; background: var(--bg-color);">
-                        <div class="container">
-                            <!-- Header -->
-                            <div class="reveal" style="max-width: 800px; margin-bottom: 3rem;">
-                                <span class="section-label">Why KenAgri</span>
-                                <h2 style="margin-bottom: 2rem;">Higher Yields, Lower Costs</h2>
-                                <p style="font-size: 1.15rem; color: var(--text-secondary);">Improve productivity while
-                                    reducing input costs through precision farming insights.</p>
-                            </div>
-
-                            <!-- Why KenAgri Grid (Single Row, No Tilt) -->
-                            <div class="grid-4 reveal"
-                                style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;">
-                                <!-- Card 1: Higher Yields -->
-                                <div class="benefit-card reveal"
-                                    style="background: var(--white); border-radius: 24px; padding: 2rem; border: 1px solid var(--border-color); transition: transform 0.3s ease;">
-                                    <div class="benefit-image-box"
-                                        style="height: 160px; border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem;">
-                                        <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&q=80&w=800"
-                                            alt="Higher Yields" style="width: 100%; height: 100%; object-fit: cover;">
-                                    </div>
-                                    <h4 style="margin-bottom: 0.5rem; font-size: 1.1rem; font-weight: 700;">Higher
-                                        Yields, Lower Costs</h4>
-                                    <p style="font-size: 0.9rem; line-height: 1.5;">Improve productivity while reducing
-                                        input costs through precision farming insights.</p>
-                                </div>
-
-                                <!-- Card 2: Diverse Conditions -->
-                                <div class="benefit-card reveal"
-                                    style="background: var(--white); border-radius: 24px; padding: 2rem; border: 1px solid var(--border-color); transition: transform 0.3s ease; transition-delay: 0.1s;">
-                                    <div class="benefit-image-box"
-                                        style="height: 160px; border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem;">
-                                        <img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?auto=format&fit=crop&q=80&w=800"
-                                            alt="Diverse Conditions"
-                                            style="width: 100%; height: 100%; object-fit: cover;">
-                                    </div>
-                                    <h4 style="margin-bottom: 0.5rem; font-size: 1.1rem; font-weight: 700;">Built for
-                                        Diverse Farming Conditions</h4>
-                                    <p style="font-size: 0.9rem; line-height: 1.5;">Designed to work across crop types,
-                                        farm sizes, and geographies.</p>
-                                </div>
-
-                                <!-- Card 3: Scales -->
-                                <div class="benefit-card reveal"
-                                    style="background: var(--white); border-radius: 24px; padding: 2rem; border: 1px solid var(--border-color); transition: transform 0.3s ease; transition-delay: 0.2s;">
-                                    <div class="benefit-image-box"
-                                        style="height: 160px; border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem;">
-                                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800"
-                                            alt="Scales" style="width: 100%; height: 100%; object-fit: cover;">
-                                    </div>
-                                    <h4 style="margin-bottom: 0.5rem; font-size: 1.1rem; font-weight: 700;">Scales from
-                                        Smallholders to Enterprises</h4>
-                                    <p style="font-size: 0.9rem; line-height: 1.5;">Supports individual farmers,
-                                        cooperatives, agribusinesses, and large-scale operations.</p>
-                                </div>
-
-                                <!-- Card 4: Sustainability -->
-                                <div class="benefit-card reveal"
-                                    style="background: var(--white); border-radius: 24px; padding: 2rem; border: 1px solid var(--border-color); transition: transform 0.3s ease; transition-delay: 0.3s;">
-                                    <div class="benefit-image-box"
-                                        style="height: 160px; border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem;">
-                                        <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&q=80&w=800"
-                                            alt="Sustainability" style="width: 100%; height: 100%; object-fit: cover;">
-                                    </div>
-                                    <h4 style="margin-bottom: 0.5rem; font-size: 1.1rem; font-weight: 700;">
-                                        Sustainability by Design</h4>
-                                    <p style="font-size: 0.9rem; line-height: 1.5;">Reduce environmental impact through
-                                        optimized resource use and regenerative practices.</p>
-                                </div>
-                            </div>
+                    <!-- Card 3 -->
+                    <div class="feature-card">
+                        <div class="feature-card-image">
+                            <img src="https://images.unsplash.com/photo-1530836369250-ef72085e4800?auto=format&fit=crop&q=80&w=800"
+                                alt="Optimizes Yield">
                         </div>
-                    </section>
+                        <h4>Optimizes Yield</h4>
+                        <p>Get actionable recommendations to maximize harvest quality and quantity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                    <!-- Use Cases (Zig-Zag) -->
-                    <section id="use-cases" style="padding: 5rem 0; background: var(--white);">
-                        <div class="container">
-                            <div class="reveal" style="margin-bottom: 5rem;">
-                                <span class="section-label">Use Cases</span>
-                                <h2>Intelligence in the Field</h2>
+        <!-- Core Capabilities -->
+        <section style="padding: 3rem 0 5rem; background: var(--bg-color);">
+            <div class="container">
+                <div class="reveal" style="margin-bottom: 3rem;">
+                    <span class="section-label">Core Capabilities</span>
+                    <h2>Comprehensive features designed for scale.</h2>
+                </div>
 
-                                <p style="max-width: 600px; margin: 1rem 0 0; color: var(--text-secondary);">
-                                    Empowering farmers with actionable insights for smarter agriculture.
-                                </p>
-                            </div>
-
-                            <div class="use-case-list reveal">
-                                <!-- Item 1: Precision Farming -->
-                                <div class="use-case-item" id="precision">
-                                    <div class="use-case-image-wrapper">
-                                        <img src="assets/images/kenagri_use_case_precision.png" alt="Precision Farming"
-                                            class="use-case-image">
-                                    </div>
-                                    <div class="use-case-content">
-                                        <h3>Precision Farming</h3>
-                                        <p>Make data-driven decisions at every stage of the crop lifecycle.</p>
-                                        <a href="https://calendly.com/enquiries-intelense/30min">Contact<i
-                                                data-lucide="arrow-right" style="width: 18px;"></i></a>
-                                    </div>
-                                </div>
-
-                                <!-- Item 2: Large-Scale Farm Management -->
-                                <div class="use-case-item" id="large-scale">
-                                    <div class="use-case-image-wrapper">
-                                        <img src="assets/images/kenagri_use_case_large_scale.png"
-                                            alt="Large-Scale Farm Management" class="use-case-image">
-                                    </div>
-                                    <div class="use-case-content">
-                                        <h3>Large-Scale Farm Management</h3>
-                                        <p>Monitor thousands of hectares with centralized intelligence.</p>
-                                        <a href="https://calendly.com/enquiries-intelense/30min">Contact<i
-                                                data-lucide="arrow-right" style="width: 18px;"></i></a>
-                                    </div>
-                                </div>
-
-                                <!-- Item 3: Agri-Input Optimization -->
-                                <div class="use-case-item" id="agri-input">
-                                    <div class="use-case-image-wrapper">
-                                        <img src="assets/images/kenagri_use_case_input.png"
-                                            alt="Agri-Input Optimization" class="use-case-image">
-                                    </div>
-                                    <div class="use-case-content">
-                                        <h3>Agri-Input Optimization</h3>
-                                        <p>Apply inputs only where and when needed to maximize ROI.</p>
-                                        <a href="https://calendly.com/enquiries-intelense/30min">Contact<i
-                                                data-lucide="arrow-right" style="width: 18px;"></i></a>
-                                    </div>
-                                </div>
-
-                                <!-- Item 4: Climate-Resilient Farming -->
-                                <div class="use-case-item" id="climate">
-                                    <div class="use-case-image-wrapper">
-                                        <img src="assets/images/kenagri_use_case_climate.png"
-                                            alt="Climate-Resilient Farming" class="use-case-image">
-                                    </div>
-                                    <div class="use-case-content">
-                                        <h3>Climate-Resilient Farming</h3>
-                                        <p>Adapt farming practices using predictive insights and early warnings.</p>
-                                        <a href="https://calendly.com/enquiries-intelense/30min">Contact<i
-                                                data-lucide="arrow-right" style="width: 18px;"></i></a>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="capabilities-grid reveal">
+                    <div class="capability-card">
+                        <div class="capability-image">
+                            <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=800"
+                                alt="Crop Health Monitoring">
                         </div>
-                    </section>
 
-                    <!-- How It Works (New Section) -->
-                    <section style="padding: 8rem 0; background: var(--bg-color);">
-                        <div class="container">
-                            <div class="reveal" style="margin-bottom: 4rem;">
-                                <span class="section-label">Process</span>
-                                <h2>How It Works</h2>
-                            </div>
-
-                            <div class="capabilities-grid reveal">
-                                <div class="capability-card">
-                                    <span class="capability-step">Step 01</span>
-                                    <div class="capability-visual" style="overflow: hidden; padding: 0;">
-                                        <img src="https://images.unsplash.com/photo-1574689233287-0d3029496aa0?auto=format&fit=crop&q=80&w=800"
-                                            alt="Collect Farm Data"
-                                            style="width: 100%; height: 100%; object-fit: cover;">
-                                    </div>
-                                    <h3>Collect Farm Data</h3>
-                                    <p>Integrate sensors, satellite imagery, drones, and field inputs.</p>
-                                </div>
-                                <div class="capability-card">
-                                    <span class="capability-step">Step 02</span>
-                                    <div class="capability-visual" style="overflow: hidden; padding: 0;">
-                                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800"
-                                            alt="Analyze with AI Models"
-                                            style="width: 100%; height: 100%; object-fit: cover;">
-                                    </div>
-                                    <h3>Analyze with AI Models</h3>
-                                    <p>Process data using crop-specific and region-aware AI models.</p>
-                                </div>
-                                <div class="capability-card">
-                                    <span class="capability-step">Step 03</span>
-                                    <div class="capability-visual" style="overflow: hidden; padding: 0;">
-                                        <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?auto=format&fit=crop&q=80&w=800"
-                                            alt="Deliver Actionable Insights"
-                                            style="width: 100%; height: 100%; object-fit: cover;">
-                                    </div>
-                                    <h3>Deliver Actionable Insights</h3>
-                                    <p>Provide clear recommendations for irrigation, nutrition, and protection.</p>
-                                </div>
-                                <div class="capability-card">
-                                    <span class="capability-step">Step 04</span>
-                                    <div class="capability-visual" style="overflow: hidden; padding: 0;">
-                                        <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=800"
-                                            alt="Improve Every Season"
-                                            style="width: 100%; height: 100%; object-fit: cover;">
-                                    </div>
-                                    <h3>Improve Every Season</h3>
-                                    <p>Continuously refine insights with historical and real-time data.</p>
-                                </div>
-                            </div>
+                        <h3>Crop Health Monitoring</h3>
+                        <p>Detect stress, disease, and nutrient deficiencies early using AI-driven visual
+                            and sensor-based analysis.</p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="capability-image">
+                            <img src="https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?auto=format&fit=crop&q=80&w=800"
+                                alt="Precision Input">
                         </div>
-                    </section>
+
+                        <h3>Precision Input</h3>
+                        <p>Optimize water, fertilizer, and pesticide application to reduce waste and improve
+                            yields.</p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="capability-image">
+                            <img src="assets/images/kenagri/kenagri_yield_prediction.jpg" alt="Yield Prediction">
+                        </div>
+
+                        <h3>Yield Prediction</h3>
+                        <p>Leverage AI models to forecast yields and plan harvests with greater accuracy.
+                        </p>
+                    </div>
+                    <div class="capability-card">
+                        <div class="capability-image">
+                            <img src="assets/images/kenagri/kenagri_farm_operations.jpg" alt="Farm Operations">
+                        </div>
+
+                        <h3>Farm Operations</h3>
+                        <p>Track field activities, equipment usage, and farm performance across seasons.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits (Why KenAgri) -->
+        <section style="padding: 8rem 0; background: var(--bg-color);">
+            <div class="container">
+                <!-- Header -->
+                <div class="reveal" style="max-width: 800px; margin-bottom: 3rem;">
+                    <span class="section-label">Why KenAgri</span>
+                    <h2 style="margin-bottom: 2rem;">Higher Yields, Lower Costs</h2>
+                    <p style="font-size: 1.15rem; color: var(--text-secondary);">Improve productivity while
+                        reducing input costs through precision farming insights.</p>
+                </div>
+
+                <!-- Why KenAgri Grid (Single Row, No Tilt) -->
+                <div class="grid-4 reveal" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;">
+                    <!-- Card 1: Higher Yields -->
+                    <div class="benefit-card reveal"
+                        style="background: var(--white); border-radius: 24px; padding: 2rem; border: 1px solid var(--border-color); transition: transform 0.3s ease;">
+                        <div class="benefit-image-box"
+                            style="height: 160px; border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem;">
+                            <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&q=80&w=800"
+                                alt="Higher Yields" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h4 style="margin-bottom: 0.5rem; font-size: 1.1rem; font-weight: 700;">Higher
+                            Yields, Lower Costs</h4>
+                        <p style="font-size: 0.9rem; line-height: 1.5;">Improve productivity while reducing
+                            input costs through precision farming insights.</p>
+                    </div>
+
+                    <!-- Card 2: Diverse Conditions -->
+                    <div class="benefit-card reveal"
+                        style="background: var(--white); border-radius: 24px; padding: 2rem; border: 1px solid var(--border-color); transition: transform 0.3s ease; transition-delay: 0.1s;">
+                        <div class="benefit-image-box"
+                            style="height: 160px; border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem;">
+                            <img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?auto=format&fit=crop&q=80&w=800"
+                                alt="Diverse Conditions" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h4 style="margin-bottom: 0.5rem; font-size: 1.1rem; font-weight: 700;">Built for
+                            Diverse Farming Conditions</h4>
+                        <p style="font-size: 0.9rem; line-height: 1.5;">Designed to work across crop types,
+                            farm sizes, and geographies.</p>
+                    </div>
+
+                    <!-- Card 3: Scales -->
+                    <div class="benefit-card reveal"
+                        style="background: var(--white); border-radius: 24px; padding: 2rem; border: 1px solid var(--border-color); transition: transform 0.3s ease; transition-delay: 0.2s;">
+                        <div class="benefit-image-box"
+                            style="height: 160px; border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem;">
+                            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800"
+                                alt="Scales" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h4 style="margin-bottom: 0.5rem; font-size: 1.1rem; font-weight: 700;">Scales from
+                            Smallholders to Enterprises</h4>
+                        <p style="font-size: 0.9rem; line-height: 1.5;">Supports individual farmers,
+                            cooperatives, agribusinesses, and large-scale operations.</p>
+                    </div>
+
+                    <!-- Card 4: Sustainability -->
+                    <div class="benefit-card reveal"
+                        style="background: var(--white); border-radius: 24px; padding: 2rem; border: 1px solid var(--border-color); transition: transform 0.3s ease; transition-delay: 0.3s;">
+                        <div class="benefit-image-box"
+                            style="height: 160px; border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem;">
+                            <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&q=80&w=800"
+                                alt="Sustainability" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <h4 style="margin-bottom: 0.5rem; font-size: 1.1rem; font-weight: 700;">
+                            Sustainability by Design</h4>
+                        <p style="font-size: 0.9rem; line-height: 1.5;">Reduce environmental impact through
+                            optimized resource use and regenerative practices.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Use Cases (Zig-Zag) -->
+        <section id="use-cases" style="padding: 5rem 0; background: var(--white);">
+            <div class="container">
+                <div class="reveal" style="margin-bottom: 5rem;">
+                    <span class="section-label">Use Cases</span>
+                    <h2>Intelligence in the Field</h2>
+
+                    <p style="max-width: 600px; margin: 1rem 0 0; color: var(--text-secondary);">
+                        Empowering farmers with actionable insights for smarter agriculture.
+                    </p>
+                </div>
+
+                <div class="use-case-list reveal">
+                    <!-- Item 1: Precision Farming -->
+                    <div class="use-case-item" id="precision">
+                        <div class="use-case-image-wrapper">
+                            <img src="assets/images/kenagri_use_case_precision.png" alt="Precision Farming"
+                                class="use-case-image">
+                        </div>
+                        <div class="use-case-content">
+                            <h3>Precision Farming</h3>
+                            <p>Make data-driven decisions at every stage of the crop lifecycle.</p>
+                            <a href="https://calendly.com/enquiries-intelense/30min">Contact<i data-lucide="arrow-right"
+                                    style="width: 18px;"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Large-Scale Farm Management -->
+                    <div class="use-case-item" id="large-scale">
+                        <div class="use-case-image-wrapper">
+                            <img src="assets/images/kenagri_use_case_large_scale.png" alt="Large-Scale Farm Management"
+                                class="use-case-image">
+                        </div>
+                        <div class="use-case-content">
+                            <h3>Large-Scale Farm Management</h3>
+                            <p>Monitor thousands of hectares with centralized intelligence.</p>
+                            <a href="https://calendly.com/enquiries-intelense/30min">Contact<i data-lucide="arrow-right"
+                                    style="width: 18px;"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: Agri-Input Optimization -->
+                    <div class="use-case-item" id="agri-input">
+                        <div class="use-case-image-wrapper">
+                            <img src="assets/images/kenagri_use_case_input.png" alt="Agri-Input Optimization"
+                                class="use-case-image">
+                        </div>
+                        <div class="use-case-content">
+                            <h3>Agri-Input Optimization</h3>
+                            <p>Apply inputs only where and when needed to maximize ROI.</p>
+                            <a href="https://calendly.com/enquiries-intelense/30min">Contact<i data-lucide="arrow-right"
+                                    style="width: 18px;"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Item 4: Climate-Resilient Farming -->
+                    <div class="use-case-item" id="climate">
+                        <div class="use-case-image-wrapper">
+                            <img src="assets/images/kenagri_use_case_climate.png" alt="Climate-Resilient Farming"
+                                class="use-case-image">
+                        </div>
+                        <div class="use-case-content">
+                            <h3>Climate-Resilient Farming</h3>
+                            <p>Adapt farming practices using predictive insights and early warnings.</p>
+                            <a href="https://calendly.com/enquiries-intelense/30min">Contact<i data-lucide="arrow-right"
+                                    style="width: 18px;"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works (New Section) -->
+        <section style="padding: 8rem 0; background: var(--bg-color);">
+            <div class="container">
+                <div class="reveal" style="margin-bottom: 4rem;">
+                    <span class="section-label">Process</span>
+                    <h2>How It Works</h2>
+                </div>
+
+                <div class="reveal process-card-row">
+                    <!-- Step 1 -->
+                    <div class="process-card">
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #064E3B;">Collect Farm Data</h3>
+                        <p style="font-size: 0.95rem; color: #065F46; line-height: 1.6; margin: 0;">Integrate sensors,
+                            satellite imagery, drones, and field inputs.</p>
+                    </div>
+
+                    <div class="process-arrow">
+                        <i data-lucide="arrow-right"></i>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="process-card">
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #064E3B;">Analyze with AI Models
+                        </h3>
+                        <p style="font-size: 0.95rem; color: #065F46; line-height: 1.6; margin: 0;">Process data using
+                            crop-specific and region-aware AI models.</p>
+                    </div>
+
+                    <div class="process-arrow">
+                        <i data-lucide="arrow-right"></i>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="process-card">
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #064E3B;">Deliver Actionable
+                            Insights</h3>
+                        <p style="font-size: 0.95rem; color: #065F46; line-height: 1.6; margin: 0;">Provide clear
+                            recommendations for irrigation, nutrition, and protection.</p>
+                    </div>
+
+                    <div class="process-arrow">
+                        <i data-lucide="arrow-right"></i>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="process-card">
+                        <h3 style="font-size: 1.25rem; margin-bottom: 0.75rem; color: #064E3B;">Improve Every
+                            Season</h3>
+                        <p style="font-size: 0.95rem; color: #065F46; line-height: 1.6; margin: 0;">Continuously refine
+                            insights with historical and real-time data.</p>
+                    </div>
                 </div>
             </div>
         </section>
